@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>OfferSentry — Check Job Offers for Scam Warning Signs</title>
+  <meta name="description" content="Check job offers and recruiter messages for common scam warning signs. Free, private, and no signup required.">
+  <style>
+    :root {
+      --navy:#08234d;
+      --blue:#1769d2;
+      --light:#edf7ff;
+      --soft:#f5f9fd;
+      --muted:#49617d;
+      --border:#caddef;
+      --green:#278a5b;
+    }
+
+    * { box-sizing:border-box }
+    html { scroll-behavior:smooth }
+    body {
+      margin:0;
+      color:var(--navy);
+      background:white;
+      font-family:Inter,Arial,sans-serif;
+    }
+
+    a { color:inherit }
+    button,textarea { font:inherit }
+
+    header {
+      min-height:76px;
+      padding:12px clamp(20px,5vw,72px);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:25px;
+      border-bottom:1px solid #e2ebf3;
+      background:#fff;
+    }
+
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:28px;
+      font-weight:800;
+      letter-spacing:-1px;
+      text-decoration:none;
+    }
+
+    .shield {
+      width:38px;
+      height:44px;
+      color:var(--blue);
+    }
+
+    nav {
+      display:flex;
+      gap:35px;
+      font-size:14px;
+      font-weight:600;
+    }
+
+    nav a { text-decoration:none }
+    nav a:hover { color:var(--blue) }
+
+    .hero {
+      position:relative;
+      overflow:hidden;
+      padding:62px 20px 70px;
+      text-align:center;
+      background:
+        radial-gradient(circle at 10% 15%,#dcebfa 0 3px,transparent 4px) 0 0/24px 24px,
+        linear-gradient(#fff 55%,#f0f7fd);
+    }
+
+    .eyebrow,.label {
+      margin:0 0 14px;
+      color:var(--blue);
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+    }
+
+    h1 {
+      max-width:850px;
+      margin:0 auto;
+      font-size:clamp(44px,6vw,76px);
+      line-height:1.06;
+      letter-spacing:-4px;
+    }
+
+    .subhead {
+      max-width:680px;
+      margin:20px auto 28px;
+      color:var(--muted);
+      font-size:clamp(17px,2vw,22px);
+      line-height:1.5;
+    }
+
+    .checker {
+      width:min(800px,100%);
+      margin:auto;
+      text-align:left;
+    }
+
+    .checker label {
+      display:block;
+      margin-bottom:8px;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    textarea {
+      display:block;
+      width:100%;
+      min-height:155px;
+      padding:20px;
+      resize:vertical;
+      color:var(--navy);
+      background:#fff;
+      border:2px solid var(--border);
+      border-radius:14px;
+      outline:none;
+      font-size:17px;
+      line-height:1.5;
+      box-shadow:0 8px 30px #08234d10;
+    }
+
+    textarea:focus {
+      border-color:var(--blue);
+      box-shadow:0 0 0 4px #1769d220;
+    }
+
+    .meta {
+      min-height:28px;
+      padding:7px 2px;
+      display:flex;
+      justify-content:space-between;
+      color:#72849a;
+      font-size:12px;
+    }
+
+    #hint { color:#a85237 }
+
+    .check-button {
+      display:block;
+      width:min(520px,100%);
+      min-height:64px;
+      margin:4px auto;
+      border:0;
+      border-radius:12px;
+      color:white;
+      background:linear-gradient(135deg,#1769d2,#0d55b5);
+      box-shadow:0 10px 25px #1769d23d;
+      font-size:19px;
+      font-weight:800;
+      cursor:pointer;
+    }
+
+    .check-button:disabled {
+      opacity:.45;
+      cursor:not-allowed;
+    }
+
+    .trust {
+      margin:25px auto 0;
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:12px 24px;
+      font-size:14px;
+      font-weight:600;
+    }
+
+    .trust span::before {
+      content:"✓";
+      margin-right:8px;
+      color:var(--blue);
+    }
+
+    .results {
+      width:min(1050px,calc(100% - 40px));
+      margin:35px auto 70px;
+      padding:30px;
+      display:grid;
+      grid-template-columns:260px 1fr;
+      gap:30px;
+      border:1px solid var(--border);
+      border-radius:20px;
+      background:white;
+      box-shadow:0 18px 55px #08234d1a;
+    }
+
+    .results[hidden] { display:none }
+
+    .summary {
+      padding-right:25px;
+      border-right:1px solid #dce8f2;
+    }
+
+    .summary small {
+      color:var(--muted);
+      font-weight:700;
+      text-transform:uppercase;
+    }
+
+    .summary h2 {
+      margin:12px 0 8px;
+      font-size:40px;
+    }
+
+    .summary p,.signal p {
+      color:var(--muted);
+      line-height:1.55;
+    }
+
+    .high .summary h2,.high .signal-mark { color:#b93221 }
+    .medium .summary h2,.medium .signal-mark { color:#a56100 }
+    .low .summary h2 { color:var(--green) }
+
+    .signals {
+      display:grid;
+      gap:18px;
+    }
+
+    .signal {
+      display:flex;
+      gap:13px;
+    }
+
+    .signal-mark {
+      width:28px;
+      height:28px;
+      flex:none;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      background:#fff0eb;
+      font-weight:900;
+    }
+
+    .signal h3 {
+      margin:2px 0 4px;
+      font-size:16px;
+    }
+
+    .signal p {
+      margin:0;
+      font-size:14px;
+    }
+
+    section.content {
+      padding:85px clamp(22px,7vw,105px);
+    }
+
+    .intro {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      align-items:center;
+      gap:55px;
+      background:var(--light);
+    }
+
+    h2.section-title {
+      margin:0;
+      font-size:clamp(34px,4vw,54px);
+      line-height:1.1;
+      letter-spacing:-2px;
+    }
+
+    .info-card {
+      padding:30px;
+      border-radius:20px;
+      background:white;
+      box-shadow:0 15px 40px #08234d15;
+    }
+
+    .info-card h3 { margin-top:0 }
+    .info-card p { color:var(--muted);line-height:1.65 }
+
+    .section-heading {
+      max-width:750px;
+      margin:0 auto 45px;
+      text-align:center;
+    }
+
+    .section-heading p:last-child {
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.6;
+    }
+
+    .grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+
+    .card {
+      padding:28px;
+      border:1px solid #d9e6f1;
+      border-radius:18px;
+      background:white;
+    }
+
+    .card-number {
+      width:40px;
+      height:40px;
+      margin-bottom:20px;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      color:white;
+      background:var(--blue);
+      font-weight:800;
+    }
+
+    .card h3 { margin:0 0 10px }
+    .card p { margin:0;color:var(--muted);line-height:1.65 }
+
+    .guides { background:var(--soft) }
+
+    .tag {
+      display:inline-block;
+      margin-bottom:18px;
+      padding:7px 10px;
+      border-radius:7px;
+      color:var(--blue);
+      background:#e6f1fb;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:1px;
+      text-transform:uppercase;
+    }
+
+    .report {
+      margin:70px clamp(20px,7vw,105px);
+      padding:50px;
+      display:grid;
+      grid-template-columns:1.4fr 1fr;
+      align-items:center;
+      gap:45px;
+      color:white;
+      background:var(--navy);
+      border-radius:25px;
+    }
+
+    .report .label { color:#82bfff }
+    .report p { color:#c7d5e7;line-height:1.65 }
+
+    .actions {
+      display:grid;
+      gap:12px;
+    }
+
+    .actions a {
+      padding:18px;
+      border-radius:11px;
+      text-align:center;
+      text-decoration:none;
+      font-weight:800;
+    }
+
+    .primary { color:var(--navy);background:white }
+    .secondary { color:white;border:1px solid #687a94 }
+
+    footer {
+      padding:42px clamp(22px,7vw,105px);
+      border-top:1px solid #e0e9f1;
+    }
+
+    footer p {
+      max-width:800px;
+      color:#718299;
+      font-size:12px;
+      line-height:1.6;
+    }
+
+    @media(max-width:760px) {
+      header { align-items:flex-start }
+      nav { gap:14px;font-size:12px }
+      nav a:nth-child(-n+2) { display:none }
+      h1 { letter-spacing:-2px }
+      .results,.intro,.report { grid-template-columns:1fr }
+      .summary { padding:0 0 20px;border:0;border-bottom:1px solid #dce8f2 }
+      .grid { grid-template-columns:1fr }
+      section.content { padding:60px 20px }
+      .report { margin:50px 18px;padding:35px 25px }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <a class="brand" href="#top">
+    <svg class="shield" viewBox="0 0 48 56" aria-hidden="true">
+      <path d="M24 3.5 42 10v14c0 11.8-7.3 21.8-18 27C13.3 45.8 6 35.8 6 24V10l18-6.5Z" fill="none" stroke="currentColor" stroke-width="3"/>
+      <path d="m15.5 27 5.7 5.7L33 20.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"/>
+    </svg>
+    OfferSentry
+  </a>
+
+  <nav>
+    <a href="#how">How It Works</a>
+    <a href="#guides">Scam Guides</a>
+    <a href="#report">Report a Scam</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <p class="eyebrow">A free first check for job seekers</p>
+    <h1>Check a job offer<br>before it costs you</h1>
+    <p class="subhead">Paste a job post or recruiter message to spot common scam signals before you respond.</p>
+
+    <form class="checker" id="checker">
+      <label for="message">Job post or recruiter message</label>
+      <textarea id="message" minlength="20" required placeholder="Paste the job post or recruiter message here…"></textarea>
+
+      <div class="meta">
+        <span id="count">0 characters</span>
+        <span id="hint" hidden>Add a little more text to run the check.</span>
+      </div>
+
+      <button class="check-button" id="checkButton" disabled>Check for warning signs</button>
+    </form>
+
+    <div class="trust">
+      <span>Private by default</span>
+      <span>No signup required</span>
+      <span>Results in seconds</span>
+    </div>
+  </section>
+
+  <section class="results" id="results" hidden aria-live="polite">
+    <div class="summary">
+      <small>Automated screening result</small>
+      <h2 id="risk"></h2>
+      <p id="riskDescription"></p>
+    </div>
+    <div class="signals" id="signals"></div>
+  </section>
+
+  <section class="content intro" id="how">
+    <div>
+      <p class="label">Built for students and job seekers</p>
+      <h2 class="section-title">Know the red flags.<br>Protect your future.</h2>
+    </div>
+
+    <article class="info-card">
+      <h3>Spot common scam signals</h3>
+      <p>OfferSentry checks for payment requests, fake checks, urgency, messaging-app interviews, unrealistic promises, and requests for sensitive information.</p>
+    </article>
+  </section>
+
+  <section class="content">
+    <div class="section-heading">
+      <p class="label">How it works</p>
+      <h2 class="section-title">A safer next step in under a minute</h2>
+      <p>Everything happens inside your browser. The message you check is not uploaded or saved.</p>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <span class="card-number">1</span>
+        <h3>Paste the message</h3>
+        <p>Include the recruiter’s message or the important parts of the job listing.</p>
+      </article>
+
+      <article class="card">
+        <span class="card-number">2</span>
+        <h3>Review the signals</h3>
+        <p>See which suspicious patterns were detected and why they deserve attention.</p>
+      </article>
+
+      <article class="card">
+        <span class="card-number">3</span>
+        <h3>Verify independently</h3>
+        <p>Contact the company using information found on its official website.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="content guides" id="guides">
+    <div class="section-heading">
+      <p class="label">Scam guides</p>
+      <h2 class="section-title">Recognize the playbook</h2>
+      <p>Common tactics used in fraudulent job offers.</p>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <span class="tag">Fake checks</span>
+        <h3>They send money for “equipment”</h3>
+        <p>The check may initially appear in your account, then be reversed after you send real money elsewhere.</p>
+      </article>
+
+      <article class="card">
+        <span class="tag">Impersonation</span>
+        <h3>The company is real, but the recruiter isn’t</h3>
+        <p>Scammers copy real company names, logos, employee identities, and job descriptions.</p>
+      </article>
+
+      <article class="card">
+        <span class="tag">Text interviews</span>
+        <h3>Everything happens through a chat app</h3>
+        <p>A rushed text-only interview can hide the scammer’s identity and prevent proper verification.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="report" id="report">
+    <div>
+      <p class="label">Think you found a scam?</p>
+      <h2 class="section-title">Stop, save the evidence, and report it.</h2>
+      <p>Keep screenshots, email addresses, phone numbers, and payment instructions. Do not send money or sensitive information.</p>
+    </div>
+
+    <div class="actions">
+      <a class="primary" href="https://reportfraud.ftc.gov/" target="_blank" rel="noreferrer">Report to the FTC ↗</a>
+      <a class="secondary" href="#top">Check another message</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <strong>OfferSentry</strong>
+  <p>OfferSentry provides educational information, not legal or financial advice. An automated result is not proof that an offer is legitimate or fraudulent.</p>
+</footer>
+
+<script>
+  const warningSignals = [
+    {
+      label: "Payment or gift-card request",
+      detail: "Legitimate employers do not ask candidates to send money, purchase gift cards, or pay a fee.",
+      weight: 4,
+      pattern: /gift\s*cards?|send (?:us |me )?money|pay (?:a |the )?(?:fee|deposit)|crypto(?:currency)?|bitcoin/i
+    },
+    {
+      label: "Fake-check or equipment scheme",
+      detail: "A common scam sends a fake check and asks you to purchase equipment or return part of the money.",
+      weight: 4,
+      pattern: /(?:mail|email|send|issue) (?:you )?(?:a )?check|mobile deposit|purchase (?:your own |office )?equipment|buy (?:the |your )?equipment/i
+    },
+    {
+      label: "Sensitive information requested too early",
+      detail: "Do not provide bank details, passwords, or your Social Security number before independently verifying the employer.",
+      weight: 4,
+      pattern: /social security|\bssn\b|bank (?:account|details|information)|routing number|password|login credentials/i
+    },
+    {
+      label: "Messaging-app interview",
+      detail: "Text-only interviews on Telegram, Signal, or WhatsApp are frequently used by impersonators.",
+      weight: 3,
+      pattern: /telegram|signal app|whats\s*app|google chat interview|text[- ]only interview/i
+    },
+    {
+      label: "Unrealistic pay or instant hiring",
+      detail: "Extremely high pay, guaranteed income, or hiring without a real interview requires additional verification.",
+      weight: 2,
+      pattern: /\$\s*(?:[2-9]\d{2}|\d{4,})\s*(?:per|a)\s*(?:day|hour)|guaranteed income|no (?:experience|interview) (?:needed|required)|hired immediately|start immediately/i
+    },
+    {
+      label: "Pressure or urgency",
+      detail: "Scammers create urgency so that you act before checking the company and offer.",
+      weight: 1,
+      pattern: /act now|urgent(?:ly)?|limited (?:time|spots?)|respond immediately|today only|do not delay/i
+    },
+    {
+      label: "Personal email address",
+      detail: "A free email address is not proof of fraud, but the recruiter’s identity should be independently verified.",
+      weight: 1,
+      pattern: /[\w.+-]+@(gmail|yahoo|hotmail|outlook|aol)\.com/i
+    }
+  ];
+
+  const form = document.querySelector("#checker");
+  const message = document.querySelector("#message");
+  const checkButton = document.querySelector("#checkButton");
+  const count = document.querySelector("#count");
+  const hint = document.querySelector("#hint");
+  const results = document.querySelector("#results");
+  const risk = document.querySelector("#risk");
+  const riskDescription = document.querySelector("#riskDescription");
+  const signals = document.querySelector("#signals");
+
+  message.addEventListener("input", () => {
+    const length = message.value.length;
+    count.textContent = `${length.toLocaleString()} characters`;
+    checkButton.disabled = message.value.trim().length < 20;
+    hint.hidden = length === 0 || length >= 20;
+    results.hidden = true;
+  });
+
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+
+    const text = message.value.trim();
+    if (text.length < 20) return;
+
+    const matches = warningSignals.filter(signal => signal.pattern.test(text));
+    const score = matches.reduce((total, signal) => total + signal.weight, 0);
+    const level = score >= 7 ? "High" : score >= 3 ? "Medium" : "Low";
+
+    results.className = `results ${level.toLowerCase()}`;
+    risk.textContent = `${level} risk`;
+    riskDescription.textContent = matches.length
+      ? `${matches.length} potential warning ${matches.length === 1 ? "sign was" : "signs were"} found.`
+      : "No common warning signs were detected. You should still independently verify the employer.";
+
+    signals.innerHTML = "";
+
+    const displayedSignals = matches.length ? matches : [{
+      label: "Still verify the employer",
+      detail: "A low-risk result cannot prove that an offer is legitimate. Contact the company through its official website."
+    }];
+
+    displayedSignals.forEach(signal => {
+      const article = document.createElement("article");
+      article.className = "signal";
+
+      const mark = document.createElement("span");
+      mark.className = "signal-mark";
+      mark.textContent = matches.length ? "!" : "✓";
+
+      const content = document.createElement("div");
+      const heading = document.createElement("h3");
+      const paragraph = document.createElement("p");
+
+      heading.textContent = signal.label;
+      paragraph.textContent = signal.detail;
+      content.append(heading, paragraph);
+      article.append(mark, content);
+      signals.append(article);
+    });
+
+    results.hidden = false;
+    results.scrollIntoView({ behavior:"smooth", block:"center" });
+  });
+</script>
+</body>
+</html>
