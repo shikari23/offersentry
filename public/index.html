@@ -180,7 +180,26 @@
       margin-right:8px;
       color:var(--blue);
     }
+    
+    .tool-link {
+  width: fit-content;
+  margin: 22px auto 0;
+  padding: 13px 18px;
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--blue);
+  background: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 800;
+  box-shadow: 0 6px 18px #08234d12;
+}
 
+.tool-link:hover {
+  border-color: var(--blue);
+  background: var(--light);
+}
     .results {
       width:min(1050px,calc(100% - 40px));
       margin:35px auto 70px;
@@ -434,6 +453,9 @@
       <span>No signup required</span>
       <span>Results in seconds</span>
     </div>
+    <a class="tool-link" href="/tools/recruiter-checker.html">
+  Check a recruiter’s email and company domain →
+</a>
   </section>
 
   <section class="results" id="results" hidden aria-live="polite">
