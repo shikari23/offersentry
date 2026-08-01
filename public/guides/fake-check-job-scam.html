@@ -1,0 +1,1231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Fake Check Job Scams: How the Equipment Scam Works | OfferSentry</title>
+
+  <meta
+    name="description"
+    content="Learn how fake check job scams work, why deposited checks can appear to clear, the warning signs to watch for, and what to do if you received or deposited one."
+  >
+
+  <link
+    rel="canonical"
+    href="https://offersentry.com/guides/fake-check-job-scam"
+  >
+
+  <style>
+    :root {
+      --navy: #08234d;
+      --blue: #1769d2;
+      --light: #edf7ff;
+      --soft: #f5f9fd;
+      --muted: #49617d;
+      --border: #caddef;
+      --green: #278a5b;
+      --amber: #a56100;
+      --red: #b93221;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--navy);
+      background: #fff;
+      font-family: Inter, Arial, sans-serif;
+    }
+
+    a {
+      color: var(--blue);
+    }
+
+    header {
+      min-height: 76px;
+      padding: 12px clamp(20px, 5vw, 72px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      border-bottom: 1px solid #e2ebf3;
+      background: #fff;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--navy);
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      text-decoration: none;
+    }
+
+    .shield {
+      width: 38px;
+      height: 44px;
+      color: var(--blue);
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    nav a {
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--blue);
+    }
+
+    .breadcrumb {
+      width: min(1050px, calc(100% - 40px));
+      margin: 24px auto 0;
+      color: #6c7f96;
+      font-size: 13px;
+    }
+
+    .breadcrumb a {
+      text-decoration: none;
+    }
+
+    .hero {
+      padding: 55px 20px 65px;
+      background: linear-gradient(#fff, var(--light));
+    }
+
+    .hero-inner {
+      width: min(900px, 100%);
+      margin: auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 15px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(41px, 6vw, 68px);
+      line-height: 1.08;
+      letter-spacing: -3px;
+    }
+
+    .intro {
+      max-width: 760px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.65;
+    }
+
+    .article-meta {
+      margin-top: 22px;
+      color: #718299;
+      font-size: 13px;
+    }
+
+    .layout {
+      width: min(1100px, calc(100% - 40px));
+      margin: 60px auto 90px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 270px;
+      align-items: start;
+      gap: 55px;
+    }
+
+    article {
+      min-width: 0;
+    }
+
+    article h2 {
+      margin: 58px 0 18px;
+      font-size: clamp(29px, 4vw, 39px);
+      line-height: 1.18;
+      letter-spacing: -1.5px;
+    }
+
+    article h2:first-of-type {
+      margin-top: 0;
+    }
+
+    article h3 {
+      margin: 32px 0 10px;
+      font-size: 21px;
+    }
+
+    article p,
+    article li {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    article li {
+      margin-bottom: 10px;
+    }
+
+    article strong {
+      color: var(--navy);
+    }
+
+    .quick-answer {
+      margin-bottom: 42px;
+      padding: 28px;
+      border-left: 5px solid var(--red);
+      border-radius: 12px;
+      background: #fff3ef;
+    }
+
+    .quick-answer h2 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      letter-spacing: -.5px;
+    }
+
+    .quick-answer p {
+      margin: 0;
+      color: #733226;
+    }
+
+    .warning {
+      margin: 30px 0;
+      padding: 24px;
+      border: 1px solid #f0c4b9;
+      border-radius: 14px;
+      background: #fff8f6;
+    }
+
+    .warning strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--red);
+      font-size: 18px;
+    }
+
+    .warning p {
+      margin: 0;
+    }
+
+    .safe-note {
+      margin: 30px 0;
+      padding: 24px;
+      border: 1px solid #bcdacb;
+      border-radius: 14px;
+      background: #effaf4;
+    }
+
+    .safe-note strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #14603d;
+      font-size: 18px;
+    }
+
+    .safe-note p {
+      margin: 0;
+    }
+
+    .timeline {
+      margin: 28px 0;
+      display: grid;
+      gap: 15px;
+    }
+
+    .timeline-step {
+      padding: 22px;
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 15px;
+      border: 1px solid #d9e6f1;
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--blue);
+      font-weight: 900;
+    }
+
+    .timeline-step h3 {
+      margin: 2px 0 6px;
+      font-size: 18px;
+    }
+
+    .timeline-step p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .red-flags {
+      padding: 28px;
+      border-radius: 16px;
+      background: var(--soft);
+    }
+
+    .red-flags ul {
+      margin-bottom: 0;
+      padding-left: 22px;
+    }
+
+    .example {
+      margin: 28px 0;
+      padding: 26px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #fbfdff;
+    }
+
+    .example-label {
+      margin: 0 0 12px;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .example blockquote {
+      margin: 0;
+      color: #354f6e;
+      font-size: 16px;
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    .action-list {
+      counter-reset: action;
+      padding: 0;
+      list-style: none;
+    }
+
+    .action-list li {
+      position: relative;
+      min-height: 48px;
+      padding-left: 62px;
+      margin-bottom: 22px;
+    }
+
+    .action-list li::before {
+      counter-increment: action;
+      content: counter(action);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--navy);
+      font-weight: 900;
+    }
+
+    .faq {
+      border-top: 1px solid #dce7f0;
+    }
+
+    .faq-item {
+      padding: 25px 0;
+      border-bottom: 1px solid #dce7f0;
+    }
+
+    .faq-item h3 {
+      margin: 0 0 10px;
+    }
+
+    .faq-item p {
+      margin: 0;
+    }
+
+    .sources {
+      margin-top: 55px;
+      padding: 26px;
+      border-radius: 15px;
+      background: var(--soft);
+    }
+
+    .sources h2 {
+      margin: 0 0 15px;
+      font-size: 24px;
+    }
+
+    .sources li {
+      font-size: 15px;
+    }
+
+    aside {
+      position: sticky;
+      top: 25px;
+    }
+
+    .side-card {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 12px 35px #08234d12;
+    }
+
+    .side-card + .side-card {
+      margin-top: 20px;
+    }
+
+    .side-card h2 {
+      margin: 0 0 14px;
+      font-size: 20px;
+    }
+
+    .side-card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .side-card a.button {
+      margin-top: 14px;
+      padding: 14px;
+      display: block;
+      border-radius: 9px;
+      color: #fff;
+      background: var(--blue);
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .side-card a.secondary-button {
+      margin-top: 10px;
+      padding: 13px;
+      display: block;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      color: var(--blue);
+      background: #fff;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .side-card ul {
+      padding-left: 18px;
+    }
+
+    .side-card li {
+      margin-bottom: 9px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .emergency-cta {
+      margin: 65px auto;
+      padding: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      color: #fff;
+      background: var(--navy);
+      border-radius: 20px;
+    }
+
+    .emergency-cta h2 {
+      margin: 0 0 10px;
+      color: #fff;
+      font-size: 29px;
+    }
+
+    .emergency-cta p {
+      margin: 0;
+      color: #c7d5e7;
+      font-size: 15px;
+    }
+
+    .emergency-cta a {
+      padding: 15px 20px;
+      flex: none;
+      border-radius: 10px;
+      color: var(--navy);
+      background: #fff;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    footer {
+      padding: 42px clamp(22px, 7vw, 105px);
+      border-top: 1px solid #e0e9f1;
+    }
+
+    footer p {
+      max-width: 850px;
+      color: #718299;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    footer a {
+      margin-right: 12px;
+    }
+
+    @media (max-width: 850px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      aside {
+        position: static;
+      }
+
+      .emergency-cta {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .emergency-cta a {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 650px) {
+      header {
+        align-items: flex-start;
+      }
+
+      nav {
+        gap: 13px;
+        font-size: 12px;
+      }
+
+      nav a:nth-child(2) {
+        display: none;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .timeline-step {
+        grid-template-columns: 36px 1fr;
+      }
+
+      .step-number {
+        width: 36px;
+        height: 36px;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Fake Check Job Scams: How the Equipment Purchase Scam Works",
+        "description": "Learn how fake check job scams work, the warning signs to watch for, and what to do if you received or deposited a suspicious check.",
+        "datePublished": "2026-08-01",
+        "dateModified": "2026-08-01",
+        "author": {
+          "@type": "Organization",
+          "name": "OfferSentry"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "OfferSentry",
+          "url": "https://offersentry.com"
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://offersentry.com/guides/fake-check-job-scam"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can a fake check appear to clear?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. A bank may make deposited funds available before discovering that the check is fraudulent. The money appearing in your account does not prove the check is valid."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do legitimate employers send checks for equipment?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A legitimate employer might provide equipment or reimburse approved expenses, but you should not deposit a check and then send money to a vendor selected by an unverified recruiter."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What should I do if I deposited a suspicious job check?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Do not spend or transfer the money. Contact your bank's fraud department immediately, explain the situation, and follow its instructions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What if I already sent money?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Contact your bank or payment provider immediately and ask whether the transaction can be stopped or reversed. Save the evidence and report the incident to the FTC."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+<header>
+  <a class="brand" href="/">
+    <svg class="shield" viewBox="0 0 48 56" aria-hidden="true">
+      <path
+        d="M24 3.5 42 10v14c0 11.8-7.3 21.8-18 27C13.3 45.8 6 35.8 6 24V10l18-6.5Z"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="3"
+      />
+      <path
+        d="m15.5 27 5.7 5.7L33 20.5"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="3.5"
+      />
+    </svg>
+
+    OfferSentry
+  </a>
+
+  <nav aria-label="Main navigation">
+    <a href="/">Message Checker</a>
+    <a href="/tools/recruiter-checker.html">Recruiter Checker</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="breadcrumb">
+  <a href="/">Home</a> ›
+  <a href="/#guides">Scam Guides</a> ›
+  Fake Check Job Scams
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Job scam guide</p>
+
+    <h1>Fake Check Job Scams and the “Equipment” Trap</h1>
+
+    <p class="intro">
+      A fake employer sends you a check, tells you to buy equipment, and
+      directs you to send real money somewhere else. When the check is later
+      discovered to be fraudulent, the money you sent is gone.
+    </p>
+
+    <p class="article-meta">
+      Published August 1, 2026 · Approximately 8 minutes
+    </p>
+  </div>
+</section>
+
+<div class="layout">
+  <article>
+    <div class="quick-answer">
+      <h2>The quick answer</h2>
+
+      <p>
+        If an unfamiliar recruiter sends you a check and asks you to purchase
+        equipment, send money to a vendor, buy gift cards, return an
+        overpayment, or transfer part of the funds, stop. This is a major
+        warning sign of a fake check job scam.
+      </p>
+    </div>
+
+    <h2>What is a fake check job scam?</h2>
+
+    <p>
+      A fake check job scam begins with someone pretending to represent a real
+      or invented employer. The scammer may advertise a remote position,
+      conduct a text-based interview, send an official-looking offer letter,
+      and tell you that you have been hired.
+    </p>
+
+    <p>
+      After gaining your trust, the supposed employer sends you a check. They
+      claim that the money is for a computer, printer, software, office
+      furniture, training, or other work-from-home equipment.
+    </p>
+
+    <p>
+      The recruiter then directs you to purchase the equipment from a specific
+      “approved vendor.” That vendor is usually controlled by the same scammer.
+      In other cases, you may be told to send part of the money back, purchase
+      gift cards, use a payment app, buy cryptocurrency, or make a wire
+      transfer.
+    </p>
+
+    <p>
+      The check is fraudulent. The money you send to the scammer, however, is
+      real.
+    </p>
+
+    <div class="warning">
+      <strong>Important warning</strong>
+
+      <p>
+        Money appearing in your bank account does not necessarily mean the
+        check is valid. A bank can make funds available before it discovers
+        that a check is fake.
+      </p>
+    </div>
+
+    <h2>How the equipment purchase scam works</h2>
+
+    <div class="timeline">
+      <div class="timeline-step">
+        <span class="step-number">1</span>
+
+        <div>
+          <h3>The scammer contacts you</h3>
+
+          <p>
+            You receive an unexpected email, text, social media message, or
+            invitation to interview for a remote position.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <span class="step-number">2</span>
+
+        <div>
+          <h3>The interview feels unusually easy</h3>
+
+          <p>
+            The interview may happen entirely through text, Telegram,
+            WhatsApp, Signal, Google Chat, or another messaging platform.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <span class="step-number">3</span>
+
+        <div>
+          <h3>You receive a quick job offer</h3>
+
+          <p>
+            The scammer sends an offer letter with a company name, logo,
+            employee names, salary, and other details copied from a legitimate
+            business.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <span class="step-number">4</span>
+
+        <div>
+          <h3>A check arrives</h3>
+
+          <p>
+            You are told to deposit the check using your banking app or at a
+            branch. The amount may be several thousand dollars.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <span class="step-number">5</span>
+
+        <div>
+          <h3>You are told to spend or transfer the money</h3>
+
+          <p>
+            The recruiter tells you to purchase equipment from a particular
+            vendor, return an overpayment, or send money using a difficult-to-
+            reverse payment method.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <span class="step-number">6</span>
+
+        <div>
+          <h3>The check is reversed</h3>
+
+          <p>
+            Your bank eventually discovers that the check is fraudulent and
+            removes the deposited amount. You may be responsible for money
+            already withdrawn or transferred.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <h2>Why can a fake check look like it cleared?</h2>
+
+    <p>
+      Banks generally make at least some deposited funds available before the
+      check has been fully verified. This helps customers access legitimate
+      deposits without waiting through the entire processing period.
+    </p>
+
+    <p>
+      Scammers exploit the delay between funds becoming available and the bank
+      discovering that the check is fraudulent. They pressure the victim to
+      send money while the temporary balance is still visible.
+    </p>
+
+    <p>
+      A check can display as deposited, available, processed, or even cleared
+      in an account interface and still later be returned. According to the
+      Federal Trade Commission, discovering a fake check can take weeks.
+    </p>
+
+    <div class="safe-note">
+      <strong>The safest rule</strong>
+
+      <p>
+        Never use money from an unexpected check to pay a recruiter, purchase
+        gift cards, send cryptocurrency, return an overpayment, or buy
+        equipment from a vendor chosen by an unverified employer.
+      </p>
+    </div>
+
+    <h2>Warning signs of an equipment check scam</h2>
+
+    <div class="red-flags">
+      <ul>
+        <li>
+          The employer sends a check before you have completed normal
+          onboarding.
+        </li>
+
+        <li>
+          You are told to deposit the check through your mobile banking app.
+        </li>
+
+        <li>
+          The recruiter selects the equipment vendor and tells you where to
+          send the money.
+        </li>
+
+        <li>
+          The check is for more money than you expected.
+        </li>
+
+        <li>
+          You are asked to return part of the payment.
+        </li>
+
+        <li>
+          You must buy gift cards, cryptocurrency, money orders, or prepaid
+          cards.
+        </li>
+
+        <li>
+          The recruiter uses Gmail, Yahoo, Outlook, or another personal email
+          account instead of the company’s domain.
+        </li>
+
+        <li>
+          The interview happens only through text or a messaging application.
+        </li>
+
+        <li>
+          You are hired unusually quickly without a normal video or telephone
+          interview.
+        </li>
+
+        <li>
+          The recruiter asks for banking information, identification, or a
+          Social Security number before you independently verify the employer.
+        </li>
+
+        <li>
+          You are pressured to act immediately or keep the process secret.
+        </li>
+      </ul>
+    </div>
+
+    <h2>Example of a fake equipment message</h2>
+
+    <div class="example">
+      <p class="example-label">Fictional example for education</p>
+
+      <blockquote>
+        “Congratulations. You have been selected for our remote administrative
+        assistant position. The company will email you a check for $4,850 to
+        purchase your laptop, printer, and required software. Deposit the check
+        immediately and send confirmation to your hiring manager. You must
+        purchase the equipment only from our approved vendor.”
+      </blockquote>
+    </div>
+
+    <p>
+      A professional-looking message is not proof that the offer is real.
+      Scammers can copy company logos, job descriptions, employee names, email
+      signatures, and offer-letter templates.
+    </p>
+
+    <p>
+      The central warning sign is not the writing quality. It is the request
+      that you deposit a check and then use or transfer the money.
+    </p>
+
+    <h2>Do legitimate employers pay for equipment?</h2>
+
+    <p>
+      Some real employers provide computers and other equipment to remote
+      workers. However, they commonly ship company-owned equipment directly,
+      use an established purchasing system, or reimburse approved expenses
+      through documented company procedures.
+    </p>
+
+    <p>
+      An equipment benefit becomes suspicious when an unverified recruiter
+      sends a check and instructs you to move the money to a particular person
+      or vendor.
+    </p>
+
+    <p>
+      Before accepting equipment or payment instructions, contact the company
+      using a telephone number or email address you found independently on its
+      official website. Do not rely on contact information supplied by the
+      recruiter.
+    </p>
+
+    <h2>What to do if you received a suspicious check</h2>
+
+    <ol class="action-list">
+      <li>
+        <strong>Do not deposit it.</strong>
+        Do not photograph it for mobile deposit, cash it, or attempt to use the
+        funds.
+      </li>
+
+      <li>
+        <strong>Stop communicating with the recruiter.</strong>
+        Do not argue with them or follow additional instructions.
+      </li>
+
+      <li>
+        <strong>Save the evidence.</strong>
+        Keep the check, envelope, emails, text messages, usernames, phone
+        numbers, offer letter, job posting, and payment instructions.
+      </li>
+
+      <li>
+        <strong>Verify the company independently.</strong>
+        Visit the company’s official website yourself and ask whether the
+        recruiter and position are legitimate.
+      </li>
+
+      <li>
+        <strong>Report the incident.</strong>
+        Submit a report through
+        <a
+          href="https://reportfraud.ftc.gov/"
+          target="_blank"
+          rel="noreferrer"
+        >ReportFraud.ftc.gov</a>.
+      </li>
+    </ol>
+
+    <h2>What if you already deposited the check?</h2>
+
+    <ol class="action-list">
+      <li>
+        <strong>Do not spend or transfer the funds.</strong>
+        Leave the deposited amount untouched.
+      </li>
+
+      <li>
+        <strong>Contact your bank immediately.</strong>
+        Ask for the fraud department and explain that you may have deposited a
+        check connected to a job scam.
+      </li>
+
+      <li>
+        <strong>Follow the bank’s instructions.</strong>
+        Provide accurate information about how you received the check and any
+        communications with the sender.
+      </li>
+
+      <li>
+        <strong>Continue monitoring your account.</strong>
+        Watch for returned-check notices, unexpected transactions, or contact
+        from the scammer.
+      </li>
+    </ol>
+
+    <h2>What if you already sent money?</h2>
+
+    <p>
+      Act immediately. Contact the bank, payment application, wire-transfer
+      company, gift-card issuer, or cryptocurrency platform used for the
+      transaction. Tell them that the payment was connected to fraud and ask
+      whether it can be stopped or reversed.
+    </p>
+
+    <p>
+      Recovery is not guaranteed, but acting quickly provides the best chance
+      of limiting the loss.
+    </p>
+
+    <p>
+      If you shared personal information, visit
+      <a
+        href="https://www.identitytheft.gov/"
+        target="_blank"
+        rel="noreferrer"
+      >IdentityTheft.gov</a>
+      for a personalized recovery plan. Change exposed passwords and contact
+      the appropriate financial institutions.
+    </p>
+
+    <h2>How to verify a job before accepting it</h2>
+
+    <ol class="action-list">
+      <li>
+        Search for the company’s official website without using the
+        recruiter’s link.
+      </li>
+
+      <li>
+        Confirm that the same position appears on the official careers page.
+      </li>
+
+      <li>
+        Compare the recruiter’s email domain with the company’s real domain.
+      </li>
+
+      <li>
+        Call the company using a number found independently on its website.
+      </li>
+
+      <li>
+        Search the company and recruiter names alongside words such as
+        “scam,” “complaint,” or “fake job.”
+      </li>
+
+      <li>
+        Never pay a fee, buy gift cards, or transfer money to receive a job.
+      </li>
+    </ol>
+
+    <h2>Frequently asked questions</h2>
+
+    <div class="faq">
+      <div class="faq-item">
+        <h3>Can a fake check appear to clear?</h3>
+
+        <p>
+          Yes. Your bank may make deposited funds available before discovering
+          that the check is fraudulent. A visible balance does not prove that
+          the check is valid.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Do legitimate employers send checks for equipment?</h3>
+
+        <p>
+          A legitimate employer may provide equipment or reimburse approved
+          expenses. However, you should not deposit a check and then send money
+          to a vendor selected by an unverified recruiter.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can a cashier’s check be fake?</h3>
+
+        <p>
+          Yes. Cashier’s checks, business checks, certified checks, and money
+          orders can be counterfeited or altered.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What if the recruiter is using a real company’s name?</h3>
+
+        <p>
+          Scammers frequently impersonate legitimate companies. Contact the
+          company through its official website and confirm the recruiter’s
+          identity independently.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Should I return the check to the recruiter?</h3>
+
+        <p>
+          Do not follow further instructions from the sender. Preserve the
+          check as evidence and ask your bank or the appropriate authorities
+          how it should be handled.
+        </p>
+      </div>
+    </div>
+
+    <div class="emergency-cta">
+      <div>
+        <h2>Check the recruiter’s message</h2>
+
+        <p>
+          Paste the message into OfferSentry to review it for common job-scam
+          warning signs.
+        </p>
+      </div>
+
+      <a href="/">Use the free checker</a>
+    </div>
+
+    <section class="sources">
+      <h2>Sources and further reading</h2>
+
+      <ul>
+        <li>
+          <a
+            href="https://consumer.ftc.gov/consumer-alerts/2022/06/job-hunting-look-out-phony-job-postings"
+            target="_blank"
+            rel="noreferrer"
+          >
+            FTC: Job hunting? Look out for phony job postings
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://consumer.ftc.gov/consumer-alerts/2020/02/ftc-bottom-line-fake-checks-scams"
+            target="_blank"
+            rel="noreferrer"
+          >
+            FTC: The bottom line on fake check scams
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://consumer.ftc.gov/articles/what-do-if-you-were-scammed"
+            target="_blank"
+            rel="noreferrer"
+          >
+            FTC: What to do if you were scammed
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://consumer.ftc.gov/consumer-alerts/2025/06/how-avoid-work-home-job-scams"
+            target="_blank"
+            rel="noreferrer"
+          >
+            FTC: How to avoid work-from-home job scams
+          </a>
+        </li>
+      </ul>
+    </section>
+  </article>
+
+  <aside aria-label="OfferSentry tools">
+    <div class="side-card">
+      <h2>Check a suspicious message</h2>
+
+      <p>
+        Paste a recruiter message or job offer into OfferSentry’s free
+        browser-based warning-sign checker.
+      </p>
+
+      <a class="button" href="/">Check the message</a>
+    </div>
+
+    <div class="side-card">
+      <h2>Check the recruiter</h2>
+
+      <p>
+        Compare the recruiter’s email domain with the company’s official
+        website.
+      </p>
+
+      <a
+        class="secondary-button"
+        href="/tools/recruiter-checker.html"
+      >
+        Compare the domains
+      </a>
+    </div>
+
+    <div class="side-card">
+      <h2>Immediate red flags</h2>
+
+      <ul>
+        <li>A check for equipment</li>
+        <li>A request to send money</li>
+        <li>Gift cards or cryptocurrency</li>
+        <li>A personal recruiter email</li>
+        <li>A rushed text-only interview</li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <strong>OfferSentry</strong>
+
+  <p>
+    <a href="/">Checker</a>
+    <a href="/tools/recruiter-checker.html">Recruiter Checker</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </p>
+
+  <p>
+    OfferSentry provides educational information, not legal, financial, or
+    cybersecurity advice. An automated result is not proof that an offer is
+    legitimate or fraudulent.
+  </p>
+</footer>
+</body>
+</html>
