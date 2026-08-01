@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>About OfferSentry — Helping Job Seekers Spot Scam Warning Signs</title>
+  <meta name="description" content="Learn why OfferSentry was created and how it helps job seekers recognize common warning signs in suspicious job offers and recruiter messages.">
+  <link rel="canonical" href="https://offersentry.com/about.html">
+
+  <style>
+    :root {
+      --navy:#08234d;
+      --blue:#1769d2;
+      --light:#edf7ff;
+      --soft:#f5f9fd;
+      --muted:#49617d;
+      --border:#caddef;
+    }
+
+    * { box-sizing:border-box }
+    html { scroll-behavior:smooth }
+
+    body {
+      margin:0;
+      color:var(--navy);
+      background:#fff;
+      font-family:Inter,Arial,sans-serif;
+    }
+
+    a { color:inherit }
+
+    header {
+      min-height:76px;
+      padding:12px clamp(20px,5vw,72px);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:25px;
+      border-bottom:1px solid #e2ebf3;
+      background:#fff;
+    }
+
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:28px;
+      font-weight:800;
+      letter-spacing:-1px;
+      text-decoration:none;
+    }
+
+    .shield {
+      width:38px;
+      height:44px;
+      color:var(--blue);
+    }
+
+    nav {
+      display:flex;
+      gap:30px;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    nav a {
+      text-decoration:none;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color:var(--blue);
+    }
+
+    .hero {
+      padding:85px 22px;
+      text-align:center;
+      background:
+        radial-gradient(circle at 12% 20%,#dcebfa 0 3px,transparent 4px) 0 0/24px 24px,
+        linear-gradient(#fff,#edf7ff);
+    }
+
+    .eyebrow {
+      margin:0 0 14px;
+      color:var(--blue);
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+    }
+
+    h1 {
+      max-width:900px;
+      margin:0 auto;
+      font-size:clamp(42px,6vw,70px);
+      line-height:1.07;
+      letter-spacing:-3px;
+    }
+
+    .hero-copy {
+      max-width:720px;
+      margin:22px auto 0;
+      color:var(--muted);
+      font-size:20px;
+      line-height:1.65;
+    }
+
+    main section {
+      padding:80px clamp(22px,8vw,125px);
+    }
+
+    .story {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      align-items:center;
+      gap:70px;
+    }
+
+    .label {
+      margin:0 0 12px;
+      color:var(--blue);
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:1px;
+      text-transform:uppercase;
+    }
+
+    h2 {
+      margin:0 0 20px;
+      font-size:clamp(32px,4vw,50px);
+      line-height:1.12;
+      letter-spacing:-2px;
+    }
+
+    p {
+      color:var(--muted);
+      line-height:1.75;
+    }
+
+    .story p {
+      font-size:17px;
+    }
+
+    .mission-card {
+      padding:35px;
+      border:1px solid var(--border);
+      border-radius:22px;
+      background:var(--light);
+    }
+
+    .mission-card h3 {
+      margin:0 0 12px;
+      font-size:23px;
+    }
+
+    .mission-card p {
+      margin:0;
+    }
+
+    .principles {
+      background:var(--soft);
+    }
+
+    .section-heading {
+      max-width:750px;
+      margin:0 auto 45px;
+      text-align:center;
+    }
+
+    .grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+
+    .card {
+      padding:30px;
+      border:1px solid #d9e6f1;
+      border-radius:18px;
+      background:#fff;
+    }
+
+    .number {
+      width:42px;
+      height:42px;
+      margin-bottom:20px;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      color:#fff;
+      background:var(--blue);
+      font-weight:800;
+    }
+
+    .card h3 {
+      margin:0 0 10px;
+      font-size:20px;
+    }
+
+    .card p {
+      margin:0;
+    }
+
+    .limitations {
+      max-width:950px;
+      margin:auto;
+    }
+
+    .notice {
+      padding:30px;
+      border-left:5px solid var(--blue);
+      border-radius:10px;
+      background:var(--light);
+    }
+
+    .notice h3 {
+      margin:0 0 10px;
+    }
+
+    .notice p {
+      margin:0;
+    }
+
+    .cta {
+      margin:0 clamp(20px,8vw,125px) 80px;
+      padding:48px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:35px;
+      color:#fff;
+      background:var(--navy);
+      border-radius:24px;
+    }
+
+    .cta h2 {
+      margin:0 0 10px;
+      font-size:clamp(30px,4vw,46px);
+    }
+
+    .cta p {
+      margin:0;
+      color:#c8d6e8;
+    }
+
+    .cta a {
+      flex:none;
+      padding:17px 24px;
+      border-radius:11px;
+      color:var(--navy);
+      background:#fff;
+      font-weight:800;
+      text-decoration:none;
+    }
+
+    footer {
+      padding:42px clamp(22px,7vw,105px);
+      border-top:1px solid #e0e9f1;
+    }
+
+    footer p {
+      max-width:800px;
+      margin-bottom:0;
+      color:#718299;
+      font-size:12px;
+      line-height:1.6;
+    }
+
+    @media(max-width:760px) {
+      header {
+        align-items:flex-start;
+      }
+
+      nav {
+        gap:15px;
+        font-size:13px;
+      }
+
+      h1 {
+        letter-spacing:-2px;
+      }
+
+      .story,
+      .grid {
+        grid-template-columns:1fr;
+      }
+
+      main section {
+        padding:60px 20px;
+      }
+
+      .cta {
+        margin:0 18px 55px;
+        padding:35px 25px;
+        align-items:flex-start;
+        flex-direction:column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <a class="brand" href="/">
+    <svg class="shield" viewBox="0 0 48 56" aria-hidden="true">
+      <path d="M24 3.5 42 10v14c0 11.8-7.3 21.8-18 27C13.3 45.8 6 35.8 6 24V10l18-6.5Z"
+        fill="none" stroke="currentColor" stroke-width="3"/>
+      <path d="m15.5 27 5.7 5.7L33 20.5"
+        fill="none" stroke="currentColor" stroke-linecap="round"
+        stroke-linejoin="round" stroke-width="3.5"/>
+    </svg>
+    OfferSentry
+  </a>
+
+  <nav aria-label="Main navigation">
+    <a href="/">Checker</a>
+    <a href="/about.html" aria-current="page">About</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <p class="eyebrow">About OfferSentry</p>
+    <h1>Helping job seekers pause before a scammer profits</h1>
+    <p class="hero-copy">
+      OfferSentry is a free educational tool that helps people recognize
+      common warning signs in job listings, recruiter messages, and employment offers.
+    </p>
+  </section>
+
+  <section class="story">
+    <div>
+      <p class="label">Why we exist</p>
+      <h2>Job hunting should create opportunities—not unnecessary risk.</h2>
+
+      <p>
+        Fraudulent recruiters often imitate real companies, promise unusually high
+        pay, conduct interviews through messaging apps, or ask applicants to send
+        money and sensitive information.
+      </p>
+
+      <p>
+        These messages can look convincing, especially when someone is eager to
+        begin a new job. OfferSentry was created to give job seekers a quick first
+        check before they respond.
+      </p>
+    </div>
+
+    <aside class="mission-card">
+      <h3>Our mission</h3>
+      <p>
+        Make common job-scam warning signs easier to recognize and encourage
+        job seekers to verify every opportunity independently.
+      </p>
+    </aside>
+  </section>
+
+  <section class="principles">
+    <div class="section-heading">
+      <p class="label">Our principles</p>
+      <h2>Simple, private, and practical</h2>
+      <p>
+        OfferSentry is designed to provide understandable guidance without
+        making promises an automated checker cannot keep.
+      </p>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <span class="number">1</span>
+        <h3>Privacy first</h3>
+        <p>
+          The current checker analyzes pasted text inside your browser.
+          OfferSentry does not require an account.
+        </p>
+      </article>
+
+      <article class="card">
+        <span class="number">2</span>
+        <h3>Clear explanations</h3>
+        <p>
+          Results identify suspicious patterns and explain why each pattern
+          deserves additional verification.
+        </p>
+      </article>
+
+      <article class="card">
+        <span class="number">3</span>
+        <h3>Independent verification</h3>
+        <p>
+          Users are encouraged to contact employers through independently
+          located company websites and telephone numbers.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="limitations">
+      <p class="label">Important limitations</p>
+      <h2>A screening result is not a guarantee.</h2>
+
+      <div class="notice">
+        <h3>OfferSentry provides educational information.</h3>
+        <p>
+          No automated tool can conclusively prove that a job offer is legitimate
+          or fraudulent. A message with no detected warning signs may still be a
+          scam, and a legitimate message may occasionally contain language that
+          resembles a warning sign. Always verify the employer independently and
+          never send money, passwords, banking information, or sensitive identity
+          documents to an unverified contact.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <div>
+      <h2>Check a suspicious offer</h2>
+      <p>Paste the message into OfferSentry for a quick first review.</p>
+    </div>
+
+    <a href="/">Open the checker</a>
+  </div>
+</main>
+
+<footer>
+  <strong>OfferSentry</strong>
+  <p>
+    OfferSentry provides educational information, not legal or financial advice.
+    An automated result is not proof that an offer is legitimate or fraudulent.
+  </p>
+</footer>
+</body>
+</html>
