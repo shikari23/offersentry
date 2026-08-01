@@ -1,0 +1,1287 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>How to Verify a Recruiter Is Legitimate: 10 Checks | OfferSentry</title>
+
+  <meta
+    name="description"
+    content="Use these 10 checks to verify a recruiter, company email, job posting, and website before responding or sharing personal information."
+  >
+
+  <link
+    rel="canonical"
+    href="https://offersentry.com/guides/how-to-verify-recruiter"
+  >
+
+  <style>
+    :root {
+      --navy: #08234d;
+      --blue: #1769d2;
+      --light: #edf7ff;
+      --soft: #f5f9fd;
+      --muted: #49617d;
+      --border: #caddef;
+      --green: #278a5b;
+      --red: #b93221;
+      --amber: #a56100;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--navy);
+      background: #fff;
+      font-family: Inter, Arial, sans-serif;
+    }
+
+    a {
+      color: var(--blue);
+    }
+
+    header {
+      min-height: 76px;
+      padding: 12px clamp(20px, 5vw, 72px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      border-bottom: 1px solid #e2ebf3;
+      background: #fff;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--navy);
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      text-decoration: none;
+    }
+
+    .shield {
+      width: 38px;
+      height: 44px;
+      color: var(--blue);
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    nav a {
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--blue);
+    }
+
+    .breadcrumb {
+      width: min(1050px, calc(100% - 40px));
+      margin: 24px auto 0;
+      color: #6c7f96;
+      font-size: 13px;
+    }
+
+    .breadcrumb a {
+      text-decoration: none;
+    }
+
+    .hero {
+      padding: 55px 20px 65px;
+      background: linear-gradient(#fff, var(--light));
+    }
+
+    .hero-inner {
+      width: min(900px, 100%);
+      margin: auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 15px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(41px, 6vw, 68px);
+      line-height: 1.08;
+      letter-spacing: -3px;
+    }
+
+    .intro {
+      max-width: 760px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.65;
+    }
+
+    .article-meta {
+      margin-top: 22px;
+      color: #718299;
+      font-size: 13px;
+    }
+
+    .layout {
+      width: min(1100px, calc(100% - 40px));
+      margin: 60px auto 90px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 270px;
+      align-items: start;
+      gap: 55px;
+    }
+
+    article h2 {
+      margin: 58px 0 18px;
+      font-size: clamp(29px, 4vw, 39px);
+      line-height: 1.18;
+      letter-spacing: -1.5px;
+    }
+
+    article h2:first-of-type {
+      margin-top: 0;
+    }
+
+    article h3 {
+      margin: 30px 0 10px;
+      font-size: 21px;
+    }
+
+    article p,
+    article li {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    article li {
+      margin-bottom: 10px;
+    }
+
+    article strong {
+      color: var(--navy);
+    }
+
+    .quick-answer {
+      margin-bottom: 42px;
+      padding: 28px;
+      border-left: 5px solid var(--blue);
+      border-radius: 12px;
+      background: var(--light);
+    }
+
+    .quick-answer h2 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      letter-spacing: -.5px;
+    }
+
+    .quick-answer p {
+      margin: 0;
+    }
+
+    .warning {
+      margin: 30px 0;
+      padding: 24px;
+      border: 1px solid #f0c4b9;
+      border-radius: 14px;
+      background: #fff8f6;
+    }
+
+    .warning strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--red);
+      font-size: 18px;
+    }
+
+    .warning p {
+      margin: 0;
+    }
+
+    .safe-note {
+      margin: 30px 0;
+      padding: 24px;
+      border: 1px solid #bcdacb;
+      border-radius: 14px;
+      background: #effaf4;
+    }
+
+    .safe-note strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #14603d;
+      font-size: 18px;
+    }
+
+    .safe-note p {
+      margin: 0;
+    }
+
+    .verification-step {
+      margin: 22px 0;
+      padding: 26px;
+      border: 1px solid #d9e6f1;
+      border-radius: 16px;
+      background: #fff;
+    }
+
+    .step-heading {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      flex: none;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--blue);
+      font-weight: 900;
+    }
+
+    .verification-step h2 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: -.7px;
+    }
+
+    .verification-step p:last-child {
+      margin-bottom: 0;
+    }
+
+    .example {
+      margin: 22px 0;
+      padding: 22px;
+      border-radius: 13px;
+      background: var(--soft);
+    }
+
+    .example-label {
+      margin: 0 0 10px;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .domain-example {
+      display: grid;
+      gap: 9px;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 15px;
+    }
+
+    .domain-good,
+    .domain-bad {
+      padding: 11px 13px;
+      border-radius: 8px;
+    }
+
+    .domain-good {
+      color: #14603d;
+      background: #e8f7ef;
+    }
+
+    .domain-bad {
+      color: #922719;
+      background: #ffebe7;
+    }
+
+    .comparison {
+      width: 100%;
+      margin: 28px 0;
+      border-collapse: collapse;
+      border: 1px solid var(--border);
+      font-size: 15px;
+    }
+
+    .comparison th,
+    .comparison td {
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    .comparison th {
+      color: var(--navy);
+      background: var(--light);
+    }
+
+    .comparison td {
+      color: var(--muted);
+    }
+
+    .checklist {
+      padding: 28px;
+      border-radius: 16px;
+      background: var(--soft);
+    }
+
+    .checklist ul {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    .faq {
+      border-top: 1px solid #dce7f0;
+    }
+
+    .faq-item {
+      padding: 25px 0;
+      border-bottom: 1px solid #dce7f0;
+    }
+
+    .faq-item h3 {
+      margin: 0 0 10px;
+    }
+
+    .faq-item p {
+      margin: 0;
+    }
+
+    .sources {
+      margin-top: 55px;
+      padding: 26px;
+      border-radius: 15px;
+      background: var(--soft);
+    }
+
+    .sources h2 {
+      margin: 0 0 15px;
+      font-size: 24px;
+    }
+
+    .sources li {
+      font-size: 15px;
+    }
+
+    aside {
+      position: sticky;
+      top: 25px;
+    }
+
+    .side-card {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 12px 35px #08234d12;
+    }
+
+    .side-card + .side-card {
+      margin-top: 20px;
+    }
+
+    .side-card h2 {
+      margin: 0 0 14px;
+      font-size: 20px;
+    }
+
+    .side-card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .side-card ul {
+      padding-left: 18px;
+    }
+
+    .side-card li {
+      margin-bottom: 9px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .side-card a.button,
+    .side-card a.secondary-button {
+      margin-top: 12px;
+      padding: 14px;
+      display: block;
+      border-radius: 9px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .side-card a.button {
+      color: #fff;
+      background: var(--blue);
+    }
+
+    .side-card a.secondary-button {
+      color: var(--blue);
+      background: #fff;
+      border: 1px solid var(--border);
+    }
+
+    .cta {
+      margin: 65px auto;
+      padding: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      color: #fff;
+      background: var(--navy);
+      border-radius: 20px;
+    }
+
+    .cta h2 {
+      margin: 0 0 10px;
+      color: #fff;
+      font-size: 29px;
+    }
+
+    .cta p {
+      margin: 0;
+      color: #c7d5e7;
+      font-size: 15px;
+    }
+
+    .cta a {
+      padding: 15px 20px;
+      flex: none;
+      border-radius: 10px;
+      color: var(--navy);
+      background: #fff;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    footer {
+      padding: 42px clamp(22px, 7vw, 105px);
+      border-top: 1px solid #e0e9f1;
+    }
+
+    footer p {
+      max-width: 850px;
+      color: #718299;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    footer a {
+      margin-right: 12px;
+    }
+
+    @media (max-width: 850px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      aside {
+        position: static;
+      }
+
+      .cta {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .cta a {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 650px) {
+      header {
+        align-items: flex-start;
+      }
+
+      nav {
+        gap: 13px;
+        font-size: 12px;
+      }
+
+      nav a:nth-child(2) {
+        display: none;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .comparison {
+        font-size: 13px;
+      }
+
+      .comparison th,
+      .comparison td {
+        padding: 11px;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "How to Verify a Recruiter Is Legitimate: 10 Checks Before You Respond",
+        "description": "A practical 10-step process for verifying a recruiter, company email, website, job posting, and hiring process.",
+        "datePublished": "2026-08-01",
+        "dateModified": "2026-08-01",
+        "author": {
+          "@type": "Organization",
+          "name": "OfferSentry"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "OfferSentry",
+          "url": "https://offersentry.com"
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://offersentry.com/guides/how-to-verify-recruiter"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How can I verify that a recruiter is legitimate?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Find the company website independently, confirm the position on its careers page, compare the recruiter's email domain, and contact the company using a telephone number or email address you found yourself."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does a company email address prove a recruiter is real?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. A matching domain is encouraging, but an email address can be spoofed or an account can be compromised. Confirm the recruiter through a separate company contact method."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can a legitimate recruiter use Gmail?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Independent recruiters and small businesses may use personal email services, but it requires additional verification. Contact the employer independently before sharing information."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What information should a recruiter not request before an interview?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Be cautious of requests for a Social Security number, banking details, passwords, identification documents, or payment before a legitimate interview and verified hiring process."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+<header>
+  <a class="brand" href="/">
+    <svg class="shield" viewBox="0 0 48 56" aria-hidden="true">
+      <path
+        d="M24 3.5 42 10v14c0 11.8-7.3 21.8-18 27C13.3 45.8 6 35.8 6 24V10l18-6.5Z"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="3"
+      />
+      <path
+        d="m15.5 27 5.7 5.7L33 20.5"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="3.5"
+      />
+    </svg>
+
+    OfferSentry
+  </a>
+
+  <nav aria-label="Main navigation">
+    <a href="/">Message Checker</a>
+    <a href="/tools/recruiter-checker.html">Recruiter Checker</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="breadcrumb">
+  <a href="/">Home</a> ›
+  <a href="/#guides">Scam Guides</a> ›
+  How to Verify a Recruiter
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Recruiter verification guide</p>
+
+    <h1>How to Verify a Recruiter Is Legitimate</h1>
+
+    <p class="intro">
+      Before replying, accepting an interview, or sharing personal
+      information, use these 10 checks to independently confirm the recruiter,
+      company, and position.
+    </p>
+
+    <p class="article-meta">
+      Published August 1, 2026 · Approximately 9 minutes
+    </p>
+  </div>
+</section>
+
+<div class="layout">
+  <article>
+    <div class="quick-answer">
+      <h2>The quick answer</h2>
+
+      <p>
+        Do not verify a recruiter using only information the recruiter
+        provided. Find the company’s official website yourself, confirm the
+        position on its careers page, compare the email domains, and contact
+        the company through an independently located telephone number or email
+        address.
+      </p>
+    </div>
+
+    <h2>Why recruiter verification matters</h2>
+
+    <p>
+      Job scammers frequently impersonate real companies and real employees.
+      They can copy names, photographs, logos, job descriptions, email
+      signatures, offer letters, and information from public professional
+      profiles.
+    </p>
+
+    <p>
+      Finding the company online is therefore not enough. The important
+      question is whether the person contacting you is actually authorized to
+      recruit for that company and position.
+    </p>
+
+    <p>
+      Verification should happen outside the original conversation. A
+      telephone number, website, profile, or email address supplied by the
+      recruiter could be part of the impersonation.
+    </p>
+
+    <div class="warning">
+      <strong>Verification must be independent</strong>
+
+      <p>
+        Do not call a number from the recruiter’s email signature to verify
+        that same recruiter. Find the company’s official contact information
+        through a separate search.
+      </p>
+    </div>
+
+    <div class="verification-step">
+      <div class="step-heading">
+        <span class="step-number">1</span>
+        <h2>Confirm that the job exists</h2>
+      </div>
+
+      <p>
+        Open a new browser tab and search for the company yourself. Navigate
+        to the careers section of the company’s official website and look for
+        the same position.
+      </p>
+
+      <p>
+        Compare the job title, location, department, responsibilities, and
+        application deadline. A scammer may copy an expired listing or alter a
+        legitimate description.
+      </p>
+
+      <p>
+        The absence of a public listing does not automatically prove fraud.
+        Some employers use private searches or staffing agencies. However, the
+        company should still be able to confirm that the opening exists.
+      </p>
+    </div>
+
+    <div class="verification-step">
+      <div class="step-heading">
+        <span class="step-number">2</span>
+        <h2>Inspect the complete email address</h2>
+      </div>
+
+      <p>
+        Do not rely on the displayed sender name. An email can display
+        “Company Recruiting Team” while the actual address belongs to an
+        unrelated account.
+      </p>
+
+      <p>
+        Expand the sender details and inspect everything after the
+        <strong>@</strong> symbol.
+      </p>
+
+      <div class="example">
+        <p class="example-label">Example</p>
+
+        <div class="domain-example">
+          <span class="domain-good">
+            Expected: recruiter@company.com
+          </span>
+
+          <span class="domain-bad">
+            Concerning: company.hiring.team@gmail.com
+          </span>
+        </div>
+      </div>
+
+      <p>
+        The words before the @ symbol do not determine which organization owns
+        the account. In the second example, the email is still a Gmail
+        account.
+      </p>
+    </div>
+
+    <div class="verification-step">
+      <div class="step-heading">
+        <span class="step-number">3</span>
+        <h2>Compare the email and website domains</h2>
+      </div>
+
+      <p>
+        Compare the recruiter’s email domain with the company’s official
+        website domain character by character.
+      </p>
+
+      <div class="example">
+        <p class="example-label">Lookalike examples</p>
+
+        <div class="domain-example">
+          <span class="domain-good">
+            Official: northstarcompany.com
+          </span>
+
+          <span class="domain-bad">
+            Lookalike: northstar-company.com
+          </span>
+
+          <span class="domain-bad">
+            Lookalike: northstarcompanny.com
+          </span>
+
+          <span class="domain-bad">
+            Lookalike: northstarcompany-careers.com
+          </span>
+        </div>
+      </div>
+
+      <p>
+        Added words, hyphens, replaced letters, repeated letters, and different
+        domain endings can be signs of impersonation.
+      </p>
+
+      <p>
+        Use the
+        <a href="/tools/recruiter-checker.html">
+          OfferSentry Recruiter and Company Domain Checker
+        </a>
+        to perform a basic comparison.
+      </p>
+    </div>
+
+    <div class="verification-step">
+      <div class="step-heading">
+        <span class="step-number">4</span>
+        <h2>Do not treat a matching domain as proof</h2>
+      </div>
+
+      <p>
+        A matching company domain is encouraging, but it is not a guarantee.
+        Email sender information can be spoofed, and legitimate email accounts
+        can sometimes be compromised.
+      </p>
+
+      <p>
+        Confirm the recruiter through a separate communication channel. Call
+        the company’s main telephone number or contact its human-resources
+        department using information found on the official website.
+      </p>
+
+      <div class="safe-note">
+        <strong>Use two independent signals</strong>
+
+        <p>
+          A company-domain email plus confirmation through the company’s
+          official switchboard is stronger evidence than either one alone.
+        </p>
+      </div>
+    </div>
+
+    <div class="verification-step">
+      <div class="step-heading">
+        <span class="step-number">5</span>
+        <h2>Research the domain’s registration</h2>
+      </div>
+
+      <p>
+        Domain-registration information can help identify a website created
+        recently or registered separately from the real company domain.
+      </p>
+
+      <p>
+        Use the
+        <a
+          href="https://lookup.icann.org/en"
+          target="_blank"
+          rel="noreferrer"
+        >
+          ICANN Registration Data Lookup Tool
+        </a>
+        to research the domain. ICANN uses the Registration Data Access
+        Protocol, commonly called RDAP.
+      </p>
+
+      <p>
+        Compare the domain’s creation date with the company’s history. A
+        website claiming to represent a decades-old organization but
+        registered only days ago deserves serious scrutiny.
+      </p>
+
+      <p>
+        Registration details may be privacy-protected or unavailable. A new
+        domain is not automatically fraudulent, and an old domain is not
+        automatically trustworthy. Treat registration data as one signal, not
+        a final verdict.
+      </p>
+    </div>
+
+    <div class="verification-step">
+      <div class="step-heading">
+        <span class="step-number">6</span>
+        <h2>Verify the recruiter’s professional identity</h2>
+      </div>
+
+      <p>
+        Search the recruiter’s name along with the company name. Look for
+        consistent employment history, professional activity, and contact
+        information.
+      </p>
+
+      <p>
+        A professional profile alone does not prove legitimacy. Scammers can
+        create fake profiles or impersonate a real employee whose information
+        is publicly available.
+      </p>
+
+      <p>
+        If you find a real employee with the same name, do not assume the
+        person contacting you controls that profile. Contact the company or the
+        employee through a separate verified channel.
+      </p>
+    </div>
+
+    <div class="verification-step">
+      <div class="step-heading">
+        <span class="step-number">7</span>
+        <h2>Evaluate the interview process</h2>
+      </div>
+
+      <p>
+        Consider whether the process matches the position and employer. A
+        rushed text-only interview for a professional role deserves additional
+        verification.
+      </p>
+
+      <p>
+        Warning signs include immediate hiring, no meaningful questions, no
+        discussion of your experience, refusal to conduct a telephone or video
+        conversation, and pressure to complete onboarding immediately.
+      </p>
+
+      <p>
+        A long interview does not prove legitimacy either. Some scammers
+        invest significant time to make their impersonation convincing.
+      </p>
+    </div>
+
+    <div class="verification-step">
+      <div class="step-heading">
+        <span class="step-number">8</span>
+        <h2>Refuse every payment request</h2>
+      </div>
+
+      <p>
+        You should not have to pay a recruiter or employer to receive a job.
+        Do not pay application fees, training costs, certification fees,
+        background-check fees, software charges, or equipment vendors selected
+        by an unverified recruiter.
+      </p>
+
+      <p>
+        Never deposit a check and then send part of the money elsewhere. Do
+        not purchase gift cards, cryptocurrency, money orders, or prepaid cards
+        for an employer.
+      </p>
+
+      <p>
+        Learn more in the
+        <a href="/guides/fake-check-job-scam.html">
+          OfferSentry fake check job scam guide
+        </a>.
+      </p>
+    </div>
+
+    <div class="verification-step">
+      <div class="step-heading">
+        <span class="step-number">9</span>
+        <h2>Protect sensitive information</h2>
+      </div>
+
+      <p>
+        Legitimate employers need certain personal and financial information
+        after hiring. The timing and method matter.
+      </p>
+
+      <p>
+        Be cautious if a recruiter requests a Social Security number, banking
+        details, driver’s license, passport, password, verification code, or
+        photograph of identification before a verified interview and formal
+        hiring process.
+      </p>
+
+      <p>
+        Ask why the information is needed, how it will be protected, and
+        whether it can be submitted through an official secure employee
+        portal.
+      </p>
+    </div>
+
+    <div class="verification-step">
+      <div class="step-heading">
+        <span class="step-number">10</span>
+        <h2>Contact the company directly</h2>
+      </div>
+
+      <p>
+        This is the strongest practical check. Find the company’s official
+        website independently and contact its human-resources department,
+        recruiting team, or main switchboard.
+      </p>
+
+      <p>
+        Provide the recruiter’s name, email address, job title, and any
+        reference number. Ask whether the person is authorized to recruit for
+        that position.
+      </p>
+
+      <p>
+        Do not use the recruiter’s links or telephone numbers for this step.
+        The verification channel must be separate from the original contact.
+      </p>
+    </div>
+
+    <h2>Legitimate versus suspicious recruiter behavior</h2>
+
+    <table class="comparison">
+      <thead>
+        <tr>
+          <th>More consistent with legitimate hiring</th>
+          <th>Requires additional verification</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>The job appears on the official company careers page.</td>
+          <td>The position cannot be found or confirmed.</td>
+        </tr>
+
+        <tr>
+          <td>The recruiter uses a matching company email domain.</td>
+          <td>The recruiter uses a personal or lookalike domain.</td>
+        </tr>
+
+        <tr>
+          <td>The company confirms the recruiter independently.</td>
+          <td>Every verification method comes from the recruiter.</td>
+        </tr>
+
+        <tr>
+          <td>The interview includes relevant questions and real discussion.</td>
+          <td>You are hired immediately through text messages.</td>
+        </tr>
+
+        <tr>
+          <td>Equipment is shipped or handled through documented procedures.</td>
+          <td>You receive a check and must pay an approved vendor.</td>
+        </tr>
+
+        <tr>
+          <td>Sensitive onboarding occurs after verified hiring.</td>
+          <td>Banking or identity information is requested before an interview.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Recruiter verification checklist</h2>
+
+    <div class="checklist">
+      <ul>
+        <li>I found the company website independently.</li>
+        <li>I confirmed that the position exists.</li>
+        <li>I inspected the recruiter’s complete email address.</li>
+        <li>I compared the email and company domains.</li>
+        <li>I checked for misspellings and extra words in the domain.</li>
+        <li>I researched the domain’s registration information.</li>
+        <li>I investigated the recruiter’s professional identity.</li>
+        <li>The interview process makes sense for the position.</li>
+        <li>I have not been asked to pay or transfer money.</li>
+        <li>
+          The company confirmed the recruiter through a separate contact
+          method.
+        </li>
+      </ul>
+    </div>
+
+    <h2>Frequently asked questions</h2>
+
+    <div class="faq">
+      <div class="faq-item">
+        <h3>How can I verify that a recruiter is legitimate?</h3>
+
+        <p>
+          Find the company’s official website yourself, confirm the position,
+          compare the recruiter’s email domain, and contact the company through
+          an independently located telephone number or email address.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Does a company email prove that the recruiter is real?</h3>
+
+        <p>
+          No. A matching domain is encouraging, but sender information can be
+          spoofed and accounts can be compromised. Confirm the recruiter
+          through another company contact method.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can a legitimate recruiter use Gmail?</h3>
+
+        <p>
+          Independent recruiters and small businesses may use personal email
+          services. However, you should perform additional verification and
+          confirm their relationship with the employer before sharing
+          information.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is a professional profile enough to verify a recruiter?</h3>
+
+        <p>
+          No. Scammers can copy real employee information or create fake
+          profiles. Confirm the person through the company’s official contact
+          information.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>When should an employer request banking information?</h3>
+
+        <p>
+          Banking information may be needed for payroll after legitimate
+          hiring. It should not be the focus of an initial recruiter
+          conversation or requested before the employer and position have been
+          independently verified.
+        </p>
+      </div>
+    </div>
+
+    <div class="cta">
+      <div>
+        <h2>Check the recruiter’s domains</h2>
+
+        <p>
+          Compare the recruiter’s email, company website, and job-posting URL
+          with OfferSentry’s free browser-based tool.
+        </p>
+      </div>
+
+      <a href="/tools/recruiter-checker.html">
+        Use the recruiter checker
+      </a>
+    </div>
+
+    <section class="sources">
+      <h2>Sources and further reading</h2>
+
+      <ul>
+        <li>
+          <a
+            href="https://consumer.ftc.gov/consumer-alerts/2025/07/job-scammers-are-looking-hire-you"
+            target="_blank"
+            rel="noreferrer"
+          >
+            FTC: Job scammers are looking to hire you
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://consumer.ftc.gov/consumer-alerts/2023/12/how-spot-latest-job-scams"
+            target="_blank"
+            rel="noreferrer"
+          >
+            FTC: How to spot the latest job scams
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://lookup.icann.org/en"
+            target="_blank"
+            rel="noreferrer"
+          >
+            ICANN Registration Data Lookup
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://www.icann.org/en/announcements/details/icann-update-launching-rdap-sunsetting-whois-27-01-2025-en"
+            target="_blank"
+            rel="noreferrer"
+          >
+            ICANN: RDAP and the retirement of WHOIS
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://reportfraud.ftc.gov/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Report fraud to the Federal Trade Commission
+          </a>
+        </li>
+      </ul>
+    </section>
+  </article>
+
+  <aside aria-label="OfferSentry tools and guides">
+    <div class="side-card">
+      <h2>Check the recruiter</h2>
+
+      <p>
+        Compare the recruiter’s email domain with the company’s official
+        website.
+      </p>
+
+      <a
+        class="button"
+        href="/tools/recruiter-checker.html"
+      >
+        Compare the domains
+      </a>
+    </div>
+
+    <div class="side-card">
+      <h2>Check the message</h2>
+
+      <p>
+        Paste a recruiter message into OfferSentry’s free warning-sign
+        checker.
+      </p>
+
+      <a class="secondary-button" href="/">
+        Check the message
+      </a>
+    </div>
+
+    <div class="side-card">
+      <h2>Related guides</h2>
+
+      <a
+        class="secondary-button"
+        href="/guides/fake-check-job-scam.html"
+      >
+        Fake check job scams
+      </a>
+
+      <a
+        class="secondary-button"
+        href="/guides/telegram-whatsapp-job-scam.html"
+      >
+        Messaging app job scams
+      </a>
+    </div>
+
+    <div class="side-card">
+      <h2>Stop immediately if</h2>
+
+      <ul>
+        <li>You are asked to send money</li>
+        <li>You receive a check for equipment</li>
+        <li>You must purchase cryptocurrency</li>
+        <li>You are asked for passwords or verification codes</li>
+        <li>The company cannot confirm the recruiter</li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <strong>OfferSentry</strong>
+
+  <p>
+    <a href="/">Checker</a>
+    <a href="/tools/recruiter-checker.html">Recruiter Checker</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </p>
+
+  <p>
+    OfferSentry provides educational information, not legal, financial, or
+    cybersecurity advice. An automated result is not proof that an offer is
+    legitimate or fraudulent.
+  </p>
+</footer>
+</body>
+</html>
