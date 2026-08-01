@@ -1,0 +1,8 @@
+{
+  "name": "offersentry",
+  "compatibility_date": "2026-08-01",
+  "assets": {
+    "directory": "./public",
+    "html_handling": "none"
+  }
+}
