@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Job Scam Guides and Recruiter Safety Resources | OfferSentry</title>
+
+  <meta
+    name="description"
+    content="Read practical OfferSentry guides about fake checks, recruiter impersonation, Telegram and WhatsApp job scams, and safer ways to verify job offers."
+  >
+
+  <link rel="canonical" href="https://offersentry.com/guides">
+
+  <style>
+    :root {
+      --navy: #08234d;
+      --blue: #1769d2;
+      --light: #edf7ff;
+      --soft: #f5f9fd;
+      --muted: #49617d;
+      --border: #caddef;
+      --green: #278a5b;
+      --red: #b93221;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--navy);
+      background: #fff;
+      font-family: Inter, Arial, sans-serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    header {
+      min-height: 76px;
+      padding: 12px clamp(20px, 5vw, 72px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      border-bottom: 1px solid #e2ebf3;
+      background: #fff;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--navy);
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      text-decoration: none;
+    }
+
+    .shield {
+      width: 38px;
+      height: 44px;
+      color: var(--blue);
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    nav a {
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color: var(--blue);
+    }
+
+    .hero {
+      padding: 78px 20px 82px;
+      text-align: center;
+      background:
+        radial-gradient(
+          circle at 10% 15%,
+          #dcebfa 0 3px,
+          transparent 4px
+        ) 0 0 / 24px 24px,
+        linear-gradient(#fff 45%, var(--light));
+    }
+
+    .eyebrow {
+      margin: 0 0 15px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 850px;
+      margin: auto;
+      font-size: clamp(44px, 6vw, 72px);
+      line-height: 1.07;
+      letter-spacing: -4px;
+    }
+
+    .hero-description {
+      max-width: 720px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-actions a {
+      padding: 15px 19px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .primary-button {
+      color: #fff;
+      background: var(--blue);
+      box-shadow: 0 8px 22px #1769d238;
+    }
+
+    .secondary-button {
+      color: var(--blue);
+      background: #fff;
+      border: 1px solid var(--border);
+    }
+
+    main {
+      width: min(1100px, calc(100% - 40px));
+      margin: 75px auto 95px;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin: 0 auto 42px;
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(34px, 4vw, 50px);
+      line-height: 1.15;
+      letter-spacing: -2px;
+    }
+
+    .section-heading p {
+      margin: 16px auto 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .guide-card {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #d9e6f1;
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 12px 35px #08234d0d;
+    }
+
+    .tag {
+      width: fit-content;
+      margin-bottom: 18px;
+      padding: 7px 10px;
+      border-radius: 7px;
+      color: var(--blue);
+      background: #e6f1fb;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .guide-card h2 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      line-height: 1.25;
+      letter-spacing: -.7px;
+    }
+
+    .guide-card h2 a {
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    .guide-card h2 a:hover {
+      color: var(--blue);
+    }
+
+    .guide-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .card-footer {
+      margin-top: auto;
+      padding-top: 24px;
+    }
+
+    .read-more {
+      color: var(--blue);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .read-more:hover {
+      text-decoration: underline;
+    }
+
+    .read-time {
+      margin-top: 12px;
+      display: block;
+      color: #7b8ca1;
+      font-size: 12px;
+    }
+
+    .tools {
+      margin-top: 80px;
+      padding: 45px;
+      border-radius: 24px;
+      color: #fff;
+      background: var(--navy);
+    }
+
+    .tools-heading {
+      max-width: 680px;
+      margin-bottom: 30px;
+    }
+
+    .tools-heading .eyebrow {
+      color: #82bfff;
+    }
+
+    .tools-heading h2 {
+      margin: 0;
+      font-size: clamp(31px, 4vw, 46px);
+      line-height: 1.15;
+      letter-spacing: -2px;
+    }
+
+    .tools-heading p {
+      margin: 14px 0 0;
+      color: #c7d5e7;
+      line-height: 1.65;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .tool-card {
+      padding: 25px;
+      border: 1px solid #49617d;
+      border-radius: 15px;
+      background: #0c2c5d;
+    }
+
+    .tool-card h3 {
+      margin: 0 0 9px;
+      font-size: 21px;
+    }
+
+    .tool-card p {
+      margin: 0;
+      color: #c7d5e7;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .tool-card a {
+      margin-top: 18px;
+      padding: 13px 16px;
+      display: inline-block;
+      border-radius: 9px;
+      color: var(--navy);
+      background: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .basics {
+      margin-top: 80px;
+      padding: 55px;
+      border-radius: 22px;
+      background: var(--soft);
+    }
+
+    .basics h2 {
+      margin: 0 0 28px;
+      font-size: clamp(30px, 4vw, 44px);
+      letter-spacing: -1.5px;
+    }
+
+    .basics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .basic {
+      padding: 23px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .basic-number {
+      width: 38px;
+      height: 38px;
+      margin-bottom: 17px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--blue);
+      font-weight: 900;
+    }
+
+    .basic h3 {
+      margin: 0 0 9px;
+      font-size: 18px;
+    }
+
+    .basic p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .report {
+      margin-top: 75px;
+      padding: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      border: 1px solid #f0c4b9;
+      border-radius: 18px;
+      background: #fff8f6;
+    }
+
+    .report h2 {
+      margin: 0 0 9px;
+      font-size: 27px;
+    }
+
+    .report p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .report a {
+      padding: 14px 18px;
+      flex: none;
+      border-radius: 9px;
+      color: #fff;
+      background: var(--red);
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    footer {
+      padding: 42px clamp(22px, 7vw, 105px);
+      border-top: 1px solid #e0e9f1;
+    }
+
+    footer p {
+      max-width: 850px;
+      color: #718299;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    footer a {
+      margin-right: 12px;
+      color: var(--blue);
+    }
+
+    @media (max-width: 850px) {
+      .guide-grid,
+      .basics-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tool-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .report {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .report a {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 650px) {
+      header {
+        align-items: flex-start;
+      }
+
+      nav {
+        gap: 13px;
+        font-size: 12px;
+      }
+
+      nav a:nth-child(2) {
+        display: none;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .tools,
+      .basics {
+        padding: 32px 24px;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "OfferSentry Job Scam Guides",
+    "description": "Practical guides for recognizing fake recruiters, fraudulent job offers, fake checks, and messaging-app job scams.",
+    "url": "https://offersentry.com/guides",
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": 3,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Fake Check Job Scams and the Equipment Trap",
+          "url": "https://offersentry.com/guides/fake-check-job-scam"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Telegram and WhatsApp Job Scams",
+          "url": "https://offersentry.com/guides/telegram-whatsapp-job-scam"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How to Verify a Recruiter Is Legitimate",
+          "url": "https://offersentry.com/guides/how-to-verify-recruiter"
+        }
+      ]
+    }
+  }
+  </script>
+</head>
+
+<body>
+<header>
+  <a class="brand" href="/">
+    <svg class="shield" viewBox="0 0 48 56" aria-hidden="true">
+      <path
+        d="M24 3.5 42 10v14c0 11.8-7.3 21.8-18 27C13.3 45.8 6 35.8 6 24V10l18-6.5Z"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="3"
+      />
+      <path
+        d="m15.5 27 5.7 5.7L33 20.5"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="3.5"
+      />
+    </svg>
+
+    OfferSentry
+  </a>
+
+  <nav aria-label="Main navigation">
+    <a href="/">Message Checker</a>
+    <a href="/tools/recruiter-checker.html">Recruiter Checker</a>
+    <a href="/guides/" aria-current="page">Scam Guides</a>
+    <a href="/about.html">About</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <p class="eyebrow">OfferSentry learning center</p>
+
+  <h1>Job Scam Guides</h1>
+
+  <p class="hero-description">
+    Understand the tactics behind fake recruiters, fraudulent checks,
+    messaging-app offers, and other job scams before they cost you money or
+    personal information.
+  </p>
+
+  <div class="hero-actions">
+    <a class="primary-button" href="/">
+      Check a suspicious message
+    </a>
+
+    <a
+      class="secondary-button"
+      href="/tools/recruiter-checker.html"
+    >
+      Verify a recruiter
+    </a>
+  </div>
+</section>
+
+<main>
+  <section aria-labelledby="latest-guides">
+    <div class="section-heading">
+      <p class="eyebrow">Practical safety resources</p>
+
+      <h2 id="latest-guides">Latest guides</h2>
+
+      <p>
+        Each guide explains how a scam works, the warning signs to recognize,
+        and the steps to take if you have already responded.
+      </p>
+    </div>
+
+    <div class="guide-grid">
+      <article class="guide-card">
+        <span class="tag">Fake checks</span>
+
+        <h2>
+          <a href="/guides/fake-check-job-scam.html">
+            Fake Check Job Scams and the Equipment Trap
+          </a>
+        </h2>
+
+        <p>
+          Learn why a deposited check can appear legitimate before being
+          reversed and how fake employers use equipment purchases to steal
+          real money.
+        </p>
+
+        <div class="card-footer">
+          <a
+            class="read-more"
+            href="/guides/fake-check-job-scam.html"
+          >
+            Read the guide →
+          </a>
+
+          <span class="read-time">Approximately 8 minutes</span>
+        </div>
+      </article>
+
+      <article class="guide-card">
+        <span class="tag">Messaging apps</span>
+
+        <h2>
+          <a href="/guides/telegram-whatsapp-job-scam.html">
+            Telegram and WhatsApp Job Scams
+          </a>
+        </h2>
+
+        <p>
+          Recognize fake recruiter conversations and task scams that
+          eventually require money, cryptocurrency, or personal information.
+        </p>
+
+        <div class="card-footer">
+          <a
+            class="read-more"
+            href="/guides/telegram-whatsapp-job-scam.html"
+          >
+            Read the guide →
+          </a>
+
+          <span class="read-time">Approximately 8 minutes</span>
+        </div>
+      </article>
+
+      <article class="guide-card">
+        <span class="tag">Verification</span>
+
+        <h2>
+          <a href="/guides/how-to-verify-recruiter.html">
+            How to Verify a Recruiter Is Legitimate
+          </a>
+        </h2>
+
+        <p>
+          Use 10 practical checks to confirm the recruiter, company email,
+          website, job posting, and hiring process before responding.
+        </p>
+
+        <div class="card-footer">
+          <a
+            class="read-more"
+            href="/guides/how-to-verify-recruiter.html"
+          >
+            Read the guide →
+          </a>
+
+          <span class="read-time">Approximately 9 minutes</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="tools" aria-labelledby="free-tools">
+    <div class="tools-heading">
+      <p class="eyebrow">Free OfferSentry tools</p>
+
+      <h2 id="free-tools">Check before you respond</h2>
+
+      <p>
+        Use our browser-based tools as a first screening step, then verify the
+        employer independently.
+      </p>
+    </div>
+
+    <div class="tool-grid">
+      <article class="tool-card">
+        <h3>Job-offer message checker</h3>
+
+        <p>
+          Paste a recruiter message or job offer to review it for common scam
+          patterns. The text stays inside your browser.
+        </p>
+
+        <a href="/">Check the message</a>
+      </article>
+
+      <article class="tool-card">
+        <h3>Recruiter and domain checker</h3>
+
+        <p>
+          Compare the recruiter’s email, company website, and job-posting URL
+          for mismatches and lookalike-domain warning signs.
+        </p>
+
+        <a href="/tools/recruiter-checker.html">
+          Compare the domains
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <section class="basics" aria-labelledby="safety-basics">
+    <h2 id="safety-basics">Three rules that stop many job scams</h2>
+
+    <div class="basics-grid">
+      <article class="basic">
+        <span class="basic-number">1</span>
+
+        <h3>Verify independently</h3>
+
+        <p>
+          Find the company’s official website yourself and confirm both the
+          position and recruiter through a separate contact method.
+        </p>
+      </article>
+
+      <article class="basic">
+        <span class="basic-number">2</span>
+
+        <h3>Never pay to get paid</h3>
+
+        <p>
+          Do not send money, deposit checks for equipment, buy gift cards, or
+          purchase cryptocurrency to receive a job or earnings.
+        </p>
+      </article>
+
+      <article class="basic">
+        <span class="basic-number">3</span>
+
+        <h3>Protect sensitive information</h3>
+
+        <p>
+          Do not provide banking details, passwords, verification codes, or a
+          Social Security number to an unverified recruiter.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="report">
+    <div>
+      <h2>Think you encountered a job scam?</h2>
+
+      <p>
+        Save the messages, email addresses, telephone numbers, links, offer
+        letters, and payment instructions before blocking the sender.
+      </p>
+    </div>
+
+    <a
+      href="https://reportfraud.ftc.gov/"
+      target="_blank"
+      rel="noreferrer"
+    >
+      Report it to the FTC ↗
+    </a>
+  </section>
+</main>
+
+<footer>
+  <strong>OfferSentry</strong>
+
+  <p>
+    <a href="/">Checker</a>
+    <a href="/tools/recruiter-checker.html">Recruiter Checker</a>
+    <a href="/guides/">Scam Guides</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </p>
+
+  <p>
+    OfferSentry provides educational information, not legal, financial, or
+    cybersecurity advice. An automated result is not proof that an offer is
+    legitimate or fraudulent.
+  </p>
+</footer>
+</body>
+</html>
