@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact OfferSentry</title>
+  <meta name="description" content="Contact OfferSentry with questions, feedback, corrections, or partnership inquiries.">
+  <link rel="canonical" href="https://offersentry.com/contact.html">
+
+  <style>
+    :root {
+      --navy:#08234d;
+      --blue:#1769d2;
+      --light:#edf7ff;
+      --soft:#f5f9fd;
+      --muted:#49617d;
+      --border:#caddef;
+    }
+
+    * { box-sizing:border-box }
+
+    body {
+      margin:0;
+      color:var(--navy);
+      background:#fff;
+      font-family:Inter,Arial,sans-serif;
+    }
+
+    a { color:inherit }
+
+    header {
+      min-height:76px;
+      padding:12px clamp(20px,5vw,72px);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:25px;
+      border-bottom:1px solid #e2ebf3;
+    }
+
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:28px;
+      font-weight:800;
+      letter-spacing:-1px;
+      text-decoration:none;
+    }
+
+    .shield {
+      width:38px;
+      height:44px;
+      color:var(--blue);
+    }
+
+    nav {
+      display:flex;
+      gap:24px;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    nav a {
+      text-decoration:none;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color:var(--blue);
+    }
+
+    .hero {
+      padding:80px 22px;
+      text-align:center;
+      background:linear-gradient(#fff,var(--light));
+    }
+
+    .eyebrow {
+      margin:0 0 14px;
+      color:var(--blue);
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+    }
+
+    h1 {
+      margin:0;
+      font-size:clamp(42px,6vw,68px);
+      line-height:1.08;
+      letter-spacing:-3px;
+    }
+
+    .hero p {
+      max-width:700px;
+      margin:20px auto 0;
+      color:var(--muted);
+      font-size:19px;
+      line-height:1.65;
+    }
+
+    main {
+      width:min(1050px,calc(100% - 40px));
+      margin:65px auto 85px;
+    }
+
+    .contact-grid {
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:30px;
+    }
+
+    .contact-card,
+    .info-card {
+      padding:38px;
+      border:1px solid var(--border);
+      border-radius:22px;
+      background:#fff;
+      box-shadow:0 14px 42px #08234d0d;
+    }
+
+    .contact-card {
+      background:var(--light);
+    }
+
+    h2 {
+      margin:0 0 15px;
+      font-size:32px;
+      letter-spacing:-1px;
+    }
+
+    h3 {
+      margin:0 0 9px;
+      font-size:19px;
+    }
+
+    p,li {
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .email-button {
+      margin:12px 0 20px;
+      padding:17px 22px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:11px;
+      color:#fff;
+      background:var(--blue);
+      box-shadow:0 9px 22px #1769d233;
+      font-weight:800;
+      text-decoration:none;
+    }
+
+    .email-address {
+      display:block;
+      margin-top:2px;
+      color:var(--blue);
+      font-weight:700;
+      word-break:break-word;
+    }
+
+    ul {
+      padding-left:21px;
+    }
+
+    .warning {
+      margin-top:30px;
+      padding:25px;
+      border-left:5px solid #d4842c;
+      border-radius:10px;
+      background:#fff7eb;
+    }
+
+    .warning h3 {
+      color:#7e4815;
+    }
+
+    .warning p {
+      margin-bottom:0;
+      color:#704b26;
+    }
+
+    .report {
+      margin-top:30px;
+      padding:32px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:30px;
+      color:#fff;
+      background:var(--navy);
+      border-radius:20px;
+    }
+
+    .report h2 {
+      margin-bottom:8px;
+    }
+
+    .report p {
+      margin:0;
+      color:#c7d5e7;
+    }
+
+    .report a {
+      flex:none;
+      padding:16px 21px;
+      border-radius:10px;
+      color:var(--navy);
+      background:#fff;
+      font-weight:800;
+      text-decoration:none;
+    }
+
+    footer {
+      padding:42px clamp(22px,7vw,105px);
+      border-top:1px solid #e0e9f1;
+    }
+
+    footer a {
+      margin-right:18px;
+      font-size:13px;
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    footer p {
+      max-width:800px;
+      color:#718299;
+      font-size:12px;
+      line-height:1.6;
+    }
+
+    @media(max-width:760px) {
+      header {
+        align-items:flex-start;
+      }
+
+      nav {
+        gap:13px;
+        font-size:12px;
+      }
+
+      h1 {
+        letter-spacing:-2px;
+      }
+
+      .contact-grid {
+        grid-template-columns:1fr;
+      }
+
+      .contact-card,
+      .info-card {
+        padding:28px 23px;
+      }
+
+      .report {
+        align-items:flex-start;
+        flex-direction:column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <a class="brand" href="/">
+    <svg class="shield" viewBox="0 0 48 56" aria-hidden="true">
+      <path d="M24 3.5 42 10v14c0 11.8-7.3 21.8-18 27C13.3 45.8 6 35.8 6 24V10l18-6.5Z"
+        fill="none" stroke="currentColor" stroke-width="3"/>
+      <path d="m15.5 27 5.7 5.7L33 20.5"
+        fill="none" stroke="currentColor" stroke-linecap="round"
+        stroke-linejoin="round" stroke-width="3.5"/>
+    </svg>
+    OfferSentry
+  </a>
+
+  <nav aria-label="Main navigation">
+    <a href="/">Checker</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html" aria-current="page">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <p class="eyebrow">Contact OfferSentry</p>
+  <h1>Questions or feedback?</h1>
+  <p>
+    Contact us about corrections, website feedback, accessibility concerns,
+    partnerships, or general questions about OfferSentry.
+  </p>
+</section>
+
+<main>
+  <div class="contact-grid">
+    <section class="contact-card">
+      <h2>Email us</h2>
+      <p>
+        Use the button below to open your email application and contact the
+        OfferSentry team.
+      </p>
+
+      <a class="email-button"
+        href="mailto:contact@offersentry.com?subject=OfferSentry%20inquiry">
+        Email OfferSentry
+      </a>
+
+      <span class="email-address">contact@offersentry.com</span>
+
+      <p>
+        Please use a clear subject line and include enough context for us to
+        understand your question. Response times may vary.
+      </p>
+    </section>
+
+    <aside class="info-card">
+      <h2>Good reasons to contact us</h2>
+
+      <ul>
+        <li>Report incorrect or unclear website information</li>
+        <li>Suggest a job-scam topic or guide</li>
+        <li>Share accessibility or technical feedback</li>
+        <li>Discuss an educational or career-center partnership</li>
+        <li>Ask a general question about OfferSentry</li>
+      </ul>
+    </aside>
+  </div>
+
+  <section class="warning">
+    <h3>Do not email sensitive personal information</h3>
+    <p>
+      Do not send passwords, Social Security numbers, banking information,
+      identification documents, authentication codes, or complete copies of
+      private conversations. Remove unnecessary personal details before
+      sharing an example.
+    </p>
+  </section>
+
+  <section class="report">
+    <div>
+      <h2>Need to report a scam?</h2>
+      <p>
+        OfferSentry is not a law-enforcement agency and cannot investigate
+        individual scammers. Reports in the United States can be submitted
+        directly to the Federal Trade Commission.
+      </p>
+    </div>
+
+    <a href="https://reportfraud.ftc.gov/" target="_blank" rel="noreferrer">
+      Report to the FTC ↗
+    </a>
+  </section>
+</main>
+
+<footer>
+  <a href="/">Checker</a>
+  <a href="/about.html">About</a>
+  <a href="/contact.html">Contact</a>
+  <a href="/privacy.html">Privacy</a>
+
+  <p>
+    OfferSentry provides educational information, not legal or financial advice.
+    An automated result is not proof that an offer is legitimate or fraudulent.
+  </p>
+</footer>
+</body>
+</html>
