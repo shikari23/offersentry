@@ -1,0 +1,901 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Recruiter Email & Company Domain Checker | OfferSentry</title>
+  <meta name="description" content="Compare a recruiter email, company website, and job posting URL for domain mismatches and common impersonation warning signs. Free and private.">
+  <link rel="canonical" href="https://offersentry.com/tools/recruiter-checker">
+
+  <style>
+    :root {
+      --navy: #08234d;
+      --blue: #1769d2;
+      --light: #edf7ff;
+      --soft: #f5f9fd;
+      --muted: #49617d;
+      --border: #caddef;
+      --green: #278a5b;
+      --amber: #a56100;
+      --red: #b93221;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--navy);
+      background: #fff;
+      font-family: Inter, Arial, sans-serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    header {
+      min-height: 76px;
+      padding: 12px clamp(20px, 5vw, 72px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      border-bottom: 1px solid #e2ebf3;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      text-decoration: none;
+    }
+
+    .shield {
+      width: 38px;
+      height: 44px;
+      color: var(--blue);
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    nav a {
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--blue);
+    }
+
+    .hero {
+      padding: 58px 20px 48px;
+      text-align: center;
+      background: linear-gradient(#fff 35%, #f0f7fd);
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 850px;
+      margin: 0 auto;
+      font-size: clamp(40px, 5vw, 64px);
+      line-height: 1.08;
+      letter-spacing: -3px;
+    }
+
+    .subhead {
+      max-width: 700px;
+      margin: 18px auto 0;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 20px);
+      line-height: 1.55;
+    }
+
+    .tool {
+      width: min(850px, calc(100% - 36px));
+      margin: 0 auto 70px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: 0 18px 55px #08234d1a;
+    }
+
+    .field {
+      margin-bottom: 20px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .field small {
+      display: block;
+      margin-top: 7px;
+      color: #6c7f96;
+      line-height: 1.45;
+    }
+
+    input {
+      width: 100%;
+      min-height: 54px;
+      padding: 14px 16px;
+      color: var(--navy);
+      border: 2px solid var(--border);
+      border-radius: 11px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px #1769d220;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    button {
+      width: 100%;
+      min-height: 60px;
+      border: 0;
+      border-radius: 11px;
+      color: #fff;
+      background: linear-gradient(135deg, #1769d2, #0d55b5);
+      font-size: 18px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    button:hover {
+      filter: brightness(.97);
+    }
+
+    .privacy-note {
+      margin: 16px 0 0;
+      color: #6c7f96;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .privacy-note::before {
+      content: "✓";
+      margin-right: 6px;
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    .results {
+      margin-top: 30px;
+      padding-top: 28px;
+      border-top: 1px solid #dce8f2;
+    }
+
+    .results[hidden] {
+      display: none;
+    }
+
+    .result-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .result-header h2 {
+      margin: 4px 0 8px;
+      font-size: 32px;
+    }
+
+    .result-header p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .badge {
+      flex: none;
+      padding: 9px 13px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .low .badge {
+      color: #14603d;
+      background: #e5f6ed;
+    }
+
+    .medium .badge {
+      color: #754600;
+      background: #fff2d7;
+    }
+
+    .high .badge {
+      color: #922719;
+      background: #ffebe7;
+    }
+
+    .checks {
+      margin-top: 24px;
+      display: grid;
+      gap: 13px;
+    }
+
+    .check {
+      padding: 17px;
+      display: flex;
+      gap: 13px;
+      border: 1px solid #dae6f0;
+      border-radius: 13px;
+      background: #fff;
+    }
+
+    .mark {
+      width: 28px;
+      height: 28px;
+      flex: none;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      font-weight: 900;
+    }
+
+    .check.good .mark {
+      color: #14603d;
+      background: #e5f6ed;
+    }
+
+    .check.warn .mark {
+      color: #754600;
+      background: #fff2d7;
+    }
+
+    .check.danger .mark {
+      color: #922719;
+      background: #ffebe7;
+    }
+
+    .check h3 {
+      margin: 2px 0 5px;
+      font-size: 16px;
+    }
+
+    .check p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .next-steps {
+      padding: 70px clamp(22px, 7vw, 105px);
+      background: var(--soft);
+    }
+
+    .next-steps-inner {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .next-steps h2 {
+      margin: 0 0 25px;
+      font-size: clamp(30px, 4vw, 46px);
+      letter-spacing: -2px;
+    }
+
+    .step-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .step {
+      padding: 24px;
+      border: 1px solid #d9e6f1;
+      border-radius: 16px;
+      background: #fff;
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 9px;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .cta {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      color: #fff;
+      background: var(--navy);
+      border-radius: 20px;
+    }
+
+    .cta h2 {
+      margin: 0 0 8px;
+    }
+
+    .cta p {
+      margin: 0;
+      color: #c7d5e7;
+    }
+
+    .cta a {
+      padding: 15px 20px;
+      flex: none;
+      border-radius: 10px;
+      color: var(--navy);
+      background: #fff;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    footer {
+      padding: 42px clamp(22px, 7vw, 105px);
+      border-top: 1px solid #e0e9f1;
+    }
+
+    footer p {
+      max-width: 850px;
+      color: #718299;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 720px) {
+      header {
+        align-items: flex-start;
+      }
+
+      nav {
+        gap: 13px;
+        font-size: 12px;
+      }
+
+      nav a:nth-child(2) {
+        display: none;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .tool {
+        padding: 24px;
+      }
+
+      .two-column,
+      .step-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .result-header,
+      .cta {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .cta {
+        margin: 45px 18px;
+      }
+
+      .cta a {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <a class="brand" href="/">
+    <svg class="shield" viewBox="0 0 48 56" aria-hidden="true">
+      <path d="M24 3.5 42 10v14c0 11.8-7.3 21.8-18 27C13.3 45.8 6 35.8 6 24V10l18-6.5Z" fill="none" stroke="currentColor" stroke-width="3"/>
+      <path d="m15.5 27 5.7 5.7L33 20.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"/>
+    </svg>
+    OfferSentry
+  </a>
+
+  <nav>
+    <a href="/">Message Checker</a>
+    <a href="/#guides">Scam Guides</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <p class="eyebrow">Free recruiter verification tool</p>
+    <h1>Does the recruiter’s email match the company?</h1>
+    <p class="subhead">
+      Compare the recruiter’s email, company website, and job link for common
+      impersonation and lookalike-domain warning signs.
+    </p>
+  </section>
+
+  <section class="tool" aria-labelledby="tool-title">
+    <form id="verifier" novalidate>
+      <h2 id="tool-title">Check the recruiter</h2>
+
+      <div class="field">
+        <label for="email">Recruiter email address</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          placeholder="recruiter@company.com"
+          required
+        >
+      </div>
+
+      <div class="two-column">
+        <div class="field">
+          <label for="companyWebsite">Official company website</label>
+          <input
+            id="companyWebsite"
+            name="companyWebsite"
+            type="text"
+            inputmode="url"
+            placeholder="company.com"
+            required
+          >
+          <small>Find this independently—not through the recruiter’s link.</small>
+        </div>
+
+        <div class="field">
+          <label for="jobUrl">
+            Job posting URL <span aria-hidden="true">(optional)</span>
+          </label>
+          <input
+            id="jobUrl"
+            name="jobUrl"
+            type="text"
+            inputmode="url"
+            placeholder="https://company.com/careers/job"
+          >
+          <small>Use the page where the position was advertised.</small>
+        </div>
+      </div>
+
+      <button type="submit">Compare domains</button>
+     <p class="privacy-note">
+  Privacy: Your entries are analyzed locally in your browser. The recruiter
+  email, company website, and job URL are not sent to OfferSentry or stored
+  in a database. Do not enter passwords, Social Security numbers, banking
+  information, or other sensitive data.
+    </p>
+    </form>
+
+    <section class="results" id="results" hidden aria-live="polite">
+      <div class="result-header">
+        <div>
+          <p class="eyebrow">Automated comparison</p>
+          <h2 id="resultTitle"></h2>
+          <p id="resultSummary"></p>
+        </div>
+
+        <span class="badge" id="riskBadge"></span>
+      </div>
+
+      <div class="checks" id="checks"></div>
+    </section>
+  </section>
+
+  <section class="next-steps">
+    <div class="next-steps-inner">
+      <h2>Three checks technology cannot replace</h2>
+
+      <div class="step-grid">
+        <article class="step">
+          <strong>1. Find the job independently</strong>
+          <p>
+            Open the company’s official website yourself and confirm the same
+            position appears on its careers page.
+          </p>
+        </article>
+
+        <article class="step">
+          <strong>2. Contact the company</strong>
+          <p>
+            Use a phone number or email from the official website—not contact
+            information supplied by the recruiter.
+          </p>
+        </article>
+
+        <article class="step">
+          <strong>3. Never pay to get paid</strong>
+          <p>
+            Do not send money, buy gift cards, deposit a check for equipment,
+            or return part of a payment.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div>
+      <h2>Have the recruiter’s message?</h2>
+      <p>Run it through OfferSentry’s job-offer warning-sign checker.</p>
+    </div>
+
+    <a href="/">Check the message</a>
+  </section>
+</main>
+
+<footer>
+  <strong>OfferSentry</strong>
+
+  <p>
+    <a href="/about.html">About</a> ·
+    <a href="/contact.html">Contact</a> ·
+    <a href="/privacy.html">Privacy</a> ·
+    <a href="/terms.html">Terms</a>
+  </p>
+
+  <p>
+    OfferSentry provides educational information, not legal, financial, or
+    cybersecurity advice. A matching domain does not prove that a recruiter
+    or job is legitimate.
+  </p>
+</footer>
+
+<script>
+  const personalEmailDomains = new Set([
+    "gmail.com",
+    "googlemail.com",
+    "yahoo.com",
+    "hotmail.com",
+    "outlook.com",
+    "live.com",
+    "icloud.com",
+    "aol.com",
+    "proton.me",
+    "protonmail.com",
+    "mail.com",
+    "gmx.com",
+    "gmx.net",
+    "zoho.com"
+  ]);
+
+  const commonSecondLevelSuffixes = new Set([
+    "co.uk",
+    "org.uk",
+    "ac.uk",
+    "com.au",
+    "net.au",
+    "org.au",
+    "co.nz",
+    "co.in",
+    "com.br",
+    "com.mx",
+    "co.jp",
+    "co.za"
+  ]);
+
+  function cleanHost(value) {
+    const raw = value.trim().toLowerCase();
+
+    if (!raw) {
+      return "";
+    }
+
+    try {
+      const withProtocol = /^[a-z][a-z0-9+.-]*:\/\//i.test(raw)
+        ? raw
+        : `https://${raw}`;
+
+      return new URL(withProtocol)
+        .hostname
+        .replace(/^www\./, "")
+        .replace(/\.$/, "");
+    } catch {
+      return "";
+    }
+  }
+
+  function registrableDomain(host) {
+    const labels = host.split(".").filter(Boolean);
+
+    if (labels.length < 2) {
+      return host;
+    }
+
+    const lastTwo = labels.slice(-2).join(".");
+
+    return commonSecondLevelSuffixes.has(lastTwo) && labels.length >= 3
+      ? labels.slice(-3).join(".")
+      : lastTwo;
+  }
+
+  function brandLabel(domain) {
+    return registrableDomain(domain)
+      .split(".")[0]
+      .replace(/[^a-z0-9]/g, "");
+  }
+
+  function editDistance(a, b) {
+    const row = Array.from(
+      { length: b.length + 1 },
+      (_, index) => index
+    );
+
+    for (let i = 1; i <= a.length; i += 1) {
+      let diagonal = row[0];
+      row[0] = i;
+
+      for (let j = 1; j <= b.length; j += 1) {
+        const above = row[j];
+
+        row[j] = Math.min(
+          row[j] + 1,
+          row[j - 1] + 1,
+          diagonal + (a[i - 1] === b[j - 1] ? 0 : 1)
+        );
+
+        diagonal = above;
+      }
+    }
+
+    return row[b.length];
+  }
+
+  function addCheck(items, severity, title, detail) {
+    items.push({
+      severity,
+      title,
+      detail
+    });
+  }
+
+  function renderChecks(items) {
+    const container = document.querySelector("#checks");
+    container.replaceChildren();
+
+    items.forEach(item => {
+      const article = document.createElement("article");
+      article.className = `check ${item.severity}`;
+
+      const mark = document.createElement("span");
+      mark.className = "mark";
+      mark.textContent = item.severity === "good" ? "✓" : "!";
+
+      const copy = document.createElement("div");
+      const heading = document.createElement("h3");
+      const paragraph = document.createElement("p");
+
+      heading.textContent = item.title;
+      paragraph.textContent = item.detail;
+
+      copy.append(heading, paragraph);
+      article.append(mark, copy);
+      container.append(article);
+    });
+  }
+
+  document
+    .querySelector("#verifier")
+    .addEventListener("submit", event => {
+      event.preventDefault();
+
+      const email = document
+        .querySelector("#email")
+        .value
+        .trim()
+        .toLowerCase();
+
+      const companyHost = cleanHost(
+        document.querySelector("#companyWebsite").value
+      );
+
+      const jobValue = document
+        .querySelector("#jobUrl")
+        .value
+        .trim();
+
+      const jobHost = cleanHost(jobValue);
+      const emailMatch = email.match(/^[^\s@]+@([^\s@]+)$/);
+
+      if (!emailMatch || !companyHost || (jobValue && !jobHost)) {
+        alert(
+          "Please enter a valid recruiter email, company website, and job URL if provided."
+        );
+        return;
+      }
+
+      const emailHost = emailMatch[1].replace(/\.$/, "");
+      const emailRoot = registrableDomain(emailHost);
+      const companyRoot = registrableDomain(companyHost);
+      const items = [];
+
+      let score = 0;
+
+      if (personalEmailDomains.has(emailRoot)) {
+        score += 3;
+
+        addCheck(
+          items,
+          "danger",
+          "Personal email service detected",
+          `The recruiter is using ${emailRoot}, not the company’s official domain. Independently contact the company before responding.`
+        );
+      } else if (emailRoot === companyRoot) {
+        addCheck(
+          items,
+          "good",
+          "Email and company domains match",
+          `Both use ${companyRoot}. This is encouraging, but email addresses can still be spoofed or compromised.`
+        );
+      } else {
+        score += 2;
+
+        addCheck(
+          items,
+          "warn",
+          "Email domain does not match",
+          `The email uses ${emailRoot}, while the company website uses ${companyRoot}. Ask the company to confirm the recruiter independently.`
+        );
+      }
+
+      const distance = editDistance(
+        brandLabel(emailRoot),
+        brandLabel(companyRoot)
+      );
+
+      if (
+        emailRoot !== companyRoot &&
+        distance > 0 &&
+        distance <= 2 &&
+        brandLabel(companyRoot).length >= 5
+      ) {
+        score += 3;
+
+        addCheck(
+          items,
+          "danger",
+          "Possible lookalike domain",
+          `${emailRoot} is similar to ${companyRoot} but is not the same domain. Small spelling changes are a common impersonation tactic.`
+        );
+      }
+
+      if (
+        emailHost.includes("xn--") ||
+        companyHost.includes("xn--") ||
+        jobHost.includes("xn--")
+      ) {
+        score += 3;
+
+        addCheck(
+          items,
+          "danger",
+          "Internationalized domain encoding detected",
+          "One of the domains contains Punycode. It may be legitimate, but it can also be used to disguise lookalike characters."
+        );
+      }
+
+      if ((emailRoot.match(/-/g) || []).length >= 2) {
+        score += 1;
+
+        addCheck(
+          items,
+          "warn",
+          "Unusually hyphenated email domain",
+          `${emailRoot} contains several hyphens. Verify the exact spelling against the company’s official website.`
+        );
+      }
+
+      if (jobValue) {
+        const jobRoot = registrableDomain(jobHost);
+
+        if (jobRoot === companyRoot) {
+          addCheck(
+            items,
+            "good",
+            "Job link uses the company domain",
+            `The posting appears under ${companyRoot}. Confirm that the page is reachable from the company’s careers section.`
+          );
+        } else {
+          score += 2;
+
+          addCheck(
+            items,
+            "warn",
+            "Job link uses a different domain",
+            `The posting is hosted on ${jobRoot}, not ${companyRoot}. Some employers use legitimate job platforms, so verify the link from the official careers page.`
+          );
+        }
+
+        if (!/^https:\/\//i.test(jobValue)) {
+          score += 1;
+
+          addCheck(
+            items,
+            "warn",
+            "Job link was not entered as HTTPS",
+            "Confirm that the real posting uses an encrypted https:// address before entering any information."
+          );
+        }
+      }
+
+      addCheck(
+        items,
+        "good",
+        "Independent confirmation is still required",
+        "Use contact information found on the official company website to confirm both the position and the recruiter."
+      );
+
+      const level =
+        score >= 5
+          ? "High"
+          : score >= 2
+            ? "Medium"
+            : "Low";
+
+      const results = document.querySelector("#results");
+
+      results.className = `results ${level.toLowerCase()}`;
+
+      document.querySelector("#resultTitle").textContent =
+        level === "Low"
+          ? "No obvious domain mismatch"
+          : `${level} level of concern`;
+
+      document.querySelector("#resultSummary").textContent =
+        level === "Low"
+          ? "The domains passed these basic comparisons. That does not prove the recruiter or job is legitimate."
+          : "One or more domain signals require independent verification before you respond or share information.";
+
+      document.querySelector("#riskBadge").textContent =
+        `${level} concern`;
+
+      renderChecks(items);
+
+      results.hidden = false;
+
+      results.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    });
+</script>
+</body>
+</html>
