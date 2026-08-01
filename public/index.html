@@ -339,7 +339,27 @@
 
     .card h3 { margin:0 0 10px }
     .card p { margin:0;color:var(--muted);line-height:1.65 }
+    .guide-title {
+  color: var(--navy);
+  text-decoration: none;
+}
 
+.guide-title:hover {
+  color: var(--blue);
+}
+
+.read-more {
+  margin-top: 18px;
+  display: inline-block;
+  color: var(--blue);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
     .guides { background:var(--soft) }
 
     .tag {
@@ -516,10 +536,23 @@
 
     <div class="grid">
       <article class="card">
-        <span class="tag">Fake checks</span>
-        <h3>They send money for “equipment”</h3>
-        <p>The check may initially appear in your account, then be reversed after you send real money elsewhere.</p>
-      </article>
+  <span class="tag">Fake checks</span>
+
+  <h3>
+    <a class="guide-title" href="/guides/fake-check-job-scam.html">
+      Fake Check Job Scams and the Equipment Trap
+    </a>
+  </h3>
+
+  <p>
+    Learn why a deposited check can appear legitimate before being reversed,
+    and what to do if a recruiter sends one.
+  </p>
+
+  <a class="read-more" href="/guides/fake-check-job-scam.html">
+    Read the guide →
+  </a>
+</article>
 
       <article class="card">
         <span class="tag">Impersonation</span>
