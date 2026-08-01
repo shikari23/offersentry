@@ -1,0 +1,1230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Telegram and WhatsApp Job Scams: Warning Signs | OfferSentry</title>
+
+  <meta
+    name="description"
+    content="Learn how Telegram and WhatsApp job scams work, recognize fake recruiters and task scams, and find out what to do if you responded, paid, or shared personal information."
+  >
+
+  <link
+    rel="canonical"
+    href="https://offersentry.com/guides/telegram-whatsapp-job-scam"
+  >
+
+  <style>
+    :root {
+      --navy: #08234d;
+      --blue: #1769d2;
+      --light: #edf7ff;
+      --soft: #f5f9fd;
+      --muted: #49617d;
+      --border: #caddef;
+      --green: #278a5b;
+      --red: #b93221;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--navy);
+      background: #fff;
+      font-family: Inter, Arial, sans-serif;
+    }
+
+    a {
+      color: var(--blue);
+    }
+
+    header {
+      min-height: 76px;
+      padding: 12px clamp(20px, 5vw, 72px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      border-bottom: 1px solid #e2ebf3;
+      background: #fff;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--navy);
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      text-decoration: none;
+    }
+
+    .shield {
+      width: 38px;
+      height: 44px;
+      color: var(--blue);
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    nav a {
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--blue);
+    }
+
+    .breadcrumb {
+      width: min(1050px, calc(100% - 40px));
+      margin: 24px auto 0;
+      color: #6c7f96;
+      font-size: 13px;
+    }
+
+    .breadcrumb a {
+      text-decoration: none;
+    }
+
+    .hero {
+      padding: 55px 20px 65px;
+      background: linear-gradient(#fff, var(--light));
+    }
+
+    .hero-inner {
+      width: min(900px, 100%);
+      margin: auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 15px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(41px, 6vw, 68px);
+      line-height: 1.08;
+      letter-spacing: -3px;
+    }
+
+    .intro {
+      max-width: 760px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.65;
+    }
+
+    .article-meta {
+      margin-top: 22px;
+      color: #718299;
+      font-size: 13px;
+    }
+
+    .layout {
+      width: min(1100px, calc(100% - 40px));
+      margin: 60px auto 90px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 270px;
+      align-items: start;
+      gap: 55px;
+    }
+
+    article h2 {
+      margin: 58px 0 18px;
+      font-size: clamp(29px, 4vw, 39px);
+      line-height: 1.18;
+      letter-spacing: -1.5px;
+    }
+
+    article h2:first-of-type {
+      margin-top: 0;
+    }
+
+    article h3 {
+      margin: 31px 0 10px;
+      font-size: 21px;
+    }
+
+    article p,
+    article li {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    article li {
+      margin-bottom: 10px;
+    }
+
+    article strong {
+      color: var(--navy);
+    }
+
+    .quick-answer {
+      margin-bottom: 42px;
+      padding: 28px;
+      border-left: 5px solid var(--red);
+      border-radius: 12px;
+      background: #fff3ef;
+    }
+
+    .quick-answer h2 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      letter-spacing: -.5px;
+    }
+
+    .quick-answer p {
+      margin: 0;
+      color: #733226;
+    }
+
+    .warning {
+      margin: 30px 0;
+      padding: 24px;
+      border: 1px solid #f0c4b9;
+      border-radius: 14px;
+      background: #fff8f6;
+    }
+
+    .warning strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--red);
+      font-size: 18px;
+    }
+
+    .warning p {
+      margin: 0;
+    }
+
+    .safe-note {
+      margin: 30px 0;
+      padding: 24px;
+      border: 1px solid #bcdacb;
+      border-radius: 14px;
+      background: #effaf4;
+    }
+
+    .safe-note strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #14603d;
+      font-size: 18px;
+    }
+
+    .safe-note p {
+      margin: 0;
+    }
+
+    .timeline {
+      margin: 28px 0;
+      display: grid;
+      gap: 15px;
+    }
+
+    .timeline-step {
+      padding: 22px;
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 15px;
+      border: 1px solid #d9e6f1;
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--blue);
+      font-weight: 900;
+    }
+
+    .timeline-step h3 {
+      margin: 2px 0 6px;
+      font-size: 18px;
+    }
+
+    .timeline-step p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .red-flags {
+      padding: 28px;
+      border-radius: 16px;
+      background: var(--soft);
+    }
+
+    .red-flags ul {
+      margin-bottom: 0;
+      padding-left: 22px;
+    }
+
+    .example {
+      margin: 28px 0;
+      padding: 26px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #fbfdff;
+    }
+
+    .example-label {
+      margin: 0 0 12px;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .example blockquote {
+      margin: 0;
+      color: #354f6e;
+      font-size: 16px;
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    .action-list {
+      counter-reset: action;
+      padding: 0;
+      list-style: none;
+    }
+
+    .action-list li {
+      position: relative;
+      min-height: 48px;
+      padding-left: 62px;
+      margin-bottom: 22px;
+    }
+
+    .action-list li::before {
+      counter-increment: action;
+      content: counter(action);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--navy);
+      font-weight: 900;
+    }
+
+    .faq {
+      border-top: 1px solid #dce7f0;
+    }
+
+    .faq-item {
+      padding: 25px 0;
+      border-bottom: 1px solid #dce7f0;
+    }
+
+    .faq-item h3 {
+      margin: 0 0 10px;
+    }
+
+    .faq-item p {
+      margin: 0;
+    }
+
+    .sources {
+      margin-top: 55px;
+      padding: 26px;
+      border-radius: 15px;
+      background: var(--soft);
+    }
+
+    .sources h2 {
+      margin: 0 0 15px;
+      font-size: 24px;
+    }
+
+    .sources li {
+      font-size: 15px;
+    }
+
+    aside {
+      position: sticky;
+      top: 25px;
+    }
+
+    .side-card {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 12px 35px #08234d12;
+    }
+
+    .side-card + .side-card {
+      margin-top: 20px;
+    }
+
+    .side-card h2 {
+      margin: 0 0 14px;
+      font-size: 20px;
+    }
+
+    .side-card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .side-card ul {
+      padding-left: 18px;
+    }
+
+    .side-card li {
+      margin-bottom: 9px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .side-card a.button,
+    .side-card a.secondary-button {
+      margin-top: 12px;
+      padding: 14px;
+      display: block;
+      border-radius: 9px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .side-card a.button {
+      color: #fff;
+      background: var(--blue);
+    }
+
+    .side-card a.secondary-button {
+      color: var(--blue);
+      background: #fff;
+      border: 1px solid var(--border);
+    }
+
+    .cta {
+      margin: 65px auto;
+      padding: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      color: #fff;
+      background: var(--navy);
+      border-radius: 20px;
+    }
+
+    .cta h2 {
+      margin: 0 0 10px;
+      color: #fff;
+      font-size: 29px;
+    }
+
+    .cta p {
+      margin: 0;
+      color: #c7d5e7;
+      font-size: 15px;
+    }
+
+    .cta a {
+      padding: 15px 20px;
+      flex: none;
+      border-radius: 10px;
+      color: var(--navy);
+      background: #fff;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    footer {
+      padding: 42px clamp(22px, 7vw, 105px);
+      border-top: 1px solid #e0e9f1;
+    }
+
+    footer p {
+      max-width: 850px;
+      color: #718299;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    footer a {
+      margin-right: 12px;
+    }
+
+    @media (max-width: 850px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      aside {
+        position: static;
+      }
+
+      .cta {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .cta a {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 650px) {
+      header {
+        align-items: flex-start;
+      }
+
+      nav {
+        gap: 13px;
+        font-size: 12px;
+      }
+
+      nav a:nth-child(2) {
+        display: none;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .timeline-step {
+        grid-template-columns: 36px 1fr;
+      }
+
+      .step-number {
+        width: 36px;
+        height: 36px;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Telegram and WhatsApp Job Scams: Warning Signs and Examples",
+        "description": "Learn how fake recruiters and task scams use Telegram and WhatsApp, how to recognize the warning signs, and what to do if you responded.",
+        "datePublished": "2026-08-01",
+        "dateModified": "2026-08-01",
+        "author": {
+          "@type": "Organization",
+          "name": "OfferSentry"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "OfferSentry",
+          "url": "https://offersentry.com"
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://offersentry.com/guides/telegram-whatsapp-job-scam"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Are all job messages on WhatsApp or Telegram scams?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The platform alone does not prove that a message is fraudulent. However, an unexpected generic offer, text-only hiring, missing company details, payment requests, and demands for sensitive information are serious warning signs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a task job scam?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A task scam offers simple online work such as rating products, liking content, or completing optimization tasks. The platform displays fake earnings and later requires the victim to deposit real money to continue or withdraw."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What should I do if I responded to a fake recruiter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Stop communicating, do not click additional links, save evidence, block and report the account, and independently contact the company being impersonated."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What if I shared my Social Security number?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Visit IdentityTheft.gov for a personalized recovery plan and take the recommended steps to protect your identity and financial accounts."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+<header>
+  <a class="brand" href="/">
+    <svg class="shield" viewBox="0 0 48 56" aria-hidden="true">
+      <path
+        d="M24 3.5 42 10v14c0 11.8-7.3 21.8-18 27C13.3 45.8 6 35.8 6 24V10l18-6.5Z"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="3"
+      />
+      <path
+        d="m15.5 27 5.7 5.7L33 20.5"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="3.5"
+      />
+    </svg>
+
+    OfferSentry
+  </a>
+
+  <nav aria-label="Main navigation">
+    <a href="/">Message Checker</a>
+    <a href="/tools/recruiter-checker.html">Recruiter Checker</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="breadcrumb">
+  <a href="/">Home</a> ›
+  <a href="/#guides">Scam Guides</a> ›
+  Telegram and WhatsApp Job Scams
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Job scam guide</p>
+
+    <h1>Telegram and WhatsApp Job Scams</h1>
+
+    <p class="intro">
+      An unexpected message promises easy remote work, high daily pay, or
+      commissions for completing simple online tasks. Then the supposed job
+      asks for your money or personal information.
+    </p>
+
+    <p class="article-meta">
+      Published August 1, 2026 · Approximately 8 minutes
+    </p>
+  </div>
+</section>
+
+<div class="layout">
+  <article>
+    <div class="quick-answer">
+      <h2>The quick answer</h2>
+
+      <p>
+        An unexpected Telegram or WhatsApp job offer should be treated
+        cautiously—especially when the sender provides few job details,
+        conducts the entire interview through chat, promises unusually high
+        pay, or eventually asks you to deposit money, buy cryptocurrency,
+        accept a check, or share sensitive information.
+      </p>
+    </div>
+
+    <h2>How these job scams usually begin</h2>
+
+    <p>
+      The message may arrive through WhatsApp, Telegram, SMS, social media, or
+      another messaging platform. The sender claims to be a recruiter,
+      staffing agent, hiring manager, or representative of a company you may
+      recognize.
+    </p>
+
+    <p>
+      Some messages are intentionally vague. They mention a remote position,
+      flexible schedule, or daily pay but do not identify the exact job,
+      company, location, qualifications, or hiring process.
+    </p>
+
+    <p>
+      The sender may ask you to reply with a word such as “YES,” “INFO,” or
+      “INTERESTED.” The goal is to confirm that your number is active and begin
+      a conversation.
+    </p>
+
+    <div class="warning">
+      <strong>Never pay to receive a job or withdraw earnings</strong>
+
+      <p>
+        A request to deposit your own money, purchase cryptocurrency, pay for
+        training, unlock tasks, or release supposed earnings is a major sign
+        that the opportunity is fraudulent.
+      </p>
+    </div>
+
+    <h2>Two common versions of the scam</h2>
+
+    <h3>1. The fake recruiter scam</h3>
+
+    <p>
+      The scammer impersonates a real business, recruiter, or staffing agency.
+      They may copy employee names, company logos, job descriptions, profile
+      photographs, and offer-letter templates.
+    </p>
+
+    <p>
+      The hiring process moves unusually fast. You may be offered the job
+      without a meaningful interview, or the entire interview may happen
+      through typed questions in a messaging application.
+    </p>
+
+    <p>
+      After you are supposedly hired, the scammer asks for something valuable:
+      money, banking information, a Social Security number, identification
+      documents, account credentials, or a deposited check.
+    </p>
+
+    <h3>2. The task or optimization scam</h3>
+
+    <p>
+      A task scam offers simple online work such as rating products, liking
+      videos, reviewing images, boosting products, processing orders, or
+      completing “optimization” tasks.
+    </p>
+
+    <p>
+      You are directed to an application or website that displays commissions
+      and an increasing account balance. Those displayed earnings are not real.
+    </p>
+
+    <p>
+      The scammer may initially send a small payment to gain your trust. Later,
+      the platform claims that you must deposit your own money—often through
+      cryptocurrency—to unlock another set of tasks or withdraw your supposed
+      earnings.
+    </p>
+
+    <p>
+      Depositing more money does not solve the problem. The platform may
+      continue inventing fees, negative balances, taxes, account upgrades, or
+      verification costs.
+    </p>
+
+    <h2>How the conversation develops</h2>
+
+    <div class="timeline">
+      <div class="timeline-step">
+        <span class="step-number">1</span>
+
+        <div>
+          <h3>You receive an unexpected message</h3>
+
+          <p>
+            The sender claims that your profile was recommended or that your
+            number appeared in a recruiting database.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <span class="step-number">2</span>
+
+        <div>
+          <h3>The offer sounds easy and well-paid</h3>
+
+          <p>
+            The job promises high daily income, flexible hours, immediate
+            hiring, or significant pay for basic online activity.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <span class="step-number">3</span>
+
+        <div>
+          <h3>The process stays inside the chat app</h3>
+
+          <p>
+            The recruiter avoids a normal company email, telephone call, or
+            face-to-face video interview.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <span class="step-number">4</span>
+
+        <div>
+          <h3>You see apparent earnings</h3>
+
+          <p>
+            A website or application displays money, commissions, bonuses, or
+            completed tasks to make the opportunity appear legitimate.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <span class="step-number">5</span>
+
+        <div>
+          <h3>You are asked to contribute money</h3>
+
+          <p>
+            The scammer says a deposit is necessary to continue working,
+            resolve a negative balance, or withdraw your earnings.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <span class="step-number">6</span>
+
+        <div>
+          <h3>New fees keep appearing</h3>
+
+          <p>
+            After you pay, the scammer creates another reason that you cannot
+            withdraw unless you send even more money.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <h2>Example of a suspicious job message</h2>
+
+    <div class="example">
+      <p class="example-label">Fictional example for education</p>
+
+      <blockquote>
+        “Hello. I am a recruitment manager for a global digital company. We
+        are hiring remote product optimization assistants. You can earn
+        $200–$500 daily working 30–60 minutes from your phone. No experience
+        is required and training is provided. Reply INTERESTED for immediate
+        enrollment.”
+      </blockquote>
+    </div>
+
+    <p>
+      A message like this does not identify a specific position, hiring
+      manager, official company email, application you submitted, required
+      qualifications, or normal interview process.
+    </p>
+
+    <p>
+      The promise of substantial pay for minimal work is designed to encourage
+      a quick response before you investigate the offer.
+    </p>
+
+    <h2>Warning signs to watch for</h2>
+
+    <div class="red-flags">
+      <ul>
+        <li>You never applied for the position.</li>
+
+        <li>
+          The message is generic and does not explain why you were selected.
+        </li>
+
+        <li>
+          The sender promises hundreds of dollars per day for very little work.
+        </li>
+
+        <li>
+          The company name, location, duties, and qualifications are unclear.
+        </li>
+
+        <li>
+          You are asked to move immediately to Telegram or WhatsApp.
+        </li>
+
+        <li>
+          The interview happens entirely through typed messages.
+        </li>
+
+        <li>
+          The recruiter will not communicate from an official company email.
+        </li>
+
+        <li>
+          You are asked to rate products, like content, boost listings, or
+          complete repetitive online tasks for commissions.
+        </li>
+
+        <li>
+          You must deposit money to continue working or withdraw earnings.
+        </li>
+
+        <li>
+          The sender requests cryptocurrency, gift cards, a wire transfer, or
+          payment through a money-transfer application.
+        </li>
+
+        <li>
+          You are asked for a Social Security number, bank details, passwords,
+          identification, or verification codes before being properly hired.
+        </li>
+
+        <li>
+          The recruiter pressures you to respond or pay immediately.
+        </li>
+      </ul>
+    </div>
+
+    <h2>Are all recruiters on messaging apps fake?</h2>
+
+    <p>
+      No single platform can prove that a recruiter is legitimate or
+      fraudulent. Communication practices differ by company, country, and
+      industry.
+    </p>
+
+    <p>
+      However, the risk increases when a messaging app is combined with other
+      warning signs: unexpected contact, a vague position, unrealistic pay,
+      no official company email, no normal interview, requests for money, or
+      demands for sensitive information.
+    </p>
+
+    <div class="safe-note">
+      <strong>Verify outside the conversation</strong>
+
+      <p>
+        Find the company’s official website yourself. Contact the company using
+        information listed there and ask whether the recruiter and position
+        are legitimate. Do not use a website or telephone number provided by
+        the suspicious sender.
+      </p>
+    </div>
+
+    <h2>What to do if you receive a suspicious message</h2>
+
+    <ol class="action-list">
+      <li>
+        <strong>Do not respond.</strong>
+        Avoid confirming that your number is active or providing additional
+        information.
+      </li>
+
+      <li>
+        <strong>Do not click links.</strong>
+        A link could lead to a fake job portal, phishing page, malicious
+        download, or fraudulent task platform.
+      </li>
+
+      <li>
+        <strong>Save evidence.</strong>
+        Capture screenshots showing the username, telephone number, message,
+        company name, links, and payment instructions.
+      </li>
+
+      <li>
+        <strong>Verify the employer independently.</strong>
+        Visit the real company website and confirm the position through its
+        careers page or official contact information.
+      </li>
+
+      <li>
+        <strong>Block and report the account.</strong>
+        Use WhatsApp, Telegram, your messaging application, or your mobile
+        provider’s reporting controls.
+      </li>
+
+      <li>
+        <strong>Report the scam.</strong>
+        Submit the information through
+        <a
+          href="https://reportfraud.ftc.gov/"
+          target="_blank"
+          rel="noreferrer"
+        >ReportFraud.ftc.gov</a>.
+      </li>
+    </ol>
+
+    <h2>What if you already responded?</h2>
+
+    <p>
+      Simply replying does not necessarily mean your accounts have been
+      compromised. Stop communicating, block the account, and be cautious of
+      additional messages from other numbers or profiles.
+    </p>
+
+    <p>
+      Do not download files, install applications, scan QR codes, share
+      verification codes, or allow remote access to your computer or phone.
+    </p>
+
+    <p>
+      If you created an account on a suspicious website and reused a password,
+      change that password anywhere else it was used. Use a unique password and
+      enable multi-factor authentication where available.
+    </p>
+
+    <h2>What if you sent money?</h2>
+
+    <p>
+      Contact the bank, payment application, wire-transfer service,
+      cryptocurrency platform, or gift-card company immediately. Explain that
+      the payment was connected to fraud and ask whether it can be stopped or
+      reversed.
+    </p>
+
+    <p>
+      Do not pay anyone who promises to recover the money for an upfront fee.
+      Victims of one scam are frequently targeted by refund and recovery scams.
+    </p>
+
+    <h2>What if you shared personal information?</h2>
+
+    <p>
+      If you shared a Social Security number, identification, banking
+      information, or other sensitive data, visit
+      <a
+        href="https://www.identitytheft.gov/"
+        target="_blank"
+        rel="noreferrer"
+      >IdentityTheft.gov</a>
+      for a personalized recovery plan.
+    </p>
+
+    <p>
+      Contact the appropriate financial institutions, change exposed
+      passwords, review your accounts, and follow the identity-protection steps
+      recommended for the information you disclosed.
+    </p>
+
+    <h2>Frequently asked questions</h2>
+
+    <div class="faq">
+      <div class="faq-item">
+        <h3>Are all WhatsApp or Telegram job offers scams?</h3>
+
+        <p>
+          The platform alone does not prove fraud. However, an unexpected
+          generic offer combined with unrealistic pay, text-only hiring,
+          payment requests, or demands for sensitive information is highly
+          concerning.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What is a product optimization job scam?</h3>
+
+        <p>
+          It is usually a task scam. The victim completes simple activities on
+          a platform showing fake commissions and is eventually told to
+          deposit real money to continue or withdraw.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Why would a scammer send me a small payment?</h3>
+
+        <p>
+          A small initial payment may be used to gain your trust and convince
+          you that the displayed earnings are real before the scammer requests
+          a much larger deposit.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Should I reply to ask which company is hiring?</h3>
+
+        <p>
+          It is safer not to engage with an unexpected generic message.
+          Independently research any company named and contact it using
+          information from its official website.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Where can I report a suspicious job text?</h3>
+
+        <p>
+          Report it through the messaging application and to the FTC at
+          ReportFraud.ftc.gov. For SMS messages, you can also use your phone’s
+          report-junk feature or forward the message to 7726.
+        </p>
+      </div>
+    </div>
+
+    <div class="cta">
+      <div>
+        <h2>Check the recruiter’s message</h2>
+
+        <p>
+          Paste the message into OfferSentry to review it for common job-scam
+          warning signs.
+        </p>
+      </div>
+
+      <a href="/">Use the free checker</a>
+    </div>
+
+    <section class="sources">
+      <h2>Sources and further reading</h2>
+
+      <ul>
+        <li>
+          <a
+            href="https://consumer.ftc.gov/consumer-alerts/2026/04/job-offer-text-probably-scam"
+            target="_blank"
+            rel="noreferrer"
+          >
+            FTC: That job offer text is probably a scam
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://consumer.ftc.gov/consumer-alerts/2025/08/how-spot-avoid-task-scams"
+            target="_blank"
+            rel="noreferrer"
+          >
+            FTC: How to spot and avoid task scams
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://consumer.ftc.gov/consumer-alerts/2024/08/dont-send-your-social-security-number-employer-whatsapp-its-scam"
+            target="_blank"
+            rel="noreferrer"
+          >
+            FTC: Don’t send your Social Security number to an employer on
+            WhatsApp
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://consumer.ftc.gov/consumer-alerts/2025/07/job-scammers-are-looking-hire-you"
+            target="_blank"
+            rel="noreferrer"
+          >
+            FTC: Job scammers are looking to hire you
+          </a>
+        </li>
+      </ul>
+    </section>
+  </article>
+
+  <aside aria-label="OfferSentry tools and guides">
+    <div class="side-card">
+      <h2>Check a suspicious message</h2>
+
+      <p>
+        Paste a recruiter message into OfferSentry’s free browser-based
+        warning-sign checker.
+      </p>
+
+      <a class="button" href="/">Check the message</a>
+    </div>
+
+    <div class="side-card">
+      <h2>Check the recruiter</h2>
+
+      <p>
+        Compare the recruiter’s email domain with the company’s official
+        website.
+      </p>
+
+      <a
+        class="secondary-button"
+        href="/tools/recruiter-checker.html"
+      >
+        Compare the domains
+      </a>
+    </div>
+
+    <div class="side-card">
+      <h2>Related guide</h2>
+
+      <p>
+        Learn what happens when a fake employer sends a check for work
+        equipment.
+      </p>
+
+      <a
+        class="secondary-button"
+        href="/guides/fake-check-job-scam.html"
+      >
+        Read the fake check guide
+      </a>
+    </div>
+
+    <div class="side-card">
+      <h2>Immediate red flags</h2>
+
+      <ul>
+        <li>Unexpected remote job message</li>
+        <li>High pay for simple tasks</li>
+        <li>No official company email</li>
+        <li>Requests for cryptocurrency</li>
+        <li>Payment required to withdraw</li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <strong>OfferSentry</strong>
+
+  <p>
+    <a href="/">Checker</a>
+    <a href="/tools/recruiter-checker.html">Recruiter Checker</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </p>
+
+  <p>
+    OfferSentry provides educational information, not legal, financial, or
+    cybersecurity advice. An automated result is not proof that an offer is
+    legitimate or fraudulent.
+  </p>
+</footer>
+</body>
+</html>
