@@ -1,0 +1,944 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <title>Free Job Scam Safety Checklist | OfferSentry</title>
+
+  <meta
+    name="description"
+    content="Use this free printable job scam checklist to review recruiters, job offers, payment requests, interviews, and warning signs before responding."
+  >
+
+  <link
+    rel="canonical"
+    href="https://offersentry.com/tools/job-scam-checklist"
+  >
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Job Scam Safety Checklist",
+    "url": "https://offersentry.com/tools/job-scam-checklist",
+    "description": "A free interactive and printable checklist for reviewing suspicious job offers and recruiter messages.",
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "Any",
+    "isAccessibleForFree": true,
+    "publisher": {
+      "@type": "Organization",
+      "name": "OfferSentry",
+      "url": "https://offersentry.com"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --navy: #08234d;
+      --blue: #1769d2;
+      --light: #edf7ff;
+      --soft: #f5f9fd;
+      --muted: #49617d;
+      --border: #caddef;
+      --green: #278a5b;
+      --red: #b93221;
+      --amber: #a56100;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--navy);
+      background: #fff;
+      font-family: Inter, Arial, sans-serif;
+    }
+
+    a {
+      color: var(--blue);
+    }
+
+    header {
+      min-height: 76px;
+      padding: 12px clamp(20px, 5vw, 72px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      border-bottom: 1px solid #e2ebf3;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--navy);
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      text-decoration: none;
+    }
+
+    .shield {
+      width: 38px;
+      height: 44px;
+      color: var(--blue);
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    nav a {
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--blue);
+    }
+
+    .hero {
+      padding: 65px 20px 72px;
+      background: linear-gradient(#fff, var(--light));
+    }
+
+    .hero-inner {
+      width: min(900px, 100%);
+      margin: auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 15px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(40px, 6vw, 66px);
+      line-height: 1.07;
+      letter-spacing: -3px;
+    }
+
+    .intro {
+      max-width: 760px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.65;
+    }
+
+    main {
+      width: min(980px, calc(100% - 40px));
+      margin: 50px auto 90px;
+    }
+
+    .privacy-notice {
+      margin-bottom: 28px;
+      padding: 23px;
+      border: 1px solid #bcdacb;
+      border-radius: 15px;
+      background: #effaf4;
+    }
+
+    .privacy-notice strong {
+      display: block;
+      margin-bottom: 7px;
+      color: #14603d;
+      font-size: 18px;
+    }
+
+    .privacy-notice p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .progress-card {
+      margin-bottom: 28px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--soft);
+    }
+
+    .progress-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .progress-label {
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    #progressText {
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    .progress-track {
+      height: 12px;
+      margin-top: 15px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #dbe8f4;
+    }
+
+    #progressBar {
+      width: 0;
+      height: 100%;
+      background: var(--blue);
+      transition: width .2s ease;
+    }
+
+    form {
+      display: grid;
+      gap: 24px;
+    }
+
+    fieldset {
+      margin: 0;
+      padding: 27px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+
+    legend {
+      padding: 0 10px;
+      font-size: 23px;
+      font-weight: 800;
+    }
+
+    .section-description {
+      margin: 0 0 20px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 13px;
+    }
+
+    .check-item {
+      padding: 15px;
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 12px;
+      align-items: start;
+      border: 1px solid #d7e4ef;
+      border-radius: 11px;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .check-item:hover {
+      border-color: #91b9e5;
+      background: #f8fbff;
+    }
+
+    .check-item input {
+      width: 19px;
+      height: 19px;
+      margin: 2px 0 0;
+      accent-color: var(--blue);
+    }
+
+    .check-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 15px;
+    }
+
+    .check-item span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .warning-item {
+      border-left: 4px solid var(--red);
+    }
+
+    .action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    button,
+    .button-link {
+      min-height: 46px;
+      padding: 12px 19px;
+      border: 0;
+      border-radius: 9px;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .primary-button {
+      color: #fff;
+      background: var(--blue);
+    }
+
+    .secondary-button {
+      color: var(--navy);
+      border: 1px solid var(--border);
+      background: #fff;
+    }
+
+    .danger-button {
+      color: var(--red);
+      border: 1px solid #efc2b8;
+      background: #fff8f6;
+    }
+
+    .result {
+      display: none;
+      margin-top: 28px;
+      padding: 27px;
+      border-radius: 16px;
+    }
+
+    .result.show {
+      display: block;
+    }
+
+    .result h2 {
+      margin-top: 0;
+    }
+
+    .result p {
+      line-height: 1.65;
+    }
+
+    .result-low {
+      border: 1px solid #bcdacb;
+      background: #effaf4;
+    }
+
+    .result-medium {
+      border: 1px solid #ead19a;
+      background: #fff9e9;
+    }
+
+    .result-high {
+      border: 1px solid #f0c4b9;
+      background: #fff8f6;
+    }
+
+    .disclaimer {
+      margin-top: 32px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    footer {
+      padding: 35px 20px;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid #e2ebf3;
+      font-size: 14px;
+    }
+
+    @media (max-width: 720px) {
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      fieldset {
+        padding: 22px 16px;
+      }
+    }
+
+    @media print {
+      header,
+      .hero,
+      .privacy-notice,
+      .action-row,
+      footer {
+        display: none !important;
+      }
+
+      main {
+        width: 100%;
+        margin: 0;
+      }
+
+      fieldset {
+        break-inside: avoid;
+      }
+
+      .check-item {
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="OfferSentry home">
+      <svg
+        class="shield"
+        viewBox="0 0 64 74"
+        aria-hidden="true"
+        fill="none"
+      >
+        <path
+          d="M32 3 57 12v19c0 18-10 31-25 40C17 62 7 49 7 31V12L32 3Z"
+          fill="currentColor"
+        />
+        <path
+          d="m20 36 8 8 17-19"
+          stroke="white"
+          stroke-width="6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      OfferSentry
+    </a>
+
+    <nav aria-label="Primary navigation">
+      <a href="/">Message Checker</a>
+      <a href="/guides/">Guides & Tools</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Free browser-based safety tool</p>
+
+      <h1>Job Scam Safety Checklist</h1>
+
+      <p class="intro">
+        Review a recruiter or job offer before you respond, send personal
+        information, deposit a check, or make a payment.
+      </p>
+    </div>
+  </section>
+
+  <main>
+    <section class="privacy-notice" aria-label="Privacy information">
+      <strong>Your checklist stays on your device</strong>
+      <p>
+        OfferSentry does not upload, save, or store your checklist selections.
+        Clearing or closing this page removes your selections.
+      </p>
+    </section>
+
+    <section class="progress-card" aria-live="polite">
+      <div class="progress-row">
+        <span class="progress-label">Checklist progress</span>
+        <span id="progressText">0 of 24 reviewed</span>
+      </div>
+
+      <div
+        class="progress-track"
+        role="progressbar"
+        aria-label="Checklist progress"
+        aria-valuemin="0"
+        aria-valuemax="24"
+        aria-valuenow="0"
+      >
+        <div id="progressBar"></div>
+      </div>
+    </section>
+
+    <form id="safetyChecklist">
+      <!-- SECTION 2 GOES HERE -->
+            <fieldset>
+        <legend>1. Recruiter identity</legend>
+
+        <p class="section-description">
+          Select every warning sign that applies to the person who contacted you.
+        </p>
+
+        <div class="checklist">
+          <label class="check-item warning-item">
+            <input type="checkbox" name="warning" value="personal-email">
+            <span>
+              <strong>The recruiter uses a personal email address</strong>
+              The message comes from Gmail, Outlook, Yahoo, or another address
+              instead of a company-controlled domain.
+            </span>
+          </label>
+
+          <label class="check-item warning-item">
+            <input type="checkbox" name="warning" value="cannot-verify">
+            <span>
+              <strong>I cannot independently verify the recruiter</strong>
+              Their name, role, or contact information cannot be confirmed
+              through the employer’s official website or phone number.
+            </span>
+          </label>
+
+          <label class="check-item warning-item">
+            <input type="checkbox" name="warning" value="impersonation">
+            <span>
+              <strong>The account may be impersonating a real employee</strong>
+              The name appears legitimate, but the email, phone number, profile,
+              or writing style does not match.
+            </span>
+          </label>
+
+          <label class="check-item warning-item">
+            <input type="checkbox" name="warning" value="limited-history">
+            <span>
+              <strong>The recruiter profile is new or has little history</strong>
+              The account has few connections, limited activity, copied content,
+              or inconsistent employment details.
+            </span>
+          </label>
+
+          <label class="check-item warning-item">
+            <input type="checkbox" name="warning" value="unsolicited-vague">
+            <span>
+              <strong>The initial message was unsolicited and vague</strong>
+              It promises an opportunity without clearly naming the role,
+              employer, location, or reason you were selected.
+            </span>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Interview and job details</legend>
+
+        <p class="section-description">
+          Select the warning signs that describe the interview or proposed role.
+        </p>
+
+        <div class="checklist">
+          <label class="check-item warning-item">
+            <input type="checkbox" name="warning" value="no-interview">
+            <span>
+              <strong>I received an offer without a meaningful interview</strong>
+              The employer offered the job after only a form, text conversation,
+              or very brief exchange.
+            </span>
+          </label>
+
+          <label class="check-item warning-item">
+            <input type="checkbox" name="warning" value="messaging-only">
+            <span>
+              <strong>Communication happens only through a messaging app</strong>
+              The recruiter refuses a normal phone or video conversation and
+              insists on Telegram, WhatsApp, Signal, or text.
+            </span>
+          </label>
+
+          <label class="check-item warning-item">
+            <input type="checkbox" name="warning" value="rushed-process">
+            <span>
+              <strong>The hiring process feels unusually rushed</strong>
+              I am being pressured to accept, complete forms, or act immediately.
+            </span>
+          </label>
+
+          <label class="check-item warning-item">
+            <input type="checkbox" name="warning" value="unrealistic-pay">
+            <span>
+              <strong>The pay appears unusually high for the work</strong>
+              The role promises large earnings for simple tasks, little
+              experience, or very few working hours.
+            </span>
+          </label>
+
+          <label class="check-item warning-item">
+            <input type="checkbox" name="warning" value="vague-duties">
+            <span>
+              <strong>The duties or employment terms are unclear</strong>
+              The recruiter avoids providing a written job description,
+              reporting structure, schedule, or employment classification.
+            </span>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. Money and equipment</legend>
+
+        <p class="section-description">
+          Legitimate employers generally do not require applicants to pay to
+          receive a job.
+        </p>
+
+        <div class="checklist">
+          <label class="check-item warning-item">
+            <input
+              type="checkbox"
+              name="warning"
+              value="upfront-payment"
+              data-severe="true"
+            >
+            <span>
+              <strong>I was asked to pay a fee or deposit</strong>
+              The payment is described as training, registration, certification,
+              insurance, activation, or a refundable deposit.
+            </span>
+          </label>
+
+          <label class="check-item warning-item">
+            <input
+              type="checkbox"
+              name="warning"
+              value="fake-check"
+              data-severe="true"
+            >
+            <span>
+              <strong>I was sent a check to deposit</strong>
+              I was told to use part of the money for equipment, supplies, a
+              vendor, or another person.
+            </span>
+          </label>
+
+          <label class="check-item warning-item">
+            <input
+              type="checkbox"
+              name="warning"
+              value="unusual-payment"
+              data-severe="true"
+            >
+            <span>
+              <strong>Payment involves gift cards, cryptocurrency, or a wire</strong>
+              The recruiter requested a difficult-to-reverse payment method.
+            </span>
+          </label>
+
+          <label class="check-item warning-item">
+            <input
+              type="checkbox"
+              name="warning"
+              value="equipment-vendor"
+              data-severe="true"
+            >
+            <span>
+              <strong>I must buy equipment from a specified vendor</strong>
+              The employer sent funds or instructed me to purchase equipment
+              through an unfamiliar website or individual.
+            </span>
+          </label>
+
+          <label class="check-item warning-item">
+            <input type="checkbox" name="warning" value="banking-early">
+            <span>
+              <strong>Banking information was requested before onboarding</strong>
+              Direct-deposit details were requested before I verified the
+              employer, signed legitimate paperwork, or began employment.
+            </span>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>4. Personal information and device security</legend>
+
+        <p class="section-description">
+          Select anything the recruiter requested before you independently
+          verified the employer.
+        </p>
+
+        <div class="checklist">
+          <label class="check-item warning-item">
+            <input
+              type="checkbox"
+              name="warning"
+              value="ssn-early"
+              data-severe="true"
+            >
+            <span>
+              <strong>I was asked for my Social Security number early</strong>
+              Sensitive tax or identity information was requested before a
+              verified offer and legitimate onboarding process.
+            </span>
+          </label>
+
+          <label class="check-item warning-item">
+            <input
+              type="checkbox"
+              name="warning"
+              value="identity-documents"
+              data-severe="true"
+            >
+            <span>
+              <strong>I was asked to send identity documents or a selfie</strong>
+              The recruiter requested a driver’s license, passport, tax form,
+              or photograph through email, text, or an unfamiliar form.
+            </span>
+          </label>
+
+          <label class="check-item warning-item">
+            <input
+              type="checkbox"
+              name="warning"
+              value="password-code"
+              data-severe="true"
+            >
+            <span>
+              <strong>I was asked for a password or verification code</strong>
+              The request involves login credentials, one-time codes, account
+              recovery codes, or remote access to an account.
+            </span>
+          </label>
+
+          <label class="check-item warning-item">
+            <input
+              type="checkbox"
+              name="warning"
+              value="software-download"
+              data-severe="true"
+            >
+            <span>
+              <strong>I was told to install unfamiliar software</strong>
+              This includes remote-access tools, unknown mobile apps, browser
+              extensions, or files sent by the recruiter.
+            </span>
+          </label>
+
+          <label class="check-item warning-item">
+            <input type="checkbox" name="warning" value="unfamiliar-link">
+            <span>
+              <strong>The forms or links use an unfamiliar domain</strong>
+              The address is misspelled, shortened, recently created, or
+              unrelated to the employer’s official website.
+            </span>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>5. Independent verification</legend>
+
+        <p class="section-description">
+          Select any remaining problems you found while checking the offer.
+        </p>
+
+        <div class="checklist">
+          <label class="check-item warning-item">
+            <input type="checkbox" name="warning" value="role-not-listed">
+            <span>
+              <strong>The job is not listed on the employer’s official website</strong>
+              I cannot locate the same role through the company’s verified
+              careers page.
+            </span>
+          </label>
+
+          <label class="check-item warning-item">
+            <input type="checkbox" name="warning" value="company-cannot-confirm">
+            <span>
+              <strong>The employer cannot confirm the recruiter or role</strong>
+              I contacted the company using independently located information,
+              and it could not verify the opportunity.
+            </span>
+          </label>
+
+          <label class="check-item warning-item">
+            <input type="checkbox" name="warning" value="domain-mismatch">
+            <span>
+              <strong>The website or email domain does not match the employer</strong>
+              The spelling, domain ending, or web address differs from the
+              organization’s verified website.
+            </span>
+          </label>
+
+          <label class="check-item warning-item">
+            <input type="checkbox" name="warning" value="pressure-secrecy">
+            <span>
+              <strong>I was pressured to keep the opportunity secret</strong>
+              The recruiter discouraged me from contacting the company, my
+              bank, family, law enforcement, or another trusted person.
+            </span>
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="action-row">
+        <button class="primary-button" type="button" id="reviewButton">
+          Review selected warning signs
+        </button>
+
+        <button class="secondary-button" type="button" id="printButton">
+          Print checklist
+        </button>
+
+        <button class="danger-button" type="button" id="clearButton">
+          Clear selections
+        </button>
+      </div>
+    </form>
+
+    <section id="result" class="result" aria-live="polite" tabindex="-1">
+      <h2 id="resultHeading"></h2>
+      <p id="resultSummary"></p>
+      <p id="resultAction"></p>
+
+      <div class="action-row">
+        <a class="button-link primary-button" href="/">
+          Check the suspicious message
+        </a>
+
+        <a
+          class="button-link secondary-button"
+          href="/tools/job-scam-report-builder"
+        >
+          Organize evidence
+        </a>
+      </div>
+    </section>
+
+    <p class="disclaimer">
+      This checklist provides general educational information. It cannot prove
+      that a recruiter, company, message, or job offer is legitimate or
+      fraudulent. When uncertain, stop communicating and contact the employer
+      through independently verified information. If money or sensitive
+      information may be at risk, contact the relevant bank, account provider,
+      or government agency promptly.
+    </p>
+  </main>
+
+  <footer>
+    <p>
+      © 2026 OfferSentry ·
+      <a href="/privacy">Privacy</a> ·
+      <a href="/terms">Terms</a> ·
+      <a href="/contact">Contact</a>
+    </p>
+  </footer>
+
+  <script>
+    const checklist = document.getElementById("safetyChecklist");
+    const checkboxes = Array.from(
+      checklist.querySelectorAll('input[name="warning"]')
+    );
+
+    const progressText = document.getElementById("progressText");
+    const progressBar = document.getElementById("progressBar");
+    const progressTrack = document.querySelector(".progress-track");
+    const result = document.getElementById("result");
+    const resultHeading = document.getElementById("resultHeading");
+    const resultSummary = document.getElementById("resultSummary");
+    const resultAction = document.getElementById("resultAction");
+
+    function updateIndicator() {
+      const selected = checkboxes.filter((checkbox) => checkbox.checked).length;
+      const percentage = (selected / checkboxes.length) * 100;
+
+      progressText.textContent =
+        selected === 1
+          ? "1 warning sign selected"
+          : `${selected} warning signs selected`;
+
+      progressBar.style.width = `${percentage}%`;
+      progressTrack.setAttribute("aria-valuenow", String(selected));
+      progressTrack.setAttribute(
+        "aria-label",
+        `${selected} of ${checkboxes.length} warning signs selected`
+      );
+    }
+
+    function reviewChecklist() {
+      const selected = checkboxes.filter((checkbox) => checkbox.checked);
+      const severeSelected = selected.some(
+        (checkbox) => checkbox.dataset.severe === "true"
+      );
+
+      result.className = "result show";
+
+      if (selected.length === 0) {
+        result.classList.add("result-low");
+        resultHeading.textContent = "No warning signs selected";
+        resultSummary.textContent =
+          "You did not select any warning signs in this checklist. That does not prove the offer is legitimate.";
+        resultAction.textContent =
+          "Continue verifying the recruiter, employer, job listing, and contact information independently before sharing sensitive information.";
+      } else if (severeSelected || selected.length >= 5) {
+        result.classList.add("result-high");
+        resultHeading.textContent = "High-risk warning signs selected";
+        resultSummary.textContent =
+          `You selected ${selected.length} warning signs, including behavior commonly associated with financial loss, identity theft, or account compromise.`;
+        resultAction.textContent =
+          "Stop before paying, depositing a check, sharing more information, or installing software. Preserve the evidence and contact the employer through independently verified information.";
+      } else {
+        result.classList.add("result-medium");
+        resultHeading.textContent = "Proceed with caution";
+        resultSummary.textContent =
+          `You selected ${selected.length} warning ${selected.length === 1 ? "sign" : "signs"}. One warning sign may have an innocent explanation, but it still deserves independent verification.`;
+        resultAction.textContent =
+          "Pause the process and verify the recruiter, job listing, company domain, and interview process before continuing.";
+      }
+
+      result.focus();
+    }
+
+    function clearChecklist() {
+      const confirmed = window.confirm(
+        "Clear all checklist selections and the current result?"
+      );
+
+      if (!confirmed) {
+        return;
+      }
+
+      checklist.reset();
+      result.className = "result";
+      resultHeading.textContent = "";
+      resultSummary.textContent = "";
+      resultAction.textContent = "";
+      updateIndicator();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener("change", updateIndicator);
+    });
+
+    document
+      .getElementById("reviewButton")
+      .addEventListener("click", reviewChecklist);
+
+    document
+      .getElementById("printButton")
+      .addEventListener("click", () => window.print());
+
+    document
+      .getElementById("clearButton")
+      .addEventListener("click", clearChecklist);
+
+    updateIndicator();
+  </script>
+</body>
+</html>
