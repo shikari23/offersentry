@@ -48,4 +48,10 @@
   <changefreq>monthly</changefreq>
   <priority>0.6</priority>
 </url>
+  <url>
+  <loc>https://offersentry.com/tools/job-scam-report-builder</loc>
+  <lastmod>2026-08-05</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+</url>
 </urlset>
