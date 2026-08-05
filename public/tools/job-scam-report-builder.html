@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <title>Free Job Scam Evidence & Report Builder | OfferSentry</title>
+
+  <meta
+    name="description"
+    content="Organize suspicious recruiter details, warning signs, payments, and evidence into a private job scam incident summary. Nothing is uploaded or stored."
+  >
+
+  <link
+    rel="canonical"
+    href="https://offersentry.com/tools/job-scam-report-builder"
+  >
+
+  <style>
+    :root {
+      --navy: #08234d;
+      --blue: #1769d2;
+      --light: #edf7ff;
+      --soft: #f5f9fd;
+      --muted: #49617d;
+      --border: #caddef;
+      --green: #278a5b;
+      --red: #b93221;
+      --amber: #a56100;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--navy);
+      background: #fff;
+      font-family: Inter, Arial, sans-serif;
+    }
+
+    a {
+      color: var(--blue);
+    }
+
+    header {
+      min-height: 76px;
+      padding: 12px clamp(20px, 5vw, 72px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      border-bottom: 1px solid #e2ebf3;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--navy);
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      text-decoration: none;
+    }
+
+    .shield {
+      width: 38px;
+      height: 44px;
+      color: var(--blue);
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    nav a {
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--blue);
+    }
+
+    .hero {
+      padding: 65px 20px 75px;
+      background: linear-gradient(#fff, var(--light));
+    }
+
+    .hero-inner {
+      width: min(900px, 100%);
+      margin: auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 15px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(41px, 6vw, 67px);
+      line-height: 1.07;
+      letter-spacing: -3px;
+    }
+
+    .intro {
+      max-width: 760px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.65;
+    }
+
+    main {
+      width: min(1000px, calc(100% - 40px));
+      margin: 55px auto 90px;
+    }
+
+    .privacy-notice {
+      margin-bottom: 32px;
+      padding: 25px;
+      border: 1px solid #bcdacb;
+      border-radius: 15px;
+      background: #effaf4;
+    }
+
+    .privacy-notice strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #14603d;
+      font-size: 18px;
+    }
+
+    .privacy-notice p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .sensitive-warning {
+      margin-bottom: 32px;
+      padding: 25px;
+      border: 1px solid #f0c4b9;
+      border-radius: 15px;
+      background: #fff8f6;
+    }
+
+    .sensitive-warning strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--red);
+      font-size: 18px;
+    }
+
+    .sensitive-warning p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    form {
+      display: grid;
+      gap: 25px;
+    }
+
+    fieldset {
+      margin: 0;
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #fff;
+    }
+
+    legend {
+      padding: 0 10px;
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: -.5px;
+    }
+
+    .section-description {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .full-width {
+      grid-column: 1 / -1;
+    }
+
+    label.field-label {
+      margin-bottom: 7px;
+      display: block;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .optional {
+      color: #75869a;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid #b8cce0;
+      border-radius: 9px;
+      color: var(--navy);
+      background: #fff;
+      font: inherit;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 3px solid #1769d229;
+      border-color: var(--blue);
+    }
+
+    textarea {
+      min-height: 125px;
+      resize: vertical;
+      line-height: 1.55;
+    }
+
+    .field-help {
+      margin: 7px 0 0;
+      color: #75869a;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .checkbox-option {
+      padding: 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      border: 1px solid #d7e4ef;
+      border-radius: 10px;
+      color: var(--muted);
+      background: var(--soft);
+      font-size: 14px;
+      line-height: 1.45;
+      cursor: pointer;
+    }
+
+    .checkbox-option input {
+      width: auto;
+      margin-top: 3px;
+      flex: none;
+    }
+
+    .actions {
+      padding: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      border-radius: 18px;
+      background: var(--navy);
+    }
+
+    button {
+      padding: 14px 19px;
+      border: 0;
+      border-radius: 9px;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .primary-button {
+      color: #fff;
+      background: var(--blue);
+    }
+
+    .secondary-button {
+      color: var(--navy);
+      background: #fff;
+    }
+
+    .danger-button {
+      color: #fff;
+      background: #8f2d21;
+    }
+
+    button:hover {
+      filter: brightness(.96);
+    }
+
+    #status {
+      width: 100%;
+      margin: 5px 0 0;
+      color: #dbe9f8;
+      font-size: 13px;
+    }
+
+    #reportSection {
+      margin-top: 35px;
+      padding: 30px;
+      border: 2px solid var(--blue);
+      border-radius: 18px;
+      background: #fff;
+    }
+
+    #reportSection[hidden] {
+      display: none;
+    }
+
+    .report-header {
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .report-header h2 {
+      margin: 0;
+      font-size: 29px;
+    }
+
+    .report-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .report-controls button {
+      padding: 10px 13px;
+      color: var(--navy);
+      background: var(--light);
+      border: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    #reportText {
+      margin: 0;
+      padding: 25px;
+      overflow-wrap: anywhere;
+      white-space: pre-wrap;
+      border-radius: 12px;
+      color: #183655;
+      background: var(--soft);
+      font-family: Consolas, Monaco, monospace;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .next-steps {
+      margin-top: 45px;
+      padding: 30px;
+      border-radius: 18px;
+      background: var(--light);
+    }
+
+    .next-steps h2 {
+      margin: 0 0 15px;
+      font-size: 27px;
+    }
+
+    .next-steps li {
+      margin-bottom: 10px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .disclaimer {
+      margin-top: 30px;
+      color: #718299;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    footer {
+      padding: 42px clamp(22px, 7vw, 105px);
+      border-top: 1px solid #e0e9f1;
+    }
+
+    footer p {
+      max-width: 850px;
+      color: #718299;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    footer a {
+      margin-right: 12px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        align-items: flex-start;
+      }
+
+      nav {
+        gap: 13px;
+        font-size: 12px;
+      }
+
+      nav a:nth-child(2) {
+        display: none;
+      }
+
+      .form-grid,
+      .checkbox-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .full-width {
+        grid-column: auto;
+      }
+
+      .report-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+
+      #reportSection,
+      #reportSection * {
+        visibility: visible;
+      }
+
+      #reportSection {
+        position: absolute;
+        inset: 0;
+        margin: 0;
+        padding: 20px;
+        border: 0;
+      }
+
+      .report-controls {
+        display: none;
+      }
+
+      #reportText {
+        padding: 0;
+        background: #fff;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "OfferSentry Job Scam Evidence and Report Builder",
+    "url": "https://offersentry.com/tools/job-scam-report-builder",
+    "description": "A free browser-based tool for organizing suspicious recruiter details, warning signs, payments, and evidence into a job scam incident summary.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "OfferSentry",
+      "url": "https://offersentry.com"
+    }
+  }
+  </script>
+</head>
+
+<body>
+<header>
+  <a class="brand" href="/">
+    <svg class="shield" viewBox="0 0 48 56" aria-hidden="true">
+      <path
+        d="M24 3.5 42 10v14c0 11.8-7.3 21.8-18 27C13.3 45.8 6 35.8 6 24V10l18-6.5Z"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="3"
+      ></path>
+      <path
+        d="m15.5 27 5.7 5.7L33 20.5"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="3.5"
+      ></path>
+    </svg>
+
+    OfferSentry
+  </a>
+
+  <nav aria-label="Main navigation">
+    <a href="/">Message Checker</a>
+    <a href="/tools/recruiter-checker">Recruiter Checker</a>
+    <a href="/guides/">Guides</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Private browser-based tool</p>
+
+    <h1>Job Scam Evidence & Report Builder</h1>
+
+    <p class="intro">
+      Organize recruiter details, suspicious messages, payments, warning signs,
+      and evidence into a clear incident summary you can copy, print, or
+      download.
+    </p>
+  </div>
+</section>
+
+<main>
+  <div class="privacy-notice">
+    <strong>Your entries stay in this browser</strong>
+
+    <p>
+      OfferSentry does not send, upload, or save the information entered into
+      this form. The report is generated locally on your device. Clearing or
+      closing the page removes the form contents unless your browser retains
+      them through its own autofill features.
+    </p>
+  </div>
+
+  <div class="sensitive-warning">
+    <strong>Do not enter highly sensitive secrets</strong>
+
+    <p>
+      Do not enter passwords, verification codes, Social Security numbers,
+      complete bank or card numbers, cryptocurrency private keys, seed phrases,
+      or copies of identification documents. Use partial or redacted
+      information where necessary.
+    </p>
+  </div>
+
+  <form id="reportForm" autocomplete="off">
+    <fieldset>
+      <legend>1. Incident overview</legend>
+
+      <p class="section-description">
+        Record enough information to identify the incident without entering
+        highly sensitive personal data.
+      </p>
+
+      <div class="form-grid">
+        <div>
+          <label class="field-label" for="incidentTitle">
+            Incident label <span class="optional">(optional)</span>
+          </label>
+
+          <input
+            id="incidentTitle"
+            type="text"
+            placeholder="Example: Remote data entry offer"
+          >
+        </div>
+
+        <div>
+          <label class="field-label" for="contactDate">
+            Date first contacted <span class="optional">(optional)</span>
+          </label>
+
+          <input id="contactDate" type="date">
+        </div>
+
+        <div>
+          <label class="field-label" for="platform">
+            Contact method
+          </label>
+
+          <select id="platform">
+            <option value="">Select one</option>
+            <option>Email</option>
+            <option>Text message</option>
+            <option>WhatsApp</option>
+            <option>Telegram</option>
+            <option>Signal</option>
+            <option>Social media</option>
+            <option>Job board</option>
+            <option>Telephone call</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="field-label" for="jobTitle">
+            Claimed job title <span class="optional">(optional)</span>
+          </label>
+
+          <input
+            id="jobTitle"
+            type="text"
+            placeholder="Example: Remote administrative assistant"
+          >
+        </div>
+
+        <div class="full-width">
+          <label class="field-label" for="incidentSummary">
+            What happened?
+          </label>
+
+          <textarea
+            id="incidentSummary"
+            placeholder="Describe how the contact started, what was promised, what the recruiter requested, and what happened next."
+          ></textarea>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>2. Recruiter and company details</legend>
+
+      <p class="section-description">
+        Enter only the information used by the suspected recruiter. Do not add
+        passwords, identification numbers, or private account details.
+      </p>
+
+      <div class="form-grid">
+        <div>
+          <label class="field-label" for="recruiterName">
+            Recruiter name or alias
+          </label>
+
+          <input
+            id="recruiterName"
+            type="text"
+            placeholder="Name shown in the message"
+          >
+        </div>
+
+        <div>
+          <label class="field-label" for="companyName">
+            Claimed company
+          </label>
+
+          <input
+            id="companyName"
+            type="text"
+            placeholder="Company the recruiter claimed to represent"
+          >
+        </div>
+
+        <div>
+          <label class="field-label" for="recruiterEmail">
+            Recruiter email
+          </label>
+
+          <input
+            id="recruiterEmail"
+            type="email"
+            placeholder="recruiter@example.com"
+          >
+        </div>
+
+        <div>
+          <label class="field-label" for="recruiterPhone">
+            Telephone or messaging number
+          </label>
+
+          <input
+            id="recruiterPhone"
+            type="text"
+            placeholder="Include country code if known"
+          >
+        </div>
+
+        <div>
+          <label class="field-label" for="companyWebsite">
+            Claimed company website
+          </label>
+
+          <input
+            id="companyWebsite"
+            type="url"
+            placeholder="https://example.com"
+          >
+        </div>
+
+        <div>
+          <label class="field-label" for="jobUrl">
+            Job posting or platform URL
+          </label>
+
+          <input
+            id="jobUrl"
+            type="url"
+            placeholder="https://example.com/job"
+          >
+        </div>
+
+        <div class="full-width">
+          <label class="field-label" for="messageExcerpt">
+            Suspicious message excerpt
+          </label>
+
+          <textarea
+            id="messageExcerpt"
+            placeholder="Paste only the relevant message text. Remove your personal information before pasting."
+          ></textarea>
+
+          <p class="field-help">
+            Redact your address, identification numbers, banking information,
+            passwords, and verification codes.
+          </p>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>3. Warning signs</legend>
+
+      <p class="section-description">
+        Select every warning sign that appeared during the interaction.
+      </p>
+
+      <div class="checkbox-grid" id="warningSigns">
+        <label class="checkbox-option">
+          <input type="checkbox" value="Unexpected job contact">
+          <span>Unexpected job contact</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Unusually high pay for simple work">
+          <span>Unusually high pay for simple work</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Text-only interview">
+          <span>Text-only interview</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Immediate hiring or rushed offer">
+          <span>Immediate hiring or rushed offer</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Personal or lookalike email domain">
+          <span>Personal or lookalike email domain</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Job could not be independently verified">
+          <span>Job could not be independently verified</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Check sent for equipment or expenses">
+          <span>Check sent for equipment or expenses</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Payment requested before employment">
+          <span>Payment requested before employment</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Cryptocurrency or gift cards requested">
+          <span>Cryptocurrency or gift cards requested</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Money required to unlock tasks or wages">
+          <span>Money required to unlock tasks or wages</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Sensitive information requested early">
+          <span>Sensitive information requested early</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Pressure to act immediately">
+          <span>Pressure to act immediately</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Package reshipping requested">
+          <span>Package reshipping requested</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Remote-access software requested">
+          <span>Remote-access software requested</span>
+        </label>
+      </div>
+
+      <div style="margin-top: 20px;">
+        <label class="field-label" for="otherWarningSigns">
+          Other warning signs <span class="optional">(optional)</span>
+        </label>
+
+        <textarea
+          id="otherWarningSigns"
+          placeholder="Describe any additional behavior that concerned you."
+        ></textarea>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>4. Money or information involved</legend>
+
+      <div class="form-grid">
+        <div>
+          <label class="field-label" for="moneySent">
+            Was money sent?
+          </label>
+
+          <select id="moneySent">
+            <option value="">Select one</option>
+            <option>No</option>
+            <option>Yes</option>
+            <option>Attempted but stopped</option>
+            <option>Unsure</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="field-label" for="amount">
+            Approximate amount <span class="optional">(optional)</span>
+          </label>
+
+          <input
+            id="amount"
+            type="text"
+            placeholder="Example: $500 USD"
+          >
+        </div>
+
+        <div>
+          <label class="field-label" for="paymentMethod">
+            Payment method
+          </label>
+
+          <select id="paymentMethod">
+            <option value="">Select one</option>
+            <option>Bank transfer</option>
+            <option>Wire transfer</option>
+            <option>Credit or debit card</option>
+            <option>Payment app</option>
+            <option>Gift card</option>
+            <option>Cryptocurrency</option>
+            <option>Cash or money order</option>
+            <option>Check deposited</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="field-label" for="paymentDate">
+            Payment date <span class="optional">(optional)</span>
+          </label>
+
+          <input id="paymentDate" type="date">
+        </div>
+
+        <div class="full-width">
+          <label class="field-label" for="paymentReference">
+            Redacted payment reference
+          </label>
+
+          <textarea
+            id="paymentReference"
+            placeholder="Record a transaction ID, wallet address, gift-card retailer, payment service, or last four digits only. Do not enter complete bank or card numbers, private keys, or seed phrases."
+          ></textarea>
+        </div>
+
+        <div>
+          <label class="field-label" for="informationShared">
+            Was personal information shared?
+          </label>
+
+          <select id="informationShared">
+            <option value="">Select one</option>
+            <option>No</option>
+            <option>Yes</option>
+            <option>Unsure</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="field-label" for="accountAccess">
+            Was account access provided?
+          </label>
+
+          <select id="accountAccess">
+            <option value="">Select one</option>
+            <option>No</option>
+            <option>Yes</option>
+            <option>Remote-access software installed</option>
+            <option>Verification code shared</option>
+            <option>Unsure</option>
+          </select>
+        </div>
+
+        <div class="full-width">
+          <label class="field-label" for="informationTypes">
+            Types of information exposed
+          </label>
+
+          <textarea
+            id="informationTypes"
+            placeholder="Example: résumé, address, date of birth, identification photo, bank name, or email password. Describe the type only—do not enter the actual sensitive value."
+          ></textarea>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>5. Evidence preserved</legend>
+
+      <p class="section-description">
+        Select the evidence you have saved. Keep original files whenever
+        possible.
+      </p>
+
+      <div class="checkbox-grid" id="evidence">
+        <label class="checkbox-option">
+          <input type="checkbox" value="Recruiter messages">
+          <span>Recruiter messages</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Email headers">
+          <span>Email headers</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Job posting">
+          <span>Job posting</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Offer letter or onboarding documents">
+          <span>Offer letter or onboarding documents</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Website or platform screenshots">
+          <span>Website or platform screenshots</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Payment receipts">
+          <span>Payment receipts</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Transaction IDs or wallet addresses">
+          <span>Transaction IDs or wallet addresses</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Telephone numbers and usernames">
+          <span>Telephone numbers and usernames</span>
+        </label>
+      </div>
+
+      <div style="margin-top: 20px;">
+        <label class="field-label" for="evidenceNotes">
+          Evidence notes <span class="optional">(optional)</span>
+        </label>
+
+        <textarea
+          id="evidenceNotes"
+          placeholder="Describe where the evidence is stored and any important details."
+        ></textarea>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>6. Actions already taken</legend>
+
+      <div class="checkbox-grid" id="actionsTaken">
+        <label class="checkbox-option">
+          <input type="checkbox" value="Stopped communicating">
+          <span>Stopped communicating</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Contacted bank or payment service">
+          <span>Contacted bank or payment service</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Changed exposed passwords">
+          <span>Changed exposed passwords</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Removed remote-access software">
+          <span>Removed remote-access software</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Reported the account to the platform">
+          <span>Reported the account to the platform</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Reported to the FTC">
+          <span>Reported to the FTC</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Created an IdentityTheft.gov recovery plan">
+          <span>Created an IdentityTheft.gov recovery plan</span>
+        </label>
+
+        <label class="checkbox-option">
+          <input type="checkbox" value="Contacted local law enforcement">
+          <span>Contacted local law enforcement</span>
+        </label>
+      </div>
+    </fieldset>
+
+    <div class="actions">
+      <button class="primary-button" id="generateButton" type="button">
+        Generate incident summary
+      </button>
+
+      <button class="secondary-button" id="clearButton" type="button">
+        Clear form
+      </button>
+
+      <p id="status" role="status" aria-live="polite"></p>
+    </div>
+  </form>
+
+  <section id="reportSection" hidden>
+    <div class="report-header">
+      <h2>Generated incident summary</h2>
+
+      <div class="report-controls">
+        <button id="copyButton" type="button">Copy</button>
+        <button id="downloadButton" type="button">Download .txt</button>
+        <button id="printButton" type="button">Print</button>
+      </div>
+    </div>
+
+    <pre id="reportText"></pre>
+  </section>
+
+  <section class="next-steps">
+    <h2>Possible next steps</h2>
+
+    <ul>
+      <li>
+        Contact your bank, payment service, card issuer, or cryptocurrency
+        exchange immediately if money was sent.
+      </li>
+      <li>
+        Report fraud through
+        <a href="https://reportfraud.ftc.gov/" target="_blank" rel="noreferrer">
+          ReportFraud.ftc.gov
+        </a>.
+      </li>
+      <li>
+        Visit
+        <a href="https://www.identitytheft.gov/" target="_blank" rel="noreferrer">
+          IdentityTheft.gov
+        </a>
+        if identity information or account credentials were exposed.
+      </li>
+      <li>
+        Report the recruiter, listing, or account to the job board, messaging
+        service, email provider, or social platform involved.
+      </li>
+      <li>
+        Preserve original messages, headers, receipts, transaction records,
+        URLs, and screenshots.
+      </li>
+    </ul>
+  </section>
+
+  <p class="disclaimer">
+    This tool creates a personal organizational summary. It does not submit an
+    official police, FTC, bank, insurance, or legal report. OfferSentry does not
+    determine whether a person or company committed fraud and does not provide
+    legal, financial, or cybersecurity advice.
+  </p>
+</main>
+
+<footer>
+  <strong>OfferSentry</strong>
+
+  <p>
+    <a href="/">Checker</a>
+    <a href="/tools/recruiter-checker">Recruiter Checker</a>
+    <a href="/guides/">Guides</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+  </p>
+
+  <p>
+    OfferSentry provides educational information, not legal, financial, or
+    cybersecurity advice. An automated result is not proof that an offer is
+    legitimate or fraudulent.
+  </p>
+</footer>
+
+<script>
+  const form = document.getElementById("reportForm");
+  const reportSection = document.getElementById("reportSection");
+  const reportText = document.getElementById("reportText");
+  const statusMessage = document.getElementById("status");
+
+  function valueOf(id) {
+    return document.getElementById(id).value.trim();
+  }
+
+  function selectedValues(containerId) {
+    return Array.from(
+      document.querySelectorAll(
+        "#" + containerId + " input[type='checkbox']:checked"
+      )
+    ).map(function (checkbox) {
+      return checkbox.value;
+    });
+  }
+
+  function displayValue(value) {
+    return value || "Not provided";
+  }
+
+  function displayList(values) {
+    if (!values.length) {
+      return "None selected";
+    }
+
+    return values.map(function (value) {
+      return "- " + value;
+    }).join("\n");
+  }
+
+  function buildReport() {
+    const generatedAt = new Date().toLocaleString();
+
+    const report = [
+      "OFFERSENTRY JOB SCAM INCIDENT SUMMARY",
+      "Generated locally on: " + generatedAt,
+      "",
+      "IMPORTANT",
+      "This is a personal organizational summary, not an official report.",
+      "OfferSentry has not received or stored the information in this report.",
+      "",
+      "1. INCIDENT OVERVIEW",
+      "Incident label: " + displayValue(valueOf("incidentTitle")),
+      "Date first contacted: " + displayValue(valueOf("contactDate")),
+      "Contact method: " + displayValue(valueOf("platform")),
+      "Claimed job title: " + displayValue(valueOf("jobTitle")),
+      "",
+      "Description:",
+      displayValue(valueOf("incidentSummary")),
+      "",
+      "2. RECRUITER AND COMPANY DETAILS",
+      "Recruiter name or alias: " + displayValue(valueOf("recruiterName")),
+      "Claimed company: " + displayValue(valueOf("companyName")),
+      "Recruiter email: " + displayValue(valueOf("recruiterEmail")),
+      "Telephone or messaging number: " +
+        displayValue(valueOf("recruiterPhone")),
+      "Claimed company website: " +
+        displayValue(valueOf("companyWebsite")),
+      "Job posting or platform URL: " + displayValue(valueOf("jobUrl")),
+      "",
+      "Relevant message excerpt:",
+      displayValue(valueOf("messageExcerpt")),
+      "",
+      "3. WARNING SIGNS",
+      displayList(selectedValues("warningSigns")),
+      "",
+      "Other warning signs:",
+      displayValue(valueOf("otherWarningSigns")),
+      "",
+      "4. MONEY OR INFORMATION INVOLVED",
+      "Money sent: " + displayValue(valueOf("moneySent")),
+      "Approximate amount: " + displayValue(valueOf("amount")),
+      "Payment method: " + displayValue(valueOf("paymentMethod")),
+      "Payment date: " + displayValue(valueOf("paymentDate")),
+      "",
+      "Redacted payment reference:",
+      displayValue(valueOf("paymentReference")),
+      "",
+      "Personal information shared: " +
+        displayValue(valueOf("informationShared")),
+      "Account access provided: " + displayValue(valueOf("accountAccess")),
+      "",
+      "Types of information exposed:",
+      displayValue(valueOf("informationTypes")),
+      "",
+      "5. EVIDENCE PRESERVED",
+      displayList(selectedValues("evidence")),
+      "",
+      "Evidence notes:",
+      displayValue(valueOf("evidenceNotes")),
+      "",
+      "6. ACTIONS ALREADY TAKEN",
+      displayList(selectedValues("actionsTaken")),
+      "",
+      "END OF SUMMARY"
+    ];
+
+    return report.join("\n");
+  }
+
+  document
+    .getElementById("generateButton")
+    .addEventListener("click", function () {
+      const report = buildReport();
+
+      reportText.textContent = report;
+      reportSection.hidden = false;
+      statusMessage.textContent =
+        "Incident summary generated locally in your browser.";
+
+      reportSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    });
+
+  document
+    .getElementById("copyButton")
+    .addEventListener("click", async function () {
+      try {
+        await navigator.clipboard.writeText(reportText.textContent);
+        statusMessage.textContent = "Incident summary copied.";
+      } catch (error) {
+        statusMessage.textContent =
+          "Copying was blocked by the browser. Select the report text manually.";
+      }
+    });
+
+  document
+    .getElementById("downloadButton")
+    .addEventListener("click", function () {
+      const blob = new Blob([reportText.textContent], {
+        type: "text/plain;charset=utf-8"
+      });
+
+      const downloadUrl = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+
+      link.href = downloadUrl;
+      link.download = "offersentry-job-scam-incident-summary.txt";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+
+      URL.revokeObjectURL(downloadUrl);
+      statusMessage.textContent = "Incident summary downloaded to your device.";
+    });
+
+  document
+    .getElementById("printButton")
+    .addEventListener("click", function () {
+      window.print();
+    });
+
+  document
+    .getElementById("clearButton")
+    .addEventListener("click", function () {
+      const shouldClear = window.confirm(
+        "Clear every field and remove the generated summary from this page?"
+      );
+
+      if (!shouldClear) {
+        return;
+      }
+
+      form.reset();
+      reportText.textContent = "";
+      reportSection.hidden = true;
+      statusMessage.textContent = "The form has been cleared.";
+    });
+</script>
+</body>
+</html>
