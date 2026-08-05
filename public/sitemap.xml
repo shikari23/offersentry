@@ -42,4 +42,10 @@
   <changefreq>monthly</changefreq>
   <priority>0.8</priority>
 </url>
+  <url>
+  <loc>https://offersentry.com/authors/nehal-patel</loc>
+  <lastmod>2026-08-05</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
 </urlset>
