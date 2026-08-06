@@ -37,7 +37,16 @@ const EVENTS = {
     "/tools/recruiter-checker",
     "/tools/recruiter-checker.html"
   ]
-}
+},
+  "/api/events/domain-age-check-run/tool": {
+  event: "domain_age_check_run",
+  source: "domain_age_checker",
+  destination: "checker_result",
+  refererPaths: [
+    "/tools/domain-age-checker",
+    "/tools/domain-age-checker.html"
+  ]
+},
 };
 
 export default {
