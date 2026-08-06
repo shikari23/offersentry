@@ -712,10 +712,30 @@
       container.append(article);
     });
   }
+async function lookupDomainIntelligence(domain) {
+  const response = await fetch("/api/domain-intelligence", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      input: domain
+    })
+  });
 
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(
+      data?.error || "Live domain information is unavailable."
+    );
+  }
+
+  return data;
+}
   document
     .querySelector("#verifier")
-    .addEventListener("submit", event => {
+    .addEventListener("submit", async event => {
       event.preventDefault();
 
       const email = document
