@@ -314,6 +314,17 @@
       font-size: clamp(30px, 4vw, 46px);
       letter-spacing: -2px;
     }
+    .next-steps .section-intro {
+  max-width: 760px;
+  margin: -10px 0 28px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.next-steps h2.secondary-heading {
+  margin-top: 55px;
+}
 
     .step-grid {
       display: grid;
@@ -552,8 +563,43 @@
 
   <section class="next-steps">
     <div class="next-steps-inner">
-      <h2>Three checks technology cannot replace</h2>
+  <h2>What the live recruiter checker examines</h2>
 
+  <p class="section-intro">
+    OfferSentry combines browser-based comparisons with public domain
+    registration and mail-record information. No automated result proves that
+    a recruiter or job is legitimate.
+  </p>
+
+  <div class="step-grid">
+    <article class="step">
+      <strong>Email and company-domain match</strong>
+      <p>
+        Compares the recruiter’s email domain with the independently located
+        company website and checks for small lookalike spelling changes.
+      </p>
+    </article>
+
+    <article class="step">
+      <strong>Public domain-registration age</strong>
+      <p>
+        Uses authoritative RDAP registry information to identify newly
+        registered domains that may require additional verification.
+      </p>
+    </article>
+
+    <article class="step">
+      <strong>MX mail records</strong>
+      <p>
+        Checks whether the recruiter’s domain has DNS mail records configured
+        to receive email.
+      </p>
+    </article>
+  </div>
+
+  <h2 class="secondary-heading">
+    Three checks technology cannot replace
+  </h2>
       <div class="step-grid">
         <article class="step">
           <strong>1. Find the job independently</strong>
