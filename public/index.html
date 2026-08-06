@@ -733,7 +733,9 @@
 
     const text = message.value.trim();
     if (text.length < 20) return;
-
+    navigator.sendBeacon(
+  "/api/events/message-check-run/home"
+);
     const matches = warningSignals.filter(signal => signal.pattern.test(text));
     const score = matches.reduce((total, signal) => total + signal.weight, 0);
     const level = score >= 7 ? "High" : score >= 3 ? "Medium" : "Low";
