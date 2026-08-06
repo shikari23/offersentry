@@ -1042,9 +1042,19 @@ try {
 
 results.hidden = false;
 
-navigator.sendBeacon(
-  "/api/events/recruiter-check-run/tool"
-);
+try {
+  await fetch(
+    "/api/events/recruiter-check-run/tool",
+    {
+      method: "POST",
+      keepalive: true
+    }
+  );
+} catch {
+  console.warn(
+    "Aggregate usage tracking was unavailable."
+  );
+}
 
       results.scrollIntoView({
         behavior: "smooth",
