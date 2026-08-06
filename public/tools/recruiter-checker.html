@@ -965,7 +965,7 @@ try {
         "Email domain has mail records",
         `${emailRoot} has MX records configured to receive email.`
       );
-    } else {
+    } else if (!emailIntelligence.mail.hasMailRecords) {
       score += 3;
 
       addCheck(
