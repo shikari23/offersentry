@@ -501,17 +501,6 @@
   }
   </script>
 </head>
-<script>
-  document
-    .querySelectorAll('a[href="/tools/job-scam-checklist"]')
-    .forEach((link) => {
-      link.addEventListener("click", () => {
-        navigator.sendBeacon(
-          "/api/events/checklist-click/ssn-guide"
-        );
-      });
-    });
-</script>
 <body>
 <header>
   <a class="brand" href="/">
@@ -986,5 +975,16 @@
     that an offer is legitimate or fraudulent.
   </p>
 </footer>
+  <script>
+  document
+    .querySelectorAll('a[href="/tools/job-scam-checklist"]')
+    .forEach((link) => {
+      link.addEventListener("click", () => {
+        navigator.sendBeacon(
+          "/api/events/checklist-click/ssn-guide"
+        );
+      });
+    });
+</script>
 </body>
 </html>
