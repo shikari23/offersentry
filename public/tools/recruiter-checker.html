@@ -498,12 +498,14 @@
       </div>
 
       <button type="submit">Compare domains</button>
-     <p class="privacy-note">
-  Privacy: Your entries are analyzed locally in your browser. The recruiter
-  email, company website, and job URL are not sent to OfferSentry or stored
-  in a database. Do not enter passwords, Social Security numbers, banking
-  information, or other sensitive data.
-    </p>
+    <p class="privacy-note">
+  Privacy: Domain comparisons are performed locally. For public registration
+  and mail-record checks, only normalized domains such as company.com are
+  temporarily processed by OfferSentry’s Cloudflare Worker and public RDAP
+  and DNS services. Full email addresses, complete URLs, and results are not
+  saved to OfferSentry’s database. Do not enter passwords, Social Security
+  numbers, banking information, or other sensitive data.
+</p>
     </form>
 
     <section class="results" id="results" hidden aria-live="polite">
