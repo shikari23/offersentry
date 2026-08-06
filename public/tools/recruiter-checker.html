@@ -876,7 +876,128 @@ async function lookupDomainIntelligence(domain) {
           );
         }
       }
+const submitButton = event.currentTarget.querySelector(
+  'button[type="submit"]'
+);
 
+const originalButtonText = submitButton.textContent;
+
+submitButton.disabled = true;
+submitButton.textContent = "Checking live domain data…";
+
+try {
+  const emailLookup = lookupDomainIntelligence(emailRoot);
+
+  const companyLookup = emailRoot === companyRoot
+    ? emailLookup
+    : lookupDomainIntelligence(companyRoot);
+
+  const [emailIntelligence, companyIntelligence] =
+    await Promise.all([
+      emailLookup,
+      companyLookup
+    ]);
+
+  if (emailIntelligence.rdap?.registered === false) {
+    score += 4;
+
+    addCheck(
+      items,
+      "danger",
+      "Email domain was not found in the registry",
+      `${emailRoot} did not return an active domain registration. Do not trust the address without independent confirmation.`
+    );
+  } else if (
+    typeof emailIntelligence.rdap?.ageDays === "number"
+  ) {
+    const ageDays = emailIntelligence.rdap.ageDays;
+    const createdDate = new Date(
+      emailIntelligence.rdap.createdAt
+    ).toLocaleDateString();
+
+    if (ageDays < 30) {
+      score += 3;
+
+      addCheck(
+        items,
+        "danger",
+        "Recruiter email domain is very new",
+        `${emailRoot} appears to have been registered on ${createdDate}, less than 30 days ago.`
+      );
+    } else if (ageDays < 180) {
+      score += 2;
+
+      addCheck(
+        items,
+        "warn",
+        "Recruiter email domain is less than six months old",
+        `${emailRoot} appears to have been registered on ${createdDate}.`
+      );
+    } else if (ageDays < 365) {
+      score += 1;
+
+      addCheck(
+        items,
+        "warn",
+        "Recruiter email domain is less than one year old",
+        `${emailRoot} appears to have been registered on ${createdDate}.`
+      );
+    } else {
+      addCheck(
+        items,
+        "good",
+        "Established email domain registration",
+        `${emailRoot} appears to have been registered on ${createdDate}. Domain age alone does not prove legitimacy.`
+      );
+    }
+  }
+
+  if (emailIntelligence.mail?.available === true) {
+    if (emailIntelligence.mail.hasMailRecords) {
+      addCheck(
+        items,
+        "good",
+        "Email domain has mail records",
+        `${emailRoot} has MX records configured to receive email.`
+      );
+    } else {
+      score += 3;
+
+      addCheck(
+        items,
+        "danger",
+        "No mail records found",
+        `${emailRoot} does not appear to have MX records configured to receive email.`
+      );
+    }
+  }
+
+  if (
+    companyRoot !== emailRoot &&
+    typeof companyIntelligence.rdap?.ageDays === "number"
+  ) {
+    const companyCreatedDate = new Date(
+      companyIntelligence.rdap.createdAt
+    ).toLocaleDateString();
+
+    addCheck(
+      items,
+      "good",
+      "Official company-domain registration found",
+      `${companyRoot} appears to have been registered on ${companyCreatedDate}. Verify that you identified the company’s real website.`
+    );
+  }
+} catch {
+  addCheck(
+    items,
+    "warn",
+    "Live domain information was unavailable",
+    "The local comparison still completed, but registration or mail-record data could not be retrieved. Try again later."
+  );
+} finally {
+  submitButton.disabled = false;
+  submitButton.textContent = originalButtonText;
+}
       addCheck(
         items,
         "good",
