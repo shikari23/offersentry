@@ -1,3 +1,6 @@
+import {
+  handleDomainIntelligenceRequest
+} from "./tools/domain-intelligence.js";
 const EVENTS = {
   "/api/events/checklist-click/ssn-guide": {
     event: "checklist_click",
@@ -29,9 +32,14 @@ const EVENTS = {
 };
 
 export default {
-  async fetch(request, env) {
-    const url = new URL(request.url);
-    const eventDefinition = EVENTS[url.pathname];
+ async fetch(request, env) {
+  const url = new URL(request.url);
+
+  if (url.pathname === "/api/domain-intelligence") {
+    return handleDomainIntelligenceRequest(request);
+  }
+
+  const eventDefinition = EVENTS[url.pathname];
 
     if (!eventDefinition) {
       return new Response("Not found", {
