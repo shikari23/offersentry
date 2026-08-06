@@ -1,1 +1,971 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
+  <title>Domain Age Checker & Registration Lookup | OfferSentry</title>
+
+  <meta
+    name="description"
+    content="Check a domain's public registration date, approximate age, registrar, expiration date, nameservers, and MX mail records."
+  >
+
+  <link
+    rel="canonical"
+    href="https://offersentry.com/tools/domain-age-checker"
+  >
+
+  <style>
+    :root {
+      --navy: #08234d;
+      --blue: #1769d2;
+      --light: #edf7ff;
+      --soft: #f6f9fc;
+      --muted: #49617d;
+      --border: #caddef;
+      --green: #278a5b;
+      --amber: #a56100;
+      --red: #b93221;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--navy);
+      background: #fff;
+      font-family: Inter, Arial, sans-serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    header {
+      min-height: 76px;
+      padding: 12px clamp(20px, 5vw, 72px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      border-bottom: 1px solid #e2ebf3;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      text-decoration: none;
+    }
+
+    .shield {
+      width: 38px;
+      height: 44px;
+      color: var(--blue);
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    nav a {
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--blue);
+    }
+
+    .hero {
+      padding: 58px 20px 110px;
+      text-align: center;
+      background: linear-gradient(#fff 35%, #f0f7fd);
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: clamp(40px, 5vw, 64px);
+      line-height: 1.08;
+      letter-spacing: -3px;
+    }
+
+    .subhead {
+      max-width: 730px;
+      margin: 18px auto 0;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 20px);
+      line-height: 1.55;
+    }
+
+    .tool {
+      width: min(900px, calc(100% - 36px));
+      margin: -65px auto 70px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: 0 18px 55px #08234d1a;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .field small {
+      display: block;
+      margin-top: 7px;
+      color: #6c7f96;
+      line-height: 1.45;
+    }
+
+    .input-row {
+      display: grid;
+      grid-template-columns: 1fr 190px;
+      gap: 12px;
+    }
+
+    input {
+      width: 100%;
+      min-height: 58px;
+      padding: 14px 16px;
+      color: var(--navy);
+      border: 2px solid var(--border);
+      border-radius: 11px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px #1769d220;
+    }
+
+    button {
+      min-height: 58px;
+      padding: 14px 22px;
+      border: 0;
+      border-radius: 11px;
+      color: #fff;
+      background: linear-gradient(135deg, #1769d2, #0d55b5);
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    button:hover {
+      filter: brightness(.97);
+    }
+
+    button:disabled {
+      cursor: wait;
+      opacity: .7;
+    }
+
+    .privacy-note {
+      margin: 17px 0 0;
+      color: #6c7f96;
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .privacy-note::before {
+      content: "✓";
+      margin-right: 6px;
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    .error {
+      margin-top: 18px;
+      padding: 14px 16px;
+      color: #922719;
+      border: 1px solid #ffd0c9;
+      border-radius: 10px;
+      background: #fff1ee;
+      line-height: 1.5;
+    }
+
+    .error[hidden],
+    .results[hidden] {
+      display: none;
+    }
+
+    .results {
+      margin-top: 30px;
+      padding-top: 28px;
+      border-top: 1px solid #dce8f2;
+    }
+
+    .result-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .result-header h2 {
+      margin: 4px 0 8px;
+      font-size: clamp(28px, 4vw, 38px);
+      overflow-wrap: anywhere;
+    }
+
+    .result-header p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .badge {
+      flex: none;
+      padding: 9px 13px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .low .badge {
+      color: #14603d;
+      background: #e5f6ed;
+    }
+
+    .medium .badge {
+      color: #754600;
+      background: #fff2d7;
+    }
+
+    .high .badge {
+      color: #922719;
+      background: #ffebe7;
+    }
+
+    .details {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .detail {
+      min-height: 105px;
+      padding: 18px;
+      border: 1px solid #dae6f0;
+      border-radius: 13px;
+      background: var(--soft);
+    }
+
+    .detail-label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .7px;
+      text-transform: uppercase;
+    }
+
+    .detail-value {
+      display: block;
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+
+    .lookup-section {
+      margin-top: 26px;
+    }
+
+    .lookup-section h3 {
+      margin: 0 0 12px;
+      font-size: 20px;
+    }
+
+    .lookup-section ul {
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+      list-style: none;
+    }
+
+    .lookup-section li {
+      padding: 13px 15px;
+      border: 1px solid #dae6f0;
+      border-radius: 10px;
+      background: #fff;
+      overflow-wrap: anywhere;
+    }
+
+    .warnings li {
+      position: relative;
+      padding-left: 44px;
+    }
+
+    .warnings li::before {
+      position: absolute;
+      top: 13px;
+      left: 15px;
+      width: 21px;
+      height: 21px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      content: "!";
+      color: #922719;
+      background: #ffebe7;
+      font-weight: 900;
+    }
+
+    .disclaimer {
+      margin: 26px 0 0;
+      padding: 16px;
+      color: var(--muted);
+      border-left: 4px solid var(--blue);
+      border-radius: 6px;
+      background: var(--light);
+      line-height: 1.55;
+    }
+
+    .content {
+      width: min(1000px, calc(100% - 36px));
+      margin: 0 auto 80px;
+    }
+
+    .content h2 {
+      margin: 0 0 16px;
+      font-size: clamp(28px, 4vw, 40px);
+      letter-spacing: -1px;
+    }
+
+    .content-intro {
+      max-width: 760px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .cards {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: #fff;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .cta {
+      margin-top: 38px;
+      padding: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      border-radius: 17px;
+      color: #fff;
+      background: var(--navy);
+    }
+
+    .cta h2 {
+      margin: 0 0 8px;
+      font-size: 25px;
+    }
+
+    .cta p {
+      margin: 0;
+      color: #d8e7f5;
+      line-height: 1.5;
+    }
+
+    .cta a {
+      flex: none;
+      padding: 13px 18px;
+      border-radius: 10px;
+      color: var(--navy);
+      background: #fff;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    footer {
+      padding: 35px 20px;
+      color: #59708a;
+      background: #f4f8fb;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    footer a {
+      margin: 0 8px;
+    }
+
+    @media (max-width: 720px) {
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        width: 100%;
+        gap: 16px;
+        overflow-x: auto;
+      }
+
+      .input-row,
+      .details,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .tool {
+        padding: 23px;
+      }
+
+      .result-header,
+      .cta {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "OfferSentry Domain Age Checker",
+    "url": "https://offersentry.com/tools/domain-age-checker",
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "Any",
+    "description": "A free public RDAP and DNS lookup tool for checking domain registration age, registrar, expiration information, nameservers, and MX records.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="OfferSentry home">
+      <svg
+        class="shield"
+        viewBox="0 0 48 56"
+        aria-hidden="true"
+      >
+        <path
+          fill="currentColor"
+          d="M24 2 43 9v15c0 13.2-7.6 24.3-19 30C12.6 48.3 5 37.2 5 24V9L24 2Zm0 7.1-12 4.4V24c0 9.4 4.8 17.6 12 22.2C31.2 41.6 36 33.4 36 24V13.5L24 9.1Z"
+        />
+        <path
+          fill="currentColor"
+          d="m20.7 32.5-6.1-6.1 4.2-4.2 2.8 2.8 7.7-8 4.3 4.1-12.9 13.4Z"
+        />
+      </svg>
+      <span>OfferSentry</span>
+    </a>
+
+    <nav aria-label="Primary navigation">
+      <a href="/guides/">Guides</a>
+      <a href="/tools/recruiter-checker">Recruiter Checker</a>
+      <a href="/about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Free public lookup tool</p>
+      <h1>Domain Age & Registration Checker</h1>
+      <p class="subhead">
+        Review a domain’s public registration date, approximate age,
+        registrar, expiration information, nameservers, and email records.
+      </p>
+    </section>
+
+    <section class="tool" aria-labelledby="checker-heading">
+      <form id="domain-form">
+        <div class="field">
+          <label id="checker-heading" for="domain-input">
+            Enter a domain or website
+          </label>
+
+          <div class="input-row">
+            <input
+              id="domain-input"
+              name="domain"
+              type="text"
+              placeholder="example.com"
+              maxlength="500"
+              autocomplete="off"
+              spellcheck="false"
+              required
+            >
+
+            <button id="check-button" type="submit">
+              Check domain
+            </button>
+          </div>
+
+          <small>
+            You may enter example.com or https://example.com.
+            Do not enter passwords or other sensitive information.
+          </small>
+        </div>
+      </form>
+
+      <p class="privacy-note">
+        The normalized domain is temporarily processed by OfferSentry’s
+        Cloudflare Worker and public RDAP and DNS services. Searches and
+        results are not saved to OfferSentry’s database.
+      </p>
+
+      <div
+        id="error-message"
+        class="error"
+        role="alert"
+        hidden
+      ></div>
+
+      <section
+        id="results"
+        class="results"
+        aria-live="polite"
+        hidden
+      >
+        <div class="result-header">
+          <div>
+            <p class="eyebrow">Public domain lookup</p>
+            <h2 id="result-domain"></h2>
+            <p id="result-summary"></p>
+          </div>
+
+          <span id="result-badge" class="badge"></span>
+        </div>
+
+        <div class="details">
+          <div class="detail">
+            <span class="detail-label">Registration status</span>
+            <span id="registered-value" class="detail-value"></span>
+          </div>
+
+          <div class="detail">
+            <span class="detail-label">Approximate domain age</span>
+            <span id="age-value" class="detail-value"></span>
+          </div>
+
+          <div class="detail">
+            <span class="detail-label">Registration date</span>
+            <span id="created-value" class="detail-value"></span>
+          </div>
+
+          <div class="detail">
+            <span class="detail-label">Registrar</span>
+            <span id="registrar-value" class="detail-value"></span>
+          </div>
+
+          <div class="detail">
+            <span class="detail-label">Expiration date</span>
+            <span id="expiration-value" class="detail-value"></span>
+          </div>
+
+          <div class="detail">
+            <span class="detail-label">MX mail records</span>
+            <span id="mail-value" class="detail-value"></span>
+          </div>
+        </div>
+
+        <section
+          id="warning-section"
+          class="lookup-section warnings"
+          hidden
+        >
+          <h3>Warnings and limitations</h3>
+          <ul id="warning-list"></ul>
+        </section>
+
+        <section
+          id="mail-section"
+          class="lookup-section"
+          hidden
+        >
+          <h3>Mail servers</h3>
+          <ul id="mail-list"></ul>
+        </section>
+
+        <section
+          id="nameserver-section"
+          class="lookup-section"
+          hidden
+        >
+          <h3>Nameservers</h3>
+          <ul id="nameserver-list"></ul>
+        </section>
+
+        <section
+          id="status-section"
+          class="lookup-section"
+          hidden
+        >
+          <h3>Registry statuses</h3>
+          <ul id="status-list"></ul>
+        </section>
+
+        <p id="result-disclaimer" class="disclaimer"></p>
+      </section>
+    </section>
+
+    <section class="content">
+      <p class="eyebrow">Understanding the results</p>
+      <h2>What this lookup can tell you</h2>
+
+      <p class="content-intro">
+        Domain-registration information can provide useful context, but it
+        cannot prove that a website, company, recruiter, or job offer is safe.
+        Established domains may be compromised, and legitimate organizations
+        may use recently registered domains.
+      </p>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Registration age</h3>
+          <p>
+            A very recently registered domain deserves additional
+            verification, especially when it is being used for recruiting,
+            payments, or requests for personal information.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Mail records</h3>
+          <p>
+            MX records show whether a domain is configured to receive email.
+            Their presence does not prove that the sender or organization is
+            legitimate.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Registrar and nameservers</h3>
+          <p>
+            Public RDAP data may identify the registrar, important dates,
+            nameservers, and registry statuses associated with a domain.
+          </p>
+        </article>
+      </div>
+
+      <div class="cta">
+        <div>
+          <h2>Checking a recruiter or job offer?</h2>
+          <p>
+            Compare the recruiter’s email domain with the company’s official
+            website and review additional warning signs.
+          </p>
+        </div>
+
+        <a href="/tools/recruiter-checker">
+          Open Recruiter Checker
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      © 2026 OfferSentry ·
+      <a href="/privacy">Privacy</a> ·
+      <a href="/terms">Terms</a> ·
+      <a href="/contact">Contact</a>
+    </p>
+  </footer>
+
+  <script>
+    const form = document.getElementById("domain-form");
+    const input = document.getElementById("domain-input");
+    const button = document.getElementById("check-button");
+    const results = document.getElementById("results");
+    const errorMessage = document.getElementById("error-message");
+
+    function setText(id, value) {
+      document.getElementById(id).textContent = value;
+    }
+
+    function formatDate(value) {
+      if (!value) {
+        return "Not provided publicly";
+      }
+
+      const date = new Date(value);
+
+      if (Number.isNaN(date.getTime())) {
+        return "Not provided publicly";
+      }
+
+      return new Intl.DateTimeFormat(
+        "en-US",
+        {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          timeZone: "UTC"
+        }
+      ).format(date);
+    }
+
+    function formatAge(days) {
+      if (!Number.isFinite(days)) {
+        return "Could not be determined";
+      }
+
+      if (days < 30) {
+        return `${days} day${days === 1 ? "" : "s"}`;
+      }
+
+      if (days < 365) {
+        const months = Math.floor(days / 30);
+        return `About ${months} month${months === 1 ? "" : "s"}`;
+      }
+
+      const years = Math.floor(days / 365);
+      const remainingMonths = Math.floor((days % 365) / 30);
+
+      if (remainingMonths === 0) {
+        return `About ${years} year${years === 1 ? "" : "s"}`;
+      }
+
+      return `About ${years} year${years === 1 ? "" : "s"} and ${remainingMonths} month${remainingMonths === 1 ? "" : "s"}`;
+    }
+
+    function replaceList(listId, sectionId, values) {
+      const list = document.getElementById(listId);
+      const section = document.getElementById(sectionId);
+
+      list.replaceChildren();
+
+      if (!Array.isArray(values) || values.length === 0) {
+        section.hidden = true;
+        return;
+      }
+
+      for (const value of values) {
+        const item = document.createElement("li");
+        item.textContent = value;
+        list.appendChild(item);
+      }
+
+      section.hidden = false;
+    }
+
+    function determineConcern(data) {
+      const warnings = Array.isArray(data.warnings)
+        ? data.warnings
+        : [];
+
+      if (
+        data.rdap?.registered === false ||
+        warnings.some((warning) => warning.level === "high")
+      ) {
+        return {
+          className: "high",
+          badge: "High concern",
+          summary:
+            "One or more public domain signals require careful independent verification."
+        };
+      }
+
+      if (
+        data.rdap?.available === false ||
+        warnings.some((warning) =>
+          warning.level === "caution" ||
+          warning.level === "notice"
+        )
+      ) {
+        return {
+          className: "medium",
+          badge: "Review needed",
+          summary:
+            "One or more domain details deserve additional verification."
+        };
+      }
+
+      return {
+        className: "low",
+        badge: "No obvious age warning",
+        summary:
+          "No obvious registration-age warning was found, but domain age does not prove legitimacy."
+      };
+    }
+
+    function renderResults(data) {
+      const concern = determineConcern(data);
+      const rdap = data.rdap || {};
+      const mail = data.mail || {};
+
+      results.className = `results ${concern.className}`;
+
+      setText("result-domain", data.domain || "Domain result");
+      setText("result-summary", concern.summary);
+      setText("result-badge", concern.badge);
+
+      let registrationStatus = "Information unavailable";
+
+      if (rdap.registered === true) {
+        registrationStatus = "Registered";
+      } else if (rdap.registered === false) {
+        registrationStatus = "Registration not found";
+      }
+
+      setText("registered-value", registrationStatus);
+      setText("age-value", formatAge(rdap.ageDays));
+      setText("created-value", formatDate(rdap.createdAt));
+      setText(
+        "registrar-value",
+        rdap.registrar || "Not provided publicly"
+      );
+      setText("expiration-value", formatDate(rdap.expiresAt));
+
+      let mailValue = "Information unavailable";
+
+      if (mail.available === true) {
+        mailValue = mail.hasMailRecords
+          ? "MX records found"
+          : "No MX records found";
+      }
+
+      setText("mail-value", mailValue);
+
+      const warnings = Array.isArray(data.warnings)
+        ? data.warnings
+            .map((warning) => warning.message)
+            .filter(Boolean)
+        : [];
+
+      if (rdap.available === false && rdap.error) {
+        warnings.push(rdap.error);
+      }
+
+      if (mail.available === false && mail.error) {
+        warnings.push(mail.error);
+      }
+
+      replaceList(
+        "warning-list",
+        "warning-section",
+        warnings
+      );
+
+      replaceList(
+        "mail-list",
+        "mail-section",
+        mail.records
+      );
+
+      replaceList(
+        "nameserver-list",
+        "nameserver-section",
+        rdap.nameservers
+      );
+
+      replaceList(
+        "status-list",
+        "status-section",
+        rdap.statuses
+      );
+
+      setText(
+        "result-disclaimer",
+        data.disclaimer ||
+          "These automated checks are warning signs, not proof that a website or organization is legitimate or fraudulent."
+      );
+
+      results.hidden = false;
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      errorMessage.hidden = true;
+      results.hidden = true;
+      button.disabled = true;
+      button.textContent = "Checking…";
+
+      try {
+        const response = await fetch(
+          "/api/domain-intelligence",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              input: input.value
+            })
+          }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(
+            data.error || "The domain could not be checked."
+          );
+        }
+
+        renderResults(data);
+      } catch (error) {
+        errorMessage.textContent =
+          error instanceof Error
+            ? error.message
+            : "The domain could not be checked.";
+
+        errorMessage.hidden = false;
+      } finally {
+        button.disabled = false;
+        button.textContent = "Check domain";
+      }
+    });
+  </script>
+</body>
+</html>
