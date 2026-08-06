@@ -357,3 +357,148 @@ export async function getDomainIntelligence(rawInput) {
       "These automated checks are warning signs, not proof that a recruiter or company is legitimate or fraudulent."
   };
 }
+function jsonResponse(data, status = 200) {
+  return Response.json(data, {
+    status,
+    headers: {
+      "Cache-Control": "no-store",
+      "X-Content-Type-Options": "nosniff"
+    }
+  });
+}
+
+function requestCameFromOfferSentry(request) {
+  const requestUrl = new URL(request.url);
+  const origin = request.headers.get("Origin");
+  const referer = request.headers.get("Referer");
+  const fetchSite = request.headers.get("Sec-Fetch-Site");
+
+  if (
+    fetchSite === "same-origin" ||
+    origin === requestUrl.origin
+  ) {
+    return true;
+  }
+
+  if (!referer) {
+    return false;
+  }
+
+  try {
+    return new URL(referer).origin === requestUrl.origin;
+  } catch {
+    return false;
+  }
+}
+
+async function readLimitedJson(request, maximumBytes = 2048) {
+  if (!request.body) {
+    throw new Error("missing_body");
+  }
+
+  const reader = request.body.getReader();
+  const decoder = new TextDecoder();
+  let receivedBytes = 0;
+  let text = "";
+
+  while (true) {
+    const { done, value } = await reader.read();
+
+    if (done) {
+      break;
+    }
+
+    receivedBytes += value.byteLength;
+
+    if (receivedBytes > maximumBytes) {
+      await reader.cancel();
+      throw new Error("payload_too_large");
+    }
+
+    text += decoder.decode(value, {
+      stream: true
+    });
+  }
+
+  text += decoder.decode();
+
+  try {
+    return JSON.parse(text);
+  } catch {
+    throw new Error("invalid_json");
+  }
+}
+
+export async function handleDomainIntelligenceRequest(request) {
+  if (request.method !== "POST") {
+    return jsonResponse(
+      {
+        error: "Method not allowed."
+      },
+      405
+    );
+  }
+
+  if (!requestCameFromOfferSentry(request)) {
+    return jsonResponse(
+      {
+        error: "Request not allowed."
+      },
+      403
+    );
+  }
+
+  const contentType = request.headers.get("Content-Type") ?? "";
+
+  if (!contentType.toLowerCase().startsWith("application/json")) {
+    return jsonResponse(
+      {
+        error: "Content-Type must be application/json."
+      },
+      415
+    );
+  }
+
+  let body;
+
+  try {
+    body = await readLimitedJson(request);
+  } catch (error) {
+    const message = error instanceof Error
+      ? error.message
+      : "invalid_request";
+
+    if (message === "payload_too_large") {
+      return jsonResponse(
+        {
+          error: "Request is too large."
+        },
+        413
+      );
+    }
+
+    return jsonResponse(
+      {
+        error: "Enter a valid request."
+      },
+      400
+    );
+  }
+
+  try {
+    const result = await getDomainIntelligence(body?.input);
+
+    return jsonResponse(result);
+  } catch (error) {
+    const message = error instanceof Error
+      ? error.message
+      : "The domain could not be checked.";
+
+    return jsonResponse(
+      {
+        error: message
+      },
+      400
+    );
+  }
+}
