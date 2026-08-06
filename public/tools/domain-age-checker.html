@@ -954,6 +954,19 @@
         }
 
         renderResults(data);
+        try {
+  await fetch(
+    "/api/events/domain-age-check-run/tool",
+    {
+      method: "POST",
+      keepalive: true
+    }
+  );
+} catch {
+  console.warn(
+    "Aggregate usage tracking was unavailable."
+  );
+}
       } catch (error) {
         errorMessage.textContent =
           error instanceof Error
