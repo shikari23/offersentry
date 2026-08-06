@@ -1040,7 +1040,11 @@ try {
 
       renderChecks(items);
 
-      results.hidden = false;
+results.hidden = false;
+
+navigator.sendBeacon(
+  "/api/events/recruiter-check-run/tool"
+);
 
       results.scrollIntoView({
         behavior: "smooth",
