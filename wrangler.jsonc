@@ -1,8 +1,18 @@
 {
   "name": "offersentry",
-  "compatibility_date": "2026-08-01",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-08-05",
   "assets": {
     "directory": "./public",
     "html_handling": "auto-trailing-slash"
-  }
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "offersentry-analytics",
+      "database_id": "c7699e60-8d4f-4d78-b6da-175bfe5a0b58"
+    }
+  ]
 }
+
+
