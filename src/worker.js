@@ -28,6 +28,15 @@ const EVENTS = {
     "/guides/fake-recruiter-bank-information",
     "/guides/fake-recruiter-bank-information.html"
   ]
+},
+  "/api/events/recruiter-check-run/tool": {
+  event: "recruiter_check_run",
+  source: "recruiter_checker",
+  destination: "checker_result",
+  refererPaths: [
+    "/tools/recruiter-checker",
+    "/tools/recruiter-checker.html"
+  ]
 }
 };
 
