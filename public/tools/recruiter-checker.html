@@ -773,7 +773,7 @@ async function lookupDomainIntelligence(domain) {
       let score = 0;
 
       if (personalEmailDomains.has(emailRoot)) {
-        score += 3;
+        score += 5;
 
         addCheck(
           items,
@@ -944,7 +944,7 @@ try {
         "Recruiter email domain is less than one year old",
         `${emailRoot} appears to have been registered on ${createdDate}.`
       );
-    } else {
+    } else if (!emailIntelligence.freeEmailProvider) {
       addCheck(
         items,
         "good",
@@ -955,7 +955,10 @@ try {
   }
 
   if (emailIntelligence.mail?.available === true) {
-    if (emailIntelligence.mail.hasMailRecords) {
+   if (
+  emailIntelligence.mail.hasMailRecords &&
+  !emailIntelligence.freeEmailProvider
+) {
       addCheck(
         items,
         "good",
