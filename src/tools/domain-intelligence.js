@@ -171,10 +171,55 @@ async function fetchWithTimeout(url, options = {}, timeoutMs = 7000) {
     clearTimeout(timeout);
   }
 }
-
-async function lookupRdap(domain) {
+async function findAuthoritativeRdapServer(domain) {
   const response = await fetchWithTimeout(
-    `https://rdap.org/domain/${encodeURIComponent(domain)}`,
+    "https://data.iana.org/rdap/dns.json",
+    {
+      headers: {
+        "Accept": "application/json"
+      }
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("The IANA RDAP directory is unavailable.");
+  }
+
+  const data = await response.json();
+  const topLevelDomain = domain.split(".").at(-1);
+
+  const service = Array.isArray(data.services)
+    ? data.services.find((entry) =>
+        Array.isArray(entry?.[0]) &&
+        entry[0].includes(topLevelDomain)
+      )
+    : null;
+
+  const server = Array.isArray(service?.[1])
+    ? service[1].find((value) => {
+        try {
+          return new URL(value).protocol === "https:";
+        } catch {
+          return false;
+        }
+      })
+    : null;
+
+  if (!server) {
+    throw new Error(
+      "No authoritative RDAP server was found for this domain."
+    );
+  }
+
+  return server.endsWith("/")
+    ? server
+    : `${server}/`;
+}
+async function lookupRdap(domain) {
+  const rdapServer = await findAuthoritativeRdapServer(domain);
+
+const response = await fetchWithTimeout(
+  `${rdapServer}domain/${encodeURIComponent(domain)}`,
     {
       headers: {
         "Accept": "application/rdap+json, application/json"
