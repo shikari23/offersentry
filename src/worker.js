@@ -1,11 +1,30 @@
-const EVENT_PATH = "/api/events/checklist-click/ssn-guide";
-const SOURCE_PATH = "/guides/should-you-give-recruiter-ssn";
+const EVENTS = {
+  "/api/events/checklist-click/ssn-guide": {
+    event: "checklist_click",
+    source: "ssn_guide",
+    destination: "job_scam_checklist",
+    refererPaths: [
+      "/guides/should-you-give-recruiter-ssn"
+    ]
+  },
+
+  "/api/events/message-check-run/home": {
+    event: "message_check_run",
+    source: "homepage",
+    destination: "checker_result",
+    refererPaths: [
+      "/",
+      "/index.html"
+    ]
+  }
+};
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    const eventDefinition = EVENTS[url.pathname];
 
-    if (url.pathname !== EVENT_PATH) {
+    if (!eventDefinition) {
       return new Response("Not found", {
         status: 404,
         headers: {
@@ -26,20 +45,23 @@ export default {
     }
 
     const origin = request.headers.get("Origin");
-const referer = request.headers.get("Referer");
-const fetchSite = request.headers.get("Sec-Fetch-Site");
+    const referer = request.headers.get("Referer");
+    const fetchSite = request.headers.get("Sec-Fetch-Site");
 
-let validSource =
-  fetchSite === "same-origin" ||
-  origin === url.origin;
-    
+    let validSource =
+      fetchSite === "same-origin" ||
+      origin === url.origin;
+
     if (!validSource && referer) {
       try {
         const refererUrl = new URL(referer);
 
         validSource =
           refererUrl.origin === url.origin &&
-          refererUrl.pathname.startsWith(SOURCE_PATH);
+          eventDefinition.refererPaths.some((path) =>
+            refererUrl.pathname === path ||
+            refererUrl.pathname === `${path}/`
+          );
       } catch {
         validSource = false;
       }
@@ -71,9 +93,9 @@ let validSource =
             updated_at = CURRENT_TIMESTAMP
         `)
         .bind(
-          "checklist_click",
-          "ssn_guide",
-          "job_scam_checklist"
+          eventDefinition.event,
+          eventDefinition.source,
+          eventDefinition.destination
         )
         .run();
 
@@ -86,7 +108,10 @@ let validSource =
     } catch (error) {
       console.error(JSON.stringify({
         event: "conversion_tracking_error",
-        message: error instanceof Error ? error.message : "Unknown error"
+        counter: eventDefinition.event,
+        message: error instanceof Error
+          ? error.message
+          : "Unknown error"
       }));
 
       return new Response("Tracking unavailable", {
