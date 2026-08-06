@@ -1084,5 +1084,16 @@
     guidance specific to your account and circumstances.
   </p>
 </footer>
+  <script>
+  document
+    .querySelectorAll('a[href="/tools/job-scam-report-builder"]')
+    .forEach((link) => {
+      link.addEventListener("click", () => {
+        navigator.sendBeacon(
+          "/api/events/report-builder-click/bank-guide"
+        );
+      });
+    });
+</script>
 </body>
 </html>
