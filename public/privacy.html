@@ -234,7 +234,7 @@
     This policy explains how OfferSentry handles information when you use
     our website and job-scam screening tool.
   </p>
-  <span class="updated">Effective July 31, 2026</span>
+  <span class="updated">Effective August 6, 2026</span>
 </div>
 
 <main>
@@ -260,30 +260,38 @@
     <section>
   <h2>2. Information entered into our tools</h2>
 
-  <p>
-    OfferSentry's job-offer checker and recruiter verification tool process
-    the information you enter locally in your web browser.
-  </p>
+<p>
+  OfferSentry’s job-offer message checker analyzes pasted messages locally in
+  the user’s browser. Pasted job messages are not intentionally transmitted to
+  OfferSentry or stored in an OfferSentry database.
+</p>
 
-  <p class="important">
-    Job messages, recruiter email addresses, company websites, and job URLs
-    entered into these tools are not transmitted to OfferSentry or stored in
-    an OfferSentry database.
-  </p>
+<p>
+  The recruiter verification tool performs its initial comparison locally.
+  To retrieve public registration dates and mail-record information, it sends
+  only normalized domain names, such as company.com, to OfferSentry’s
+  Cloudflare Worker.
+</p>
 
-  <p>
-    Like most websites, our hosting and security providers may process
-    standard technical information needed to deliver and protect the website,
-    such as your IP address, browser type, requested page, and request time.
-    This technical information does not include the contents entered into the
-    OfferSentry tools.
-  </p>
+<p class="important">
+  The recruiter verification tool does not send the complete recruiter email
+  address or complete job-posting URL for these live lookups. Normalized
+  domains are temporarily processed and sent to the authoritative public RDAP
+  registry service and Cloudflare’s DNS service. OfferSentry does not save
+  these domain searches or their results in its database.
+</p>
 
-  <p>
-    Please do not enter passwords, Social Security numbers, banking
-    information, home addresses, identification numbers, or other highly
-    sensitive personal information into OfferSentry.
-  </p>
+<p>
+  Hosting, registry, and DNS providers may process technical information
+  required to provide, secure, and complete these requests. Their handling of
+  information is governed by their respective privacy policies.
+</p>
+
+<p>
+  Please do not enter passwords, Social Security numbers, banking information,
+  home addresses, identification numbers, or other highly sensitive personal
+  information into OfferSentry.
+</p>
 </section>
    </section>
   <section>
