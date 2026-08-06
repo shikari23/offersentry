@@ -26,10 +26,13 @@ export default {
     }
 
     const origin = request.headers.get("Origin");
-    const referer = request.headers.get("Referer");
+const referer = request.headers.get("Referer");
+const fetchSite = request.headers.get("Sec-Fetch-Site");
 
-    let validSource = origin === url.origin;
-
+let validSource =
+  fetchSite === "same-origin" ||
+  origin === url.origin;
+    
     if (!validSource && referer) {
       try {
         const refererUrl = new URL(referer);
