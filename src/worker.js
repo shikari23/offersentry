@@ -16,7 +16,16 @@ const EVENTS = {
       "/",
       "/index.html"
     ]
-  }
+  },
+  "/api/events/report-builder-click/bank-guide": {
+  event: "report_builder_click",
+  source: "bank_information_guide",
+  destination: "job_scam_report_builder",
+  refererPaths: [
+    "/guides/fake-recruiter-bank-information",
+    "/guides/fake-recruiter-bank-information.html"
+  ]
+}
 };
 
 export default {
