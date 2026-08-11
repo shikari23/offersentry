@@ -1,1 +1,1112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta name="google-adsense-account" content="ca-pub-6258916876160666">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
+  <title>How to Check Website Age Before Trusting a Job Offer | OfferSentry</title>
+
+  <meta
+    name="description"
+    content="Learn how to check a website’s registration age, compare recruiter domains, interpret RDAP results, and independently verify a job offer."
+  >
+
+  <meta name="author" content="Nehal Patel">
+
+  <link
+    rel="canonical"
+    href="https://offersentry.com/guides/check-website-domain-age-job-scam"
+  >
+
+  <meta property="og:type" content="article">
+  <meta
+    property="og:title"
+    content="How to Check How Old a Website Is Before Trusting a Job Offer"
+  >
+  <meta
+    property="og:description"
+    content="Use domain-registration information as one part of an independent job-offer verification process."
+  >
+  <meta
+    property="og:url"
+    content="https://offersentry.com/guides/check-website-domain-age-job-scam"
+  >
+  <meta property="og:site_name" content="OfferSentry">
+
+  <style>
+    :root {
+      --navy:#08234d;
+      --blue:#1769d2;
+      --light:#edf7ff;
+      --soft:#f5f9fd;
+      --muted:#49617d;
+      --border:#caddef;
+      --red:#b93221;
+      --green:#278a5b;
+      --amber:#a56100;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    body {
+      margin:0;
+      color:var(--navy);
+      background:#fff;
+      font-family:Inter,Arial,sans-serif;
+    }
+
+    a {
+      color:var(--blue);
+    }
+
+    header {
+      min-height:76px;
+      padding:12px clamp(20px,5vw,72px);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:25px;
+      border-bottom:1px solid #e2ebf3;
+    }
+
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:var(--navy);
+      font-size:28px;
+      font-weight:800;
+      letter-spacing:-1px;
+      text-decoration:none;
+    }
+
+    .shield {
+      width:38px;
+      height:44px;
+      color:var(--blue);
+    }
+
+    nav {
+      display:flex;
+      gap:24px;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    nav a {
+      color:var(--navy);
+      text-decoration:none;
+    }
+
+    nav a:hover {
+      color:var(--blue);
+    }
+
+    .breadcrumb {
+      width:min(1050px,calc(100% - 40px));
+      margin:24px auto 0;
+      color:#6c7f96;
+      font-size:13px;
+    }
+
+    .breadcrumb a {
+      text-decoration:none;
+    }
+
+    .hero {
+      padding:55px 20px 65px;
+      background:linear-gradient(#fff,var(--light));
+    }
+
+    .hero-inner {
+      width:min(920px,100%);
+      margin:auto;
+      text-align:center;
+    }
+
+    .eyebrow {
+      margin:0 0 15px;
+      color:var(--blue);
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+    }
+
+    h1 {
+      margin:0;
+      font-size:clamp(42px,6vw,68px);
+      line-height:1.08;
+      letter-spacing:-3px;
+    }
+
+    .intro {
+      max-width:760px;
+      margin:22px auto 0;
+      color:var(--muted);
+      font-size:19px;
+      line-height:1.65;
+    }
+
+    .article-meta {
+      margin-top:22px;
+      color:#718299;
+      font-size:13px;
+    }
+
+    .layout {
+      width:min(1100px,calc(100% - 40px));
+      margin:60px auto 90px;
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 270px;
+      align-items:start;
+      gap:55px;
+    }
+
+    article h2 {
+      margin:52px 0 17px;
+      font-size:clamp(28px,4vw,38px);
+      line-height:1.2;
+      letter-spacing:-1.3px;
+    }
+
+    article h2:first-of-type {
+      margin-top:0;
+    }
+
+    article h3 {
+      margin:29px 0 10px;
+      font-size:21px;
+    }
+
+    article p,
+    article li {
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.75;
+    }
+
+    article li {
+      margin-bottom:10px;
+    }
+
+    article strong {
+      color:var(--navy);
+    }
+
+    .quick-answer {
+      margin-bottom:32px;
+      padding:28px;
+      border-left:5px solid var(--blue);
+      border-radius:12px;
+      background:var(--light);
+    }
+
+    .quick-answer h2 {
+      margin:0 0 12px;
+      font-size:24px;
+    }
+
+    .quick-answer p {
+      margin:0;
+    }
+
+    .warning {
+      margin:30px 0;
+      padding:25px;
+      border:1px solid #efc78b;
+      border-radius:14px;
+      background:#fff9ed;
+    }
+
+    .warning strong {
+      display:block;
+      margin-bottom:8px;
+      color:#805000;
+      font-size:18px;
+    }
+
+    .warning p {
+      margin:0;
+    }
+
+    .safe-note {
+      margin:30px 0;
+      padding:24px;
+      border:1px solid #bcdacb;
+      border-radius:14px;
+      background:#effaf4;
+    }
+
+    .safe-note strong {
+      display:block;
+      margin-bottom:8px;
+      color:#14603d;
+      font-size:18px;
+    }
+
+    .safe-note p {
+      margin:0;
+    }
+
+    .steps {
+      display:grid;
+      gap:19px;
+    }
+
+    .step {
+      padding:26px;
+      border:1px solid #d9e6f1;
+      border-radius:16px;
+      background:#fff;
+      box-shadow:0 8px 25px #08234d0a;
+    }
+
+    .step-heading {
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .step-number {
+      width:42px;
+      height:42px;
+      flex:none;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      color:#fff;
+      background:var(--blue);
+      font-weight:900;
+    }
+
+    .step h2 {
+      margin:0;
+      font-size:24px;
+      letter-spacing:-.7px;
+    }
+
+    .step p:last-child {
+      margin-bottom:0;
+    }
+
+    .signal-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .signal-card {
+      padding:24px;
+      border:1px solid #d9e6f1;
+      border-radius:15px;
+      background:#fff;
+    }
+
+    .signal-card h3 {
+      margin:0 0 9px;
+      color:var(--navy);
+    }
+
+    .signal-card p {
+      margin:0;
+      font-size:15px;
+    }
+
+    .checklist {
+      padding:28px;
+      border-radius:16px;
+      background:var(--soft);
+    }
+
+    .checklist ul {
+      margin:0;
+      padding-left:22px;
+    }
+
+    .faq {
+      border-top:1px solid #dce7f0;
+    }
+
+    .faq-item {
+      padding:24px 0;
+      border-bottom:1px solid #dce7f0;
+    }
+
+    .faq-item h3 {
+      margin:0 0 10px;
+    }
+
+    .faq-item p {
+      margin:0;
+    }
+
+    .sources {
+      margin-top:55px;
+      padding:26px;
+      border-radius:15px;
+      background:var(--soft);
+    }
+
+    .sources h2 {
+      margin:0 0 15px;
+      font-size:24px;
+    }
+
+    .sources li {
+      font-size:15px;
+    }
+
+    aside {
+      position:sticky;
+      top:25px;
+    }
+
+    .side-card {
+      padding:24px;
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:#fff;
+      box-shadow:0 12px 35px #08234d12;
+    }
+
+    .side-card + .side-card {
+      margin-top:20px;
+    }
+
+    .side-card h2 {
+      margin:0 0 13px;
+      font-size:20px;
+    }
+
+    .side-card p,
+    .side-card li {
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .side-card ul {
+      padding-left:18px;
+    }
+
+    .side-card a.button,
+    .side-card a.secondary-button {
+      margin-top:12px;
+      padding:14px;
+      display:block;
+      border-radius:9px;
+      text-align:center;
+      text-decoration:none;
+      font-size:14px;
+      font-weight:800;
+    }
+
+    .side-card a.button {
+      color:#fff;
+      background:var(--blue);
+    }
+
+    .side-card a.secondary-button {
+      color:var(--blue);
+      border:1px solid var(--border);
+    }
+
+    .cta {
+      margin:60px 0;
+      padding:36px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:30px;
+      color:#fff;
+      background:var(--navy);
+      border-radius:20px;
+    }
+
+    .cta h2 {
+      margin:0 0 10px;
+      color:#fff;
+      font-size:28px;
+    }
+
+    .cta p {
+      margin:0;
+      color:#c7d5e7;
+      font-size:15px;
+    }
+
+    .cta a {
+      padding:15px 20px;
+      flex:none;
+      border-radius:10px;
+      color:var(--navy);
+      background:#fff;
+      text-decoration:none;
+      font-weight:800;
+    }
+
+    footer {
+      padding:42px clamp(22px,7vw,105px);
+      border-top:1px solid #e0e9f1;
+    }
+
+    footer p {
+      max-width:850px;
+      color:#718299;
+      font-size:12px;
+      line-height:1.6;
+    }
+
+    footer a {
+      margin-right:12px;
+    }
+
+    @media(max-width:850px) {
+      .layout {
+        grid-template-columns:1fr;
+      }
+
+      aside {
+        position:static;
+      }
+
+      .cta {
+        align-items:stretch;
+        flex-direction:column;
+      }
+
+      .cta a {
+        text-align:center;
+      }
+    }
+
+    @media(max-width:650px) {
+      header {
+        align-items:flex-start;
+      }
+
+      nav {
+        gap:12px;
+        font-size:12px;
+      }
+
+      nav a:nth-child(2) {
+        display:none;
+      }
+
+      h1 {
+        letter-spacing:-2px;
+      }
+
+      .signal-grid {
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Article",
+        "headline":"How to Check How Old a Website Is Before Trusting a Job Offer",
+        "description":"How to inspect public domain-registration information and use it as one part of an independent job-offer verification process.",
+        "datePublished":"2026-08-11",
+        "dateModified":"2026-08-11",
+        "author":{
+          "@type":"Person",
+          "name":"Nehal Patel",
+          "url":"https://offersentry.com/authors/nehal-patel"
+        },
+        "publisher":{
+          "@type":"Organization",
+          "name":"OfferSentry",
+          "url":"https://offersentry.com"
+        },
+        "mainEntityOfPage":{
+          "@type":"WebPage",
+          "@id":"https://offersentry.com/guides/check-website-domain-age-job-scam"
+        }
+      },
+      {
+        "@type":"FAQPage",
+        "mainEntity":[
+          {
+            "@type":"Question",
+            "name":"How can I check how old a website is?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Use a public RDAP-based domain lookup to inspect the domain's reported registration date. OfferSentry's Domain Age Checker displays available registration dates, approximate age, registrar, expiration information, nameservers, and MX records."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Does a new domain mean a job offer is a scam?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"No. A recently registered domain is a reason to perform more verification, not proof of fraud. Legitimate organizations can launch new domains, while scammers may also misuse old or compromised domains."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"Does an old domain prove that a recruiter is legitimate?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"No. Domain age does not prove that the person contacting you controls the domain or represents the company. Verify the recruiter and job independently through the company's official careers page or another trusted contact channel."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"What should I compare when checking a recruiter?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Compare the recruiter's email domain, the official company website, and the job-posting domain. Look for misspellings, added words, substituted characters, unexpected subdomains, and links that lead somewhere other than the company's official careers site."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+<header>
+  <a class="brand" href="/">
+    <svg class="shield" viewBox="0 0 48 56" aria-hidden="true">
+      <path
+        d="M24 3.5 42 10v14c0 11.8-7.3 21.8-18 27C13.3 45.8 6 35.8 6 24V10l18-6.5Z"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="3"
+      />
+      <path
+        d="m15.5 27 5.7 5.7L33 20.5"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="3.5"
+      />
+    </svg>
+    OfferSentry
+  </a>
+
+  <nav aria-label="Main navigation">
+    <a href="/">Message Checker</a>
+    <a href="/tools/recruiter-checker">Recruiter Checker</a>
+    <a href="/guides/">Scam Guides</a>
+    <a href="/about.html">About</a>
+  </nav>
+</header>
+
+<div class="breadcrumb">
+  <a href="/">Home</a> ›
+  <a href="/guides/">Scam Guides</a> ›
+  Website Age and Job Scams
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Job-offer verification guide</p>
+
+    <h1>How to Check How Old a Website Is Before Trusting a Job Offer</h1>
+
+    <p class="intro">
+      A domain’s registration age can reveal useful context, but it should
+      always be combined with independent verification of the company,
+      recruiter, and job opening.
+    </p>
+
+    <p class="article-meta">
+      Written and reviewed by
+      <a href="/authors/nehal-patel">Nehal Patel</a>
+      · Published August 11, 2026
+      · Approximately 8 minutes
+    </p>
+  </div>
+</section>
+
+<div class="layout">
+  <article>
+    <div class="quick-answer">
+      <h2>The quick answer</h2>
+
+      <p>
+        Enter the website or domain into OfferSentry’s
+        <a href="/tools/domain-age-checker">Domain Age Checker</a>.
+        Review the reported registration date, approximate age, registrar,
+        expiration information, nameservers, and MX records. Treat a recently
+        registered domain as a reason to investigate further—not as automatic
+        proof that the website or job is fraudulent.
+      </p>
+    </div>
+
+    <h2>Why website age matters when checking a job offer</h2>
+
+    <p>
+      Fake recruiters sometimes impersonate real employers while directing job
+      seekers to websites, forms, or email domains that the real company does
+      not control. A site may copy a legitimate company’s name, colors, logo,
+      job descriptions, and employee information.
+    </p>
+
+    <p>
+      Public domain-registration information may show that the website was
+      registered only recently. That timing can be important when the website
+      claims to belong to a company that has supposedly operated for many
+      years.
+    </p>
+
+    <p>
+      The Federal Trade Commission warns that fake recruiters may impersonate
+      recognizable companies and use professional-looking materials before
+      requesting money or sensitive information. The FTC recommends contacting
+      the company through a telephone number or website you independently know
+      to be legitimate—not contact information provided by the recruiter.
+    </p>
+
+    <div class="warning">
+      <strong>Domain age is only one signal</strong>
+
+      <p>
+        A new domain is not automatically malicious, and an old domain is not
+        automatically safe. Legitimate companies launch new websites, while
+        criminals can compromise established websites or misuse legitimate
+        services.
+      </p>
+    </div>
+
+    <h2>How to check a website’s age</h2>
+
+    <div class="steps">
+      <section class="step">
+        <div class="step-heading">
+          <span class="step-number">1</span>
+          <h2>Identify the exact domain</h2>
+        </div>
+
+        <p>
+          Look at the domain in the recruiter’s email address and every website
+          link they provide. The important portion is the registered domain,
+          such as <strong>example.com</strong>, not the company name displayed
+          in the message.
+        </p>
+
+        <p>
+          Do not enter passwords, Social Security numbers, banking information,
+          or other sensitive data into a lookup tool. A domain name is enough.
+        </p>
+      </section>
+
+      <section class="step">
+        <div class="step-heading">
+          <span class="step-number">2</span>
+          <h2>Run a public registration lookup</h2>
+        </div>
+
+        <p>
+          Use the
+          <a href="/tools/domain-age-checker">OfferSentry Domain Age Checker</a>
+          or
+          <a
+            href="https://lookup.icann.org/en"
+            target="_blank"
+            rel="noreferrer"
+          >
+            ICANN Lookup
+          </a>.
+          ICANN’s lookup service uses the Registration Data Access Protocol,
+          commonly called RDAP, to retrieve available registration data.
+        </p>
+      </section>
+
+      <section class="step">
+        <div class="step-heading">
+          <span class="step-number">3</span>
+          <h2>Review the registration date</h2>
+        </div>
+
+        <p>
+          Compare the reported registration date with what the website claims.
+          A domain registered a few days or weeks ago deserves additional
+          scrutiny when it claims to represent a long-established employer.
+        </p>
+
+        <p>
+          Registration information is not always complete. Some registries may
+          not return every field, and privacy rules or registration policies
+          may limit the publicly visible information.
+        </p>
+      </section>
+
+      <section class="step">
+        <div class="step-heading">
+          <span class="step-number">4</span>
+          <h2>Compare all three domains</h2>
+        </div>
+
+        <p>
+          Compare the recruiter’s email domain, the claimed company’s official
+          website, and the job-posting URL. They should make sense together.
+          Watch for added words, extra hyphens, misspellings, substituted
+          characters, or unrelated domains.
+        </p>
+      </section>
+
+      <section class="step">
+        <div class="step-heading">
+          <span class="step-number">5</span>
+          <h2>Verify through the real company</h2>
+        </div>
+
+        <p>
+          Find the company’s website independently, navigate to its careers
+          page, and look for the position. If necessary, contact the company
+          using contact information you found yourself. Do not rely on a
+          telephone number or link supplied by the recruiter.
+        </p>
+      </section>
+    </div>
+
+    <h2>How to interpret the lookup results</h2>
+
+    <div class="signal-grid">
+      <section class="signal-card">
+        <h3>Registration date</h3>
+
+        <p>
+          Shows when the current domain registration was reportedly created.
+          A very recent date may justify additional investigation.
+        </p>
+      </section>
+
+      <section class="signal-card">
+        <h3>Registrar</h3>
+
+        <p>
+          Identifies the company through which the domain was registered.
+          A familiar registrar does not verify the website’s owner.
+        </p>
+      </section>
+
+      <section class="signal-card">
+        <h3>Expiration date</h3>
+
+        <p>
+          Shows when the current registration period is expected to end, when
+          that information is publicly available.
+        </p>
+      </section>
+
+      <section class="signal-card">
+        <h3>Nameservers</h3>
+
+        <p>
+          Identify the DNS infrastructure used by the domain. Nameservers alone
+          do not prove whether the site or recruiter is legitimate.
+        </p>
+      </section>
+
+      <section class="signal-card">
+        <h3>MX mail records</h3>
+
+        <p>
+          Show whether the domain is configured to receive email. MX records
+          are normal technical infrastructure, not proof of legitimacy.
+        </p>
+      </section>
+
+      <section class="signal-card">
+        <h3>Missing information</h3>
+
+        <p>
+          A missing field does not necessarily indicate fraud. Public RDAP
+          information varies across registries, registrars, and domain types.
+        </p>
+      </section>
+    </div>
+
+    <h2>Website-age warning signs that deserve more investigation</h2>
+
+    <ul>
+      <li>
+        The domain was registered recently but claims to represent a company
+        with a long operating history.
+      </li>
+
+      <li>
+        The recruiter’s email uses a different domain from the company’s
+        independently located official website.
+      </li>
+
+      <li>
+        The domain adds words such as “careers,” “recruiting,” “remote,”
+        “staffing,” or “jobs” to a well-known company name.
+      </li>
+
+      <li>
+        The website address contains a misspelling, substituted letter,
+        unexpected hyphen, or unfamiliar ending.
+      </li>
+
+      <li>
+        The job cannot be found on the real company’s careers page.
+      </li>
+
+      <li>
+        The recruiter pressures you to provide banking, identity, or tax
+        information before a normal interview and hiring process.
+      </li>
+
+      <li>
+        You are asked to pay for equipment, training, background checks,
+        certifications, account upgrades, or access to earnings.
+      </li>
+
+      <li>
+        You receive a check and are told to send part of the money elsewhere.
+      </li>
+    </ul>
+
+    <h2>Why an older domain is not proof of safety</h2>
+
+    <p>
+      An established registration date only shows that the domain has existed
+      for a period of time. It does not prove that the person contacting you
+      works for the organization, controls the domain, or has permission to
+      recruit on the company’s behalf.
+    </p>
+
+    <p>
+      Criminals may compromise legitimate email accounts, abuse real job
+      platforms, redirect users through unrelated services, or impersonate an
+      organization without controlling its official website.
+    </p>
+
+    <p>
+      The FBI has warned that scammers can exploit recruitment websites and use
+      legitimate company information to make fraudulent postings appear
+      credible. That is why every promising technical signal must still be
+      followed by independent confirmation.
+    </p>
+
+    <div class="safe-note">
+      <strong>The most important verification step</strong>
+
+      <p>
+        Locate the employer’s official website yourself and confirm the job and
+        recruiter through its careers page or a trusted contact method. Do not
+        use the recruiter’s link as your only source.
+      </p>
+    </div>
+
+    <h2>Job-offer website verification checklist</h2>
+
+    <div class="checklist">
+      <ul>
+        <li>I identified the exact registered domain in every link.</li>
+        <li>I checked the domain’s available registration date.</li>
+        <li>I compared the recruiter email with the official company domain.</li>
+        <li>I checked for misspellings, extra words, and substituted characters.</li>
+        <li>I independently located the company’s real website.</li>
+        <li>I found the position on the official careers page.</li>
+        <li>I contacted the company through an independently verified channel.</li>
+        <li>I did not pay for equipment, training, or access to earnings.</li>
+        <li>I did not provide sensitive information before verification.</li>
+        <li>I treated domain age as context—not proof of safety or fraud.</li>
+      </ul>
+    </div>
+
+    <h2>Frequently asked questions</h2>
+
+    <div class="faq">
+      <section class="faq-item">
+        <h3>How can I check how old a website is?</h3>
+
+        <p>
+          Enter the domain into a public RDAP lookup such as OfferSentry’s
+          Domain Age Checker or ICANN Lookup. Review the available registration
+          date and calculate the approximate time since that date.
+        </p>
+      </section>
+
+      <section class="faq-item">
+        <h3>Does a recently registered domain mean the job is fake?</h3>
+
+        <p>
+          No. It is a warning signal that should prompt further verification.
+          Legitimate organizations can create new domains, and domain age alone
+          cannot determine whether a job is authentic.
+        </p>
+      </section>
+
+      <section class="faq-item">
+        <h3>Does an old domain prove the recruiter is legitimate?</h3>
+
+        <p>
+          No. It does not prove that the sender controls the domain or works for
+          the company. Confirm the recruiter and position independently.
+        </p>
+      </section>
+
+      <section class="faq-item">
+        <h3>Why is the registration date missing?</h3>
+
+        <p>
+          Public registration information varies between registries,
+          registrars, and domain types. Some fields may be unavailable,
+          redacted, or returned differently.
+        </p>
+      </section>
+
+      <section class="faq-item">
+        <h3>What if the recruiter uses Gmail or another personal email?</h3>
+
+        <p>
+          The FTC identifies personal email accounts used by people claiming to
+          recruit for established companies as a warning sign. Contact the
+          employer independently before responding or sharing information.
+        </p>
+      </section>
+    </div>
+
+    <div class="cta">
+      <div>
+        <h2>Check the domain now</h2>
+
+        <p>
+          Review available registration dates, approximate age, registrar,
+          expiration information, nameservers, and MX records.
+        </p>
+      </div>
+
+      <a href="/tools/domain-age-checker">
+        Open Domain Age Checker
+      </a>
+    </div>
+
+    <section class="sources">
+      <h2>Sources and further reading</h2>
+
+      <ul>
+        <li>
+          <a
+            href="https://consumer.ftc.gov/consumer-alerts/2025/07/job-scammers-are-looking-hire-you"
+            target="_blank"
+            rel="noreferrer"
+          >
+            FTC: Job Scammers Are Looking to Hire You
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://consumer.ftc.gov/consumer-alerts/2023/12/how-spot-latest-job-scams"
+            target="_blank"
+            rel="noreferrer"
+          >
+            FTC: How to Spot the Latest Job Scams
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://lookup.icann.org/en/faq"
+            target="_blank"
+            rel="noreferrer"
+          >
+            ICANN: Registration Data Lookup Tool FAQ
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://www.ic3.gov/PSA/2022/PSA220201"
+            target="_blank"
+            rel="noreferrer"
+          >
+            FBI IC3: Scammers Impersonating Businesses on Recruitment Websites
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://www.ic3.gov/PSA/2024/PSA240604"
+            target="_blank"
+            rel="noreferrer"
+          >
+            FBI IC3: Work-From-Home Scam Warning
+          </a>
+        </li>
+      </ul>
+    </section>
+  </article>
+
+  <aside aria-label="OfferSentry tools and related guides">
+    <div class="side-card">
+      <h2>Check a domain</h2>
+
+      <p>
+        Review public registration and mail-record information without creating
+        an account.
+      </p>
+
+      <a class="button" href="/tools/domain-age-checker">
+        Open Domain Age Checker
+      </a>
+    </div>
+
+    <div class="side-card">
+      <h2>Compare recruiter details</h2>
+
+      <p>
+        Compare the recruiter’s email, company website, and job-posting URL.
+      </p>
+
+      <a class="secondary-button" href="/tools/recruiter-checker">
+        Open Recruiter Checker
+      </a>
+    </div>
+
+    <div class="side-card">
+      <h2>Related guide</h2>
+
+      <a
+        class="secondary-button"
+        href="/guides/how-to-verify-recruiter"
+      >
+        How to verify a recruiter
+      </a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <strong>OfferSentry</strong>
+
+  <p>
+    <a href="/">Checker</a>
+    <a href="/tools/domain-age-checker">Domain Age Checker</a>
+    <a href="/guides/">Scam Guides</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </p>
+
+  <p>
+    Created by Nehal Patel, founder of OfferSentry. OfferSentry provides
+    educational information, not legal, financial, employment, or cybersecurity
+    advice. Automated checks and public registration data cannot determine
+    whether a website, recruiter, company, or job offer is legitimate.
+  </p>
+</footer>
+</body>
+</html>
