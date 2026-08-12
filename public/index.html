@@ -241,6 +241,14 @@
     .high .summary h2,.high .signal-mark { color:#b93221 }
     .medium .summary h2,.medium .signal-mark { color:#a56100 }
     .low .summary h2 { color:var(--green) }
+    .unknown .summary h2,
+.unknown .signal-mark {
+  color:var(--muted);
+}
+
+.unknown .signal-mark {
+  background:var(--soft);
+}
 
     .signals {
       display:grid;
@@ -722,6 +730,41 @@
   const risk = document.querySelector("#risk");
   const riskDescription = document.querySelector("#riskDescription");
   const signals = document.querySelector("#signals");
+if (!hasEnoughJobContext(text, matches)) {
+  results.className = "results unknown";
+  risk.textContent = "Not enough information";
+  riskDescription.textContent =
+    "The text does not contain enough recognizable job-offer context for a useful screening result.";
+
+  signals.replaceChildren();
+
+  const article = document.createElement("article");
+  article.className = "signal";
+
+  const mark = document.createElement("span");
+  mark.className = "signal-mark";
+  mark.textContent = "?";
+
+  const content = document.createElement("div");
+  const heading = document.createElement("h3");
+  const paragraph = document.createElement("p");
+
+  heading.textContent = "Paste more of the recruiter’s message";
+  paragraph.textContent =
+    "Include the job description, interview instructions, payment requests, contact method, or other relevant wording. Do not include passwords, Social Security numbers, banking information, or other sensitive data.";
+
+  content.append(heading, paragraph);
+  article.append(mark, content);
+  signals.append(article);
+
+  results.hidden = false;
+  results.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+
+  return;
+}
 
   message.addEventListener("input", () => {
     const length = message.value.length;
