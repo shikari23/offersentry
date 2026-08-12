@@ -730,7 +730,45 @@
   const risk = document.querySelector("#risk");
   const riskDescription = document.querySelector("#riskDescription");
   const signals = document.querySelector("#signals");
-if (!hasEnoughJobContext(text, matches)) {
+
+function hasEnoughJobContext(text, matches) {
+  if (matches.length > 0) {
+    return true;
+  }
+
+  const words =
+    text.toLowerCase().match(/[a-z][a-z'-]{1,}/g) ?? [];
+
+  const uniqueWords = new Set(words);
+
+  const jobTerms =
+    /\b(job|position|role|company|recruiter|interview|hiring|employment|employee|employer|salary|pay|remote|offer|candidate|application|apply|work|training|equipment|benefits|hours|manager|team)\b/i;
+
+  return (
+    text.length >= 40 &&
+    words.length >= 7 &&
+    uniqueWords.size >= 5 &&
+    jobTerms.test(text)
+  );
+}
+  message.addEventListener("input", () => {
+    const length = message.value.length;
+    count.textContent = `${length.toLocaleString()} characters`;
+    checkButton.disabled = message.value.trim().length < 20;
+    hint.hidden = length === 0 || length >= 20;
+    results.hidden = true;
+  });
+
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+
+    const text = message.value.trim();
+    if (text.length < 20) return;
+    navigator.sendBeacon(
+  "/api/events/message-check-run/home"
+);
+    const matches = warningSignals.filter(signal => signal.pattern.test(text));
+    if (!hasEnoughJobContext(text, matches)) {
   results.className = "results unknown";
   risk.textContent = "Not enough information";
   riskDescription.textContent =
@@ -765,24 +803,6 @@ if (!hasEnoughJobContext(text, matches)) {
 
   return;
 }
-
-  message.addEventListener("input", () => {
-    const length = message.value.length;
-    count.textContent = `${length.toLocaleString()} characters`;
-    checkButton.disabled = message.value.trim().length < 20;
-    hint.hidden = length === 0 || length >= 20;
-    results.hidden = true;
-  });
-
-  form.addEventListener("submit", event => {
-    event.preventDefault();
-
-    const text = message.value.trim();
-    if (text.length < 20) return;
-    navigator.sendBeacon(
-  "/api/events/message-check-run/home"
-);
-    const matches = warningSignals.filter(signal => signal.pattern.test(text));
     const score = matches.reduce((total, signal) => total + signal.weight, 0);
     const level = score >= 7 ? "High" : score >= 3 ? "Medium" : "Low";
 
