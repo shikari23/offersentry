@@ -2,6 +2,15 @@ import {
   handleDomainIntelligenceRequest
 } from "./tools/domain-intelligence.js";
 const EVENTS = {
+    "/api/events/support-payment-click/support-page": {
+    event: "support_payment_click",
+    source: "support_page",
+    destination: "stripe_payment_link",
+    refererPaths: [
+      "/support",
+      "/support.html"
+    ]
+  },
   "/api/events/checklist-click/ssn-guide": {
     event: "checklist_click",
     source: "ssn_guide",
