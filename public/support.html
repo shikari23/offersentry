@@ -382,5 +382,21 @@ subject to OfferSentry’s <a href="/terms">Terms of Use</a> and
       fraudulent.
     </p>
   </footer>
+  <script>
+  const supportPaymentLink = document.querySelector(
+    "[data-support-payment-link]"
+  );
+
+  if (supportPaymentLink) {
+    supportPaymentLink.addEventListener("click", () => {
+      fetch("/api/events/support-payment-click/support-page", {
+        method: "POST",
+        keepalive: true
+      }).catch(() => {
+        // Payment navigation should continue if analytics is unavailable.
+      });
+    });
+  }
+</script>
 </body>
 </html>
