@@ -190,16 +190,20 @@
       line-height:1.65;
     }
 
-    .disabled-button {
-      padding:14px 19px;
-      display:inline-block;
-      border-radius:10px;
-      color:#6b7788;
-      background:#e4eaf0;
-      font-weight:800;
-      cursor:not-allowed;
-    }
+    .support-button {
+  padding:14px 22px;
+  display:inline-block;
+  border:2px solid #fff;
+  border-radius:10px;
+  color:var(--navy);
+  background:#fff;
+  font-weight:800;
+  text-decoration:none;
+}
 
+.support-button:hover {
+  background:#dcebfa;
+}
     .disclosure {
       margin-top:30px;
       padding:25px;
@@ -343,15 +347,21 @@
     </section>
 
     <section class="status">
-      <h2>Support options are being prepared</h2>
-      <p>
-        OfferSentry is completing its payment and business setup. A secure
-        support option will be added here once that process is complete.
-      </p>
-      <span class="disabled-button" aria-disabled="true">
-        Coming soon
-      </span>
-    </section>
+  <h2>Support OfferSentry</h2>
+  <p>
+    OfferSentry’s core safety tools are free. Optional support helps
+    maintain the website and create new job-scam education resources.
+  </p>
+  <a
+    class="support-button"
+    data-support-payment-link
+    href="https://buy.stripe.com/14A6oHgBT9Pn8U4aAP0sU00"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Support OfferSentry
+  </a>
+</section>
 
     <section class="disclosure">
       <h2>Important disclosure</h2>
