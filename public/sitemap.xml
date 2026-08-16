@@ -7,6 +7,18 @@
     <loc>https://offersentry.com/about</loc>
   </url>
   <url>
+    <loc>https://offersentry.com/how-offersentry-works</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://offersentry.com/editorial-standards</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://offersentry.com/contact</loc>
   </url>
   <url>
