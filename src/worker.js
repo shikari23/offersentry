@@ -56,6 +56,15 @@ const EVENTS = {
     "/tools/domain-age-checker.html"
   ]
 },
+  "/api/events/resume-privacy-scan/tool": {
+  event: "resume_privacy_scan",
+  source: "resume_privacy_scanner",
+  destination: "scanner_result",
+  refererPaths: [
+    "/tools/resume-privacy-scanner",
+    "/tools/resume-privacy-scanner.html"
+  ]
+},
 };
 
 export default {
