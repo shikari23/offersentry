@@ -242,8 +242,9 @@
     <h2>The short version</h2>
     <p>
       OfferSentry's message checker and ResumeShield privacy scanner analyze
-      the text you paste directly inside your browser. Pasted messages and
-      resume text are not intentionally transmitted to or stored by OfferSentry.
+      text directly inside your browser. Pasted messages, resume files, and
+      extracted resume text are not intentionally transmitted to or stored by
+      OfferSentry.
     </p>
   </div>
 
@@ -267,10 +268,11 @@
 </p>
 
 <p>
-  ResumeShield analyzes pasted resume text and supported local text files in
-  the user's browser. Resume text and generated redactions are not intentionally
-  transmitted to OfferSentry or stored in an OfferSentry database. After a scan,
-  the page may send an empty aggregate-use event that contains no resume text,
+  ResumeShield reads supported PDF, DOCX, TXT, and MD files and analyzes their
+  extracted text in the user's browser. Resume files, extracted text, and
+  generated redactions are not intentionally transmitted to OfferSentry or
+  stored in an OfferSentry database. After a scan, the page may send an empty
+  aggregate-use event that contains no filename, file contents, resume text,
   detected value, selection, or result.
 </p>
 

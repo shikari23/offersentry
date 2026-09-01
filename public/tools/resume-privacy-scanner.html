@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <title>Free Resume Privacy Scanner: Remove Personal Information | OfferSentry</title>
-  <meta name="description" content="Scan resume text for personal and sensitive information before applying, posting it publicly, or sharing it for feedback. Free and private in your browser.">
+  <meta name="description" content="Upload a PDF, DOCX, TXT, or MD resume and scan it locally for personal and sensitive information before sharing. Free and private in your browser.">
   <link rel="canonical" href="https://offersentry.com/tools/resume-privacy-scanner">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"ResumeShield Resume Privacy Scanner","url":"https://offersentry.com/tools/resume-privacy-scanner","description":"A free browser-based scanner that helps job seekers find and redact personal information in resume text.","applicationCategory":"SecurityApplication","operatingSystem":"Any","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"OfferSentry","url":"https://offersentry.com"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"ResumeShield Resume Privacy Scanner","url":"https://offersentry.com/tools/resume-privacy-scanner","description":"A free browser-based scanner that locally reads PDF, DOCX, TXT, and MD resumes to help job seekers find and redact personal information.","applicationCategory":"SecurityApplication","operatingSystem":"Any","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"OfferSentry","url":"https://offersentry.com"}}
   </script>
   <style>
     :root{--navy:#08234d;--blue:#1769d2;--pale:#edf7ff;--soft:#f7faff;--muted:#4b617d;--border:#c9ddef;--red:#b93221;--amber:#9a5a00;--green:#237b54}
@@ -39,9 +39,9 @@
     </fieldset>
     <label for="resumeText">Resume text</label>
     <textarea id="resumeText" maxlength="50000" placeholder="Paste your resume here. For example:&#10;&#10;Jordan Lee&#10;jordan@example.com | (555) 123-4567&#10;Columbus, Ohio&#10;&#10;EXPERIENCE…"></textarea>
-    <div class="input-meta"><span id="count">0 / 50,000 characters</span><label class="file-button">Open TXT or MD file<input id="resumeFile" type="file" accept=".txt,.md,text/plain,text/markdown"></label></div>
+    <div class="input-meta"><span id="count">0 / 50,000 characters</span><label class="file-button">Open PDF, DOCX, TXT, or MD<input id="resumeFile" type="file" accept=".pdf,.docx,.txt,.md,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain,text/markdown"></label></div>
     <div class="button-row"><button class="primary" id="scanButton" type="button">Scan for personal information</button><button class="secondary" id="resetButton" type="button">Clear</button></div>
-    <p class="notice"><strong>Privacy:</strong> analysis and redaction happen on this page in your browser. OfferSentry does not intentionally transmit or store your resume text. Only an empty aggregate-use signal is sent after a scan.</p>
+    <p class="notice"><strong>Privacy:</strong> file reading, analysis, and redaction happen on this page in your browser. OfferSentry does not upload or store your resume file or extracted text. Only an empty aggregate-use signal is sent after a scan.</p>
     <p id="status" role="alert"></p>
   </section>
 
@@ -74,6 +74,7 @@
   </section>
 </main>
 <footer><strong>OfferSentry</strong><p><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></p><p>Educational information only. Automated detection can miss or misclassify information.</p></footer>
+<script src="/vendor/mammoth.browser.min.js"></script>
 <script>
   const textArea=document.querySelector('#resumeText');const count=document.querySelector('#count');const results=document.querySelector('#results');const findingsBox=document.querySelector('#findings');const preview=document.querySelector('#safePreview');const status=document.querySelector('#status');let currentFindings=[];
   const labels={ssn:'Social Security number',financial:'Financial account information',dob:'Date of birth',id:'Government ID number',address:'Full street address',email:'Email address',phone:'Phone number',url:'Personal or profile link',name:'Possible name'};
@@ -96,5 +97,6 @@
   function updatePreview(){let output=textArea.value;for(const item of [...currentFindings].filter(x=>x.selected).sort((a,b)=>b.start-a.start)){output=output.slice(0,item.start)+replacements[item.type]+output.slice(item.end)}preview.textContent=output}
   textArea.addEventListener('input',()=>count.textContent=`${textArea.value.length.toLocaleString()} / 50,000 characters`);document.querySelector('#scanButton').addEventListener('click',scan);document.querySelector('#resetButton').addEventListener('click',()=>{textArea.value='';count.textContent='0 / 50,000 characters';results.hidden=true;status.textContent='';currentFindings=[];textArea.focus()});document.querySelector('#resumeFile').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;if(file.size>500000){status.textContent='Choose a text file smaller than 500 KB.';return}textArea.value=(await file.text()).slice(0,50000);textArea.dispatchEvent(new Event('input'));status.textContent='File opened locally. Click scan when ready.'});document.querySelector('#copyButton').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(preview.textContent);document.querySelector('#actionStatus').textContent='Privacy-safe copy copied.'}catch{document.querySelector('#actionStatus').textContent='Copy was blocked by your browser. Select the preview text and copy it manually.'}});document.querySelector('#downloadButton').addEventListener('click',()=>{const blob=new Blob([preview.textContent],{type:'text/plain'});const link=document.createElement('a');link.href=URL.createObjectURL(blob);link.download='resume-privacy-copy.txt';link.click();URL.revokeObjectURL(link.href);document.querySelector('#actionStatus').textContent='Download created on your device.'});
 </script>
+<script src="/tools/resume-file-import.js"></script>
 </body>
 </html>
